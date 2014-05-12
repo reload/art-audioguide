@@ -81,7 +81,7 @@ function smk_route_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_audio_ref',
-    'label' => 'Lyde',
+    'label' => 'Audios',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -102,7 +102,7 @@ function smk_route_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Lyde');
+  t('Audios');
 
   return $field_instances;
 }

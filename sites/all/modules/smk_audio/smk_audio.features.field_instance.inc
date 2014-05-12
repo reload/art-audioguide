@@ -63,7 +63,7 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(
           'controls' => TRUE,
           'download_link' => FALSE,
-          'download_text' => 'Hent',
+          'download_text' => 'Download',
           'height' => 30,
           'width' => 300,
         ),
@@ -76,7 +76,7 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(
           'controls' => TRUE,
           'download_link' => FALSE,
-          'download_text' => 'Hent',
+          'download_text' => 'Download',
           'height' => 30,
           'width' => 300,
         ),
@@ -87,7 +87,7 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_audio_file',
-    'label' => 'Lydfil',
+    'label' => 'Audio file',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
@@ -130,7 +130,7 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_piece_ref',
-    'label' => 'Værk',
+    'label' => 'Piece',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -151,8 +151,8 @@ function smk_audio_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Lydfil');
-  t('Værk');
+  t('Audio file');
+  t('Piece');
 
   return $field_instances;
 }

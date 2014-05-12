@@ -22,19 +22,19 @@ function smk_piece_ctools_plugin_api($module = NULL, $api = NULL) {
 function smk_piece_node_info() {
   $items = array(
     'artist' => array(
-      'name' => t('Kunstner'),
+      'name' => t('Artist'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Navn'),
+      'title_label' => t('Name'),
       'help' => '',
     ),
     'piece' => array(
-      'name' => t('Værk'),
+      'name' => t('Piece'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Titel'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

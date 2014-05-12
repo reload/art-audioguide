@@ -37,7 +37,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Beskrivelse',
+    'label' => 'Description',
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
@@ -85,7 +85,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_artist_life_date',
-    'label' => 'Kunstners årstal',
+    'label' => 'Artist yearspan',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -182,7 +182,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_artist',
-    'label' => 'Kunstner',
+    'label' => 'Artist',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -274,7 +274,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_piece_id',
-    'label' => 'Inventarid',
+    'label' => 'Inventory ID',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -293,11 +293,11 @@ function smk_piece_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Beskrivelse');
+  t('Description');
   t('Body');
-  t('Inventarid');
-  t('Kunstner');
-  t('Kunstners årstal');
+  t('Inventory ID');
+  t('Artist');
+  t('Artist yearspan');
   t('image');
 
   return $field_instances;
