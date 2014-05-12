@@ -1,0 +1,28 @@
+name = audible
+description = TODO
+core = 7.x
+
+; Overwriting style sheets we don't want.
+stylesheets[all][] = ctools.css
+stylesheets[all][] = date.css
+stylesheets[all][] = field.css
+stylesheets[all][] = node.css
+stylesheets[all][] = system.base.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = user.css
+stylesheets[all][] = views.css
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/audible.typography.css
+stylesheets[all][] = css/audible.misc.css
+
+scripts[] = js/basic.js
+
+regions[header] = Header
+regions[highlighted] = Highlighted
+
+regions[page_top] = Page top
+regions[content] = Content
+regions[page_bottom] = Page bottom
+regions[footer] = Footer

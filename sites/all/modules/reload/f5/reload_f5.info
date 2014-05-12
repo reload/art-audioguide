@@ -1,0 +1,3 @@
+name = Reload! - F5
+description = Base module for Reload! sites.
+core = 7.x

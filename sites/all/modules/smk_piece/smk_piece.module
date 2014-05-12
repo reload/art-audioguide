@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the smk_piece feature.
+ */
+
+include_once 'smk_piece.features.inc';

@@ -1,0 +1,66 @@
+<?php
+/**
+ * @file
+ * Generic module with code that is often reused across sites.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function reload_f5_menu() {
+  // Special item to use as path for menu items that shouldn't link.
+  // Themes can override theme_menu_link to make it possible to have links that
+  // don't link in menus.
+  $items['<nolink>'] = array(
+    'page callback' => 'drupal_not_found',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/config/reload'] = array(
+    'title' => 'Reload!',
+    'description' => 'Reload! settings and tools.',
+    'position' => 'right',
+    'weight' => -20,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access reload tools'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['admin/config/reload/f5'] = array(
+    'title' => 'F5 tools',
+    'access arguments' => array('access reload tools'),
+    'page callback' => 'reload_f5_view_settings_variables',
+    'file' => 'reload_f5.admin.inc',
+  );
+
+  $items['admin/config/reload/f5/settings-files'] = array(
+    'title' => 'Setting files variables',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -1,
+    'file' => 'reload_f5.admin.inc',
+  );
+
+  $items['admin/config/reload/f5/variable-overrides'] = array(
+    'title' => 'Overridden variables',
+    'access arguments' => array('access reload tools'),
+    'page callback' => 'reload_f5_overridden_variables_view',
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'reload_f5.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function reload_f5_permission() {
+  return array(
+    'access reload tools' => array(
+      'title' => t('Access reload tools'),
+      'description' => t('Access to the Reload! tools area, but some tools may not be available'),
+    ),
+  );
+}
