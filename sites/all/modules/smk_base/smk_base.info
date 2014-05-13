@@ -5,6 +5,7 @@ package = Audioguide
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = secure_permissions
+dependencies[] = secure_permissions_data
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
