@@ -11,7 +11,6 @@
   <div id="page">
 
     <div class="page-header">
-      <div class="section clearfix">
 
         <?php if ($logo): ?>
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -21,8 +20,7 @@
 
         <?php print render($page['header']); ?>
 
-      </div>
-    </div> <!-- /.section, /#header -->
+    </div> <!-- /.page-header -->
 
     <?php print $messages; ?>
 
