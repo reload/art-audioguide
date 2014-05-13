@@ -2,23 +2,47 @@
 
 .page-header {
   background-color: #E6E6E6;
+  @include pie-clearfix; // Clearfix.
+
+  #logo {
+    float: left;
+  }
 
   a {
     text-decoration: none;
     color: black;
   }
 
-  .icon-menu {
-    li {
-      display: inline-block;
-    }
-  }
+  // Region: header.
+  .region-header {
+    @include pie-clearfix; // Clearfix.
 
-  // The burger toggle.
-  #menu-toggle {
-    display: none;
-  }
-  label[for='menu-toggle'] {
-    cursor: pointer;
+    // The icon menu.
+    .icon-menu {
+      float: right;
+      li {
+        padding: 10px;
+        font-size: 1.5em;
+        display: inline-block;
+      }
+    }
+
+    // The burger toggle.
+    #menu-toggle {
+      display: none;
+    }
+    label[for='menu-toggle'] {
+      cursor: pointer;
+    }
+
+    // The main menu.
+    .block-menu {
+      background: #999;
+      clear: both;
+      display: none;
+      h2 {
+        display: none;
+      }
+    }
   }
 }
