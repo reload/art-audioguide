@@ -1,3 +1,7 @@
+.element-invisible { display: none; }
+
+.region-header { float: right; padding: 15px; }
+
 .page-header { background-color: #E6E6E6; *zoom: 1; }
 .page-header:after { content: ""; display: table; clear: both; }
 .page-header #logo { float: left; }

@@ -1,2 +1,8 @@
 @import 'compass/css3';
 @import "compass/utilities/general/clearfix";
+
+$font-sans-serif: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+.element-invisible {
+  display: none;
+}
