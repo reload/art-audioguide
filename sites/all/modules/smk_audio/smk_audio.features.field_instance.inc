@@ -150,8 +150,8 @@ function smk_audio_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Body');
   t('Audio file');
+  t('Body');
   t('Piece');
 
   return $field_instances;

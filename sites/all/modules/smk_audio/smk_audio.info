@@ -1,13 +1,12 @@
 name = smk_audio
 core = 7.x
-package = Features
+package = Audioguide
 dependencies[] = ctools
 dependencies[] = ds
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = file
 dependencies[] = mediaelement
-dependencies[] = node
 dependencies[] = smk_piece
 dependencies[] = strongarm
 dependencies[] = text

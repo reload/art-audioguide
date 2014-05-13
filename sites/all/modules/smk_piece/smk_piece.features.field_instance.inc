@@ -293,11 +293,11 @@ function smk_piece_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Description');
-  t('Body');
-  t('Inventory ID');
   t('Artist');
   t('Artist yearspan');
+  t('Body');
+  t('Description');
+  t('Inventory ID');
   t('image');
 
   return $field_instances;

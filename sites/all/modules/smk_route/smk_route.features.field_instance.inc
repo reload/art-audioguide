@@ -101,8 +101,8 @@ function smk_route_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Body');
   t('Audios');
+  t('Body');
 
   return $field_instances;
 }

@@ -1,13 +1,12 @@
 name = smk_piece
 core = 7.x
-package = Features
+package = Audioguide
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = ds
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = image
-dependencies[] = node
 dependencies[] = strongarm
 dependencies[] = text
 features[ctools][] = ds:ds:1
