@@ -26,3 +26,14 @@ function audible_menu_link(array $variables) {
 
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Get rid of the toolbar on the front end. It's messy for this theme.
+ */
+function audible_preprocess_html(&$vars) {
+  if (isset($vars['page']['page_top']['toolbar'])) {
+    unset($vars['page']['page_top']['toolbar']);
+  }
+}
