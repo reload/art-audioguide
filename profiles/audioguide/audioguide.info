@@ -34,6 +34,5 @@ dependencies[] = views_bulk_operations
 ; Audioguide module.
 dependencies[] = smk_audio
 dependencies[] = smk_base
-dependencies[] = smk_basic
 dependencies[] = smk_piece
 dependencies[] = smk_route

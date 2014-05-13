@@ -3,12 +3,12 @@
 /**
  * Implements hook_install().
  */
-function smk_basic_install() {
+function smk_base_install() {
   $default_theme = 'audible';
   // Enable blocks from this module.
   $values = array(
     array(
-      'module' => 'smk_basic',
+      'module' => 'smk_base',
       'delta' => 'icon_menu',
       'theme' => $default_theme,
       'status' => 1,
