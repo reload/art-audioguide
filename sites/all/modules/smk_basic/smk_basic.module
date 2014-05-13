@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function smk_basic_block_info() {
+  $return = array();
+
+  $return['icon_menu'] = array(
+    'info' => t('Smk basic: Icon menu'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => 1,
+    'region' => 'header',
+    'weight' => 1,
+  );
+
+  return $return;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function smk_basic_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+
+    case 'icon_menu':
+      $block['subject'] = '';
+      $block['content'] = smk_basic_icon_menu();
+      break;
+
+  }
+
+  return $block;
+}
+
+function smk_basic_icon_menu() {
+  $links = array();
+  if (user_access('access administration pages')) {
+    $links[] = l(t('Admin'), 'admin', array('attributes' => array('class' => array('admin-link', 'menu'))));
+  }
+  if (!empty($links)) {
+    return theme('item_list', array('items' => $links, 'attributes' => array('class' => array('icon-menu'))));
+  }
+  return '';
+}

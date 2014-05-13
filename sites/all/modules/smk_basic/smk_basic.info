@@ -1,0 +1,3 @@
+name = SMK Basic
+description = General configuration for Audioguide.
+core = 7.x

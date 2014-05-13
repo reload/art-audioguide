@@ -19,8 +19,6 @@
           </a>
         <?php endif; ?>
 
-
-        <a href="#menu">&#9776;</a>
         <?php print render($page['header']); ?>
 
       </div>
