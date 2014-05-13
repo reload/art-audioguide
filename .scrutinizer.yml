@@ -40,6 +40,7 @@ tools:
 before_commands:
   # Remove core files - no need to analyse that.
   - "rm -r includes misc modules scripts themes"
+  - "rm -r profiles/minimal profiles/standard profiles/testing"
   # Also remove contrib modules and libraries in the install profile.
   - "rm -r sites/all/modules/contrib sites/all/libraries"
   # Remove generated code, we don't want to analyze that.
