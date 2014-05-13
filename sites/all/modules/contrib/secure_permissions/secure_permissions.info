@@ -1,0 +1,12 @@
+name = Secure Permissions
+description = Disables the user interface for creating and assigning roles and permissions.
+core = 7.x
+files[] = secure_permissions.module
+configure = admin/config/people/secure_permissions
+
+; Information added by Drupal.org packaging script on 2014-04-24
+version = "7.x-1.6"
+core = "7.x"
+project = "secure_permissions"
+datestamp = "1398374028"
+
