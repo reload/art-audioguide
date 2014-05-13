@@ -29,11 +29,35 @@ function audible_menu_link(array $variables) {
 
 /**
  * Implements hook_preprocess_html().
- *
- * Get rid of the toolbar on the front end. It's messy for this theme.
  */
 function audible_preprocess_html(&$vars) {
+  // Get rid of the toolbar on the front end. It's messy for this theme.
   if (isset($vars['page']['page_top']['toolbar'])) {
     unset($vars['page']['page_top']['toolbar']);
+  }
+
+  // Viewport.
+  $metatags['viewport'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+    ),
+  );
+
+  // HTML shiv
+  $metatags['html5shiv'] = array(
+    '#tag' => 'script',
+    '#attributes' => array(
+      'src' => '//html5shim.googlecode.com/svn/trunk/html5.js',
+    ),
+    '#prefix' => '<!--[if lte IE 8]>',
+    '#suffix' => '</script><![endif]-->',
+  );
+
+  // Run each metatag.
+  foreach ($metatags as $key => $tag) {
+    drupal_add_html_head($tag, $key);
   }
 }
