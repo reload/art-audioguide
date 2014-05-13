@@ -1,0 +1,17 @@
+name = smk_base
+description = This feature will contain general settings that relates to the site in general and not a specific category.
+core = 7.x
+package = Audioguide
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = secure_permissions
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[user_role][] = editor
+features[variable][] = secure_permissions_active
+features[variable][] = secure_permissions_disable_forms
+features[variable][] = secure_permissions_show_permissions_page
+features[variable][] = secure_permissions_show_roles_page
+features[variable][] = secure_permissions_use_default
+features[variable][] = secure_permissions_verbose
