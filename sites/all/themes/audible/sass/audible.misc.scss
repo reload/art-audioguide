@@ -7,4 +7,18 @@
     text-decoration: none;
     color: black;
   }
+
+  .icon-menu {
+    li {
+      display: inline-block;
+    }
+  }
+
+  // The burger toggle.
+  #menu-toggle {
+    display: none;
+  }
+  label[for='menu-toggle'] {
+    cursor: pointer;
+  }
 }

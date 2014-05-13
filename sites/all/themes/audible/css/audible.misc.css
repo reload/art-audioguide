@@ -1,2 +1,5 @@
 .page-header { background-color: #E6E6E6; }
 .page-header a { text-decoration: none; color: black; }
+.page-header .icon-menu li { display: inline-block; }
+.page-header #menu-toggle { display: none; }
+.page-header label[for='menu-toggle'] { cursor: pointer; }
