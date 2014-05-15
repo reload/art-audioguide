@@ -31,8 +31,10 @@ dependencies[] = token
 dependencies[] = transliteration
 dependencies[] = views
 dependencies[] = views_bulk_operations
+dependencies[] = views_ui
 ; Audioguide module.
 dependencies[] = smk_audio
 dependencies[] = smk_base
 dependencies[] = smk_piece
 dependencies[] = smk_route
+dependencies[] = smk_search
