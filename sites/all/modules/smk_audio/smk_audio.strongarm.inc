@@ -58,6 +58,9 @@ function smk_audio_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -96,6 +99,13 @@ function smk_audio_strongarm() {
   $strongarm->name = 'language_content_type_audio';
   $strongarm->value = '4';
   $export['language_content_type_audio'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'mediaelement_sitewide';
+  $strongarm->value = 1;
+  $export['mediaelement_sitewide'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
