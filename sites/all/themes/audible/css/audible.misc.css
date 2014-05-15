@@ -1,16 +1,16 @@
 .element-invisible { display: none; }
 
-.region-header { float: right; padding: 15px; }
+.region-header { float: right; padding: 15px; *zoom: 1; }
+.region-header:after { content: ""; display: table; clear: both; }
 
 .page-header { background-color: #E6E6E6; *zoom: 1; }
 .page-header:after { content: ""; display: table; clear: both; }
 .page-header #logo { float: left; }
 .page-header a { text-decoration: none; color: black; }
-.page-header .region-header { *zoom: 1; }
-.page-header .region-header:after { content: ""; display: table; clear: both; }
-.page-header .region-header .icon-menu { float: right; }
-.page-header .region-header .icon-menu li { padding: 10px; font-size: 1.5em; display: inline-block; }
-.page-header .region-header #menu-toggle { display: none; }
-.page-header .region-header label[for='menu-toggle'] { cursor: pointer; }
-.page-header .region-header .block-menu { background: #999; clear: both; display: none; }
-.page-header .region-header .block-menu h2 { display: none; }
+
+.delta-icon-menu { float: right; }
+.delta-icon-menu li { padding: 10px; font-size: 1.5em; display: inline-block; }
+.delta-icon-menu #menu-toggle { display: none; }
+.delta-icon-menu label[for='menu-toggle'] { cursor: pointer; }
+
+.delta-toggle-menu { background: #999; clear: both; display: none; }

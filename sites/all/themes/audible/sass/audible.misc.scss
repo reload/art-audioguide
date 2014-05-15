@@ -3,6 +3,7 @@
 .region-header {
   float: right;
   padding: 15px;
+  @include pie-clearfix; // Clearfix.
 }
 .page-header {
   background-color: #E6E6E6;
@@ -16,37 +17,27 @@
     text-decoration: none;
     color: black;
   }
+}
 
-  // Region: header.
-  .region-header {
-    @include pie-clearfix; // Clearfix.
-
-    // The icon menu.
-    .icon-menu {
-      float: right;
-      li {
-        padding: 10px;
-        font-size: 1.5em;
-        display: inline-block;
-      }
-    }
-
-    // The burger toggle.
-    #menu-toggle {
-      display: none;
-    }
-    label[for='menu-toggle'] {
-      cursor: pointer;
-    }
-
-    // The main menu.
-    .block-menu {
-      background: #999;
-      clear: both;
-      display: none;
-      h2 {
-        display: none;
-      }
-    }
+// The icon menu.
+.delta-icon-menu {
+  float: right;
+  li {
+    padding: 10px;
+    font-size: 1.5em;
+    display: inline-block;
   }
+  // The burger toggle.
+  #menu-toggle {
+    display: none;
+  }
+  label[for='menu-toggle'] {
+    cursor: pointer;
+  }
+}
+// The main menu.
+.delta-toggle-menu {
+  background: #999;
+  clear: both;
+  display: none;
 }

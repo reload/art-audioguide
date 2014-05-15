@@ -7,6 +7,45 @@
 include_once 'smk_base.features.inc';
 
 /**
+ * Implements hook_init().
+ */
+function smk_base_init() {
+  // Include language js on front end only. Also leave logged in users alone.
+  if (!path_is_admin(current_path()) && !user_is_logged_in() && drupal_multilingual()) {
+    drupal_add_library('system', 'jquery.cookie');
+    drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/language.js');
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function smk_base_menu() {
+  $items = array();
+  if (drupal_multilingual()) {
+    $items['choose-lang'] = array(
+      'title' => 'Choose language',
+      'access callback' => TRUE,
+      'page callback' => 'smk_base_choose_lang',
+      'type' => MENU_CALLBACK,
+    );
+  }
+  return $items;
+}
+
+/**
+ * Menu callback that displays a language chooser.
+ */
+function smk_base_choose_lang() {
+  // Get links for enabled languages.
+  $links = language_negotiation_get_switch_links('language', '<front>');
+  if (isset($links->links)) {
+    $variables = array('links' => $links->links);
+    return theme('links', $variables);
+  }
+}
+
+  /**
  * Implements hook_block_info().
  */
 function smk_base_block_info() {
@@ -18,6 +57,14 @@ function smk_base_block_info() {
       'status' => 1,
       'region' => 'header',
       'weight' => 1,
+  );
+
+  $return['toggle_menu'] = array(
+    'info' => t('Smk base: Toggle menu'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+    'status' => 1,
+    'region' => 'header',
+    'weight' => 2,
   );
 
   return $return;
@@ -36,6 +83,10 @@ function smk_base_block_view($delta = '') {
       $block['content'] = smk_base_icon_menu();
       break;
 
+    case 'toggle_menu':
+      $block['subject'] = '';
+      $block['content'] = smk_base_toggle_menu();
+      break;
   }
 
   return $block;
@@ -63,4 +114,18 @@ function smk_base_icon_menu() {
 
   // Render item-list.
   return theme('item_list', array('items' => $links, 'attributes' => array('class' => array('icon-menu'))));
+}
+
+function smk_base_toggle_menu() {
+  $main_menu = module_invoke('system', 'block_view', 'main-menu');
+
+  $output = '';
+  if (drupal_multilingual()) {
+    $language_links = module_invoke('locale', 'block_view', 'language');
+    $output .= '<h4>' . $language_links['subject'] . '</h4>';
+    $output .= $language_links['content'];
+  }
+
+  $output .= render($main_menu['content']);
+  return $output;
 }

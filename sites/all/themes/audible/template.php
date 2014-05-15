@@ -61,3 +61,12 @@ function audible_preprocess_html(&$vars) {
     drupal_add_html_head($tag, $key);
   }
 }
+
+/**
+ * Overrides hook_preprocess_block().
+ */
+function audible_preprocess_block(&$variables) {
+  // Add the delta to the classes array. The block template in this theme rips
+  // out #id, so this is the (better) substitute.
+  $variables['classes_array'][] = drupal_html_class('delta-' . $variables['block']->delta);
+}
