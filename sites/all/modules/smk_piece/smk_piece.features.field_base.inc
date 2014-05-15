@@ -34,8 +34,10 @@ function smk_piece_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
     'type' => 'text_with_summary',
   );
 
@@ -55,6 +57,7 @@ function smk_piece_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
@@ -89,6 +92,7 @@ function smk_piece_field_default_field_bases() {
     'settings' => array(
       'cache_count' => 2,
       'cache_enabled' => 1,
+      'entity_translation_sync' => FALSE,
       'granularity' => array(
         'day' => 'day',
         'hour' => 0,
@@ -129,6 +133,9 @@ function smk_piece_field_default_field_bases() {
     'module' => 'image',
     'settings' => array(
       'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,
@@ -158,6 +165,7 @@ function smk_piece_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max_length' => 255,
     ),
     'translatable' => 0,

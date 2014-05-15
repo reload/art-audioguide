@@ -35,9 +35,12 @@ function smk_audio_field_default_field_bases() {
     'settings' => array(
       'display_default' => 0,
       'display_field' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'file',
   );
 
@@ -57,6 +60,7 @@ function smk_audio_field_default_field_bases() {
     'locked' => 0,
     'module' => 'entityreference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(

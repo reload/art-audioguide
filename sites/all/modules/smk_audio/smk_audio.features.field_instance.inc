@@ -37,6 +37,7 @@ function smk_audio_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -91,6 +92,7 @@ function smk_audio_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'audio',
       'file_extensions' => 'mp3',
       'max_filesize' => '',
@@ -133,6 +135,7 @@ function smk_audio_field_default_field_instances() {
     'label' => 'Piece',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -148,11 +151,55 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-audio-title_field'
+  $field_instances['node-audio-title_field'] = array(
+    'bundle' => 'audio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Title',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Audio file');
   t('Body');
   t('Piece');
+  t('Title');
 
   return $field_instances;
 }
