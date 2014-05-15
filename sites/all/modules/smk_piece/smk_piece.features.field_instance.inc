@@ -134,22 +134,20 @@ function smk_piece_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
-    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
     'label' => 'Title',
-    'required' => 1,
+    'required' => TRUE,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => 0,
-        'page' => 0,
+        'entity' => FALSE,
+        'page' => FALSE,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
