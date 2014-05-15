@@ -31,6 +31,7 @@ features[variable][] = entity_translation_node_metadata_audio
 features[variable][] = entity_translation_settings_node__audio
 features[variable][] = field_bundle_settings_node__audio
 features[variable][] = language_content_type_audio
+features[variable][] = mediaelement_sitewide
 features[variable][] = menu_options_audio
 features[variable][] = menu_parent_audio
 features[variable][] = node_options_audio
