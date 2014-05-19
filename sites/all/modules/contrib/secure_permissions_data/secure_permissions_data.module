@@ -43,10 +43,10 @@ function secure_permissions_data_secure_permissions($role) {
           'access content',
       ),
       'editor' => array(
+          'access administration pages',
           'access content',
           'access content overview',
           'access toolbar',
-          'access user profiles',
           'create artist content',
           'create audio content',
           'create piece content',
@@ -71,6 +71,7 @@ function secure_permissions_data_secure_permissions($role) {
           'revert revisions',
           'view own unpublished content',
           'view revisions',
+          'view the administration theme',
       ),
   );
   if (isset($permissions[$role])) {
