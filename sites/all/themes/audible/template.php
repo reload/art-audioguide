@@ -56,6 +56,72 @@ function audible_preprocess_html(&$vars) {
     '#suffix' => '</script><![endif]-->',
   );
 
+  // Apple touch icon.
+  $metatags['apple_touch_icon'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'link',
+    '#attributes' => array(
+      'rel' => 'apple-touch-icon-precomposed',
+      'href' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon152.png',
+    ),
+  );
+
+  // Windows 8 tile.
+  $metatags['ms_tile_image'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-TileImage',
+      'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon144.png',
+    ),
+  );
+  // Windows 8 color.
+  $metatags['ms_tile_color'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-TileColor',
+      'content' => '#204D5D',
+    ),
+  );
+  // Windows 8 name.
+  $metatags['application_name'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'application-name',
+      'content' => 'Engineer The Future',
+    ),
+  );
+
+  // IE11 tiles.
+  $explorer[] = array(
+    'name' => 'msapplication-square70x70logo',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon70.png',
+  );
+  $explorer[] = array(
+    'name' => 'msapplication-square150x150logo',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon150.png',
+  );
+  $explorer[] = array(
+    'name' => 'msapplication-wide310x150logo',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon310x150.png',
+  );
+  $explorer[] = array(
+    'name' => 'msapplication-square310x310logo',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon310x310.png',
+  );
+  foreach ($explorer as $version) {
+    $metatags[$version['name']] = array(
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => array(
+          'name' => $version['name'],
+          'content' => $version['content'],
+        ),
+    );
+  }
+
   // Run each metatag.
   foreach ($metatags as $key => $tag) {
     drupal_add_html_head($tag, $key);
