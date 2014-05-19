@@ -216,7 +216,7 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(
           'description' => 1,
           'description_position' => 'bottom',
-          'video_style' => 'normal',
+          'video_style' => 'stripped',
         ),
         'type' => 'video_embed_field',
         'weight' => 3,
