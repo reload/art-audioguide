@@ -53,12 +53,15 @@ EOT;
 EOT;
 
   // Mail.
-  $url = url('node/' . $field['entity']->nid, array('absolute' => TRUE));
   $items[] = l(
     '<i class="fa fa-envelope"></i> ' . t('E-mail'),
-    'mailto:?subject=' . $field['entity']->title . '&body=' . $url,
+    'mailto:',
     array(
       'html' => TRUE,
+      'query' => array(
+        'subject' => $field['entity']->title,
+        'body' => url('node/' . $field['entity']->nid, array('absolute' => TRUE)),
+      ),
     )
   );
 
