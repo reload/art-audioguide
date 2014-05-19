@@ -53,8 +53,14 @@ EOT;
 EOT;
 
   // Mail.
-  $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-  $items[] = '<a href="mailto:?subject=' . $field['entity']->title . '&body=' . $url . '"><i class="fa fa-envelope"></i>E-mail</a>';
+  $url = url('node/' . $field['entity']->nid, array('absolute' => TRUE));
+  $items[] = l(
+    '<i class="fa fa-envelope"></i> ' . t('E-mail'),
+    'mailto:?subject=' . $field['entity']->title . '&body=' . $url,
+    array(
+      'html' => TRUE,
+    )
+  );
 
   return theme('item_list', array(
     'items' => $items,
