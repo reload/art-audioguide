@@ -172,7 +172,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -203,6 +203,51 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-audio-field_video'
+  $field_instances['node-audio-field_video'] = array(
+    'bundle' => 'audio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the address to the video',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'video_embed_field',
+        'settings' => array(
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'normal',
+        ),
+        'type' => 'video_embed_field',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => 'theme_ds_field_reset',
+    'entity_type' => 'node',
+    'field_name' => 'field_video',
+    'label' => 'Video',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'description_length' => 128,
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'video_embed_field',
+      'settings' => array(),
+      'type' => 'video_embed_field_video',
+      'weight' => 36,
+    ),
+  );
+
   // Exported field_instance: 'node-audio-title_field'
   $field_instances['node-audio-title_field'] = array(
     'bundle' => 'audio',
@@ -214,7 +259,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -250,8 +295,10 @@ function smk_audio_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Audio file');
   t('Body');
+  t('Enter the address to the video');
   t('Piece');
   t('Title');
+  t('Video');
   t('image');
 
   return $field_instances;

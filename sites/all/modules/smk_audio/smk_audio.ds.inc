@@ -47,12 +47,14 @@ function smk_audio_ds_layout_settings_info() {
         0 => 'field_audio_file',
         1 => 'body',
         2 => 'field_image',
+        3 => 'field_video',
       ),
     ),
     'fields' => array(
       'field_audio_file' => 'ds_content',
       'body' => 'ds_content',
       'field_image' => 'ds_content',
+      'field_video' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
