@@ -41,21 +41,49 @@ function smk_base_install() {
  * Implements hook_modules_enabled().
  *
  * If/when smk_route gets enabled, then create a node to hold the routes list.
+ * Also create the front page node.
  */
 function smk_base_modules_enabled($modules) {
   if (in_array('smk_route', $modules)) {
+    // The front page node.
+    $values = array(
+      'type' => 'generic_page',
+      'title' => 'SMK Audioguide',
+      'language' => 'en',
+    );
+    // Create the node.
+    $front_page_node = entity_create('node', $values);
+    node_save($front_page_node);
+
+    // And add the field value.
+    $wrapper = entity_metadata_wrapper('node', $front_page_node);
+    $wrapper->field_block_ref->set('menu-front-page-menu');
+    $wrapper->save();
+
+    // Set the node as the front page.
+    variable_set('site_frontpage', 'node/' . $front_page_node->nid);
+
+    // The route list node.
     $values = array(
       'type' => 'generic_page',
       'title' => 'All routes',
       'language' => 'en',
     );
     // Create the node.
-    $node = entity_create('node', $values);
-    node_save($node);
+    $all_routes_node = entity_create('node', $values);
+    node_save($all_routes_node);
 
     // And add the field value.
-    $wrapper = entity_metadata_wrapper('node', $node);
+    $wrapper = entity_metadata_wrapper('node', $all_routes_node);
     $wrapper->field_block_ref->set('routes-block');
     $wrapper->save();
+
+    // Create a menu item for the front page with the 'all routes' node.
+    $item = array(
+      'menu_name' => 'menu-front-page-menu',
+      'link_path' => 'node/' . $all_routes_node->nid,
+      'link_title' => 'All Routes',
+    );
+    menu_link_save($item);
   }
 }

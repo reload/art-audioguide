@@ -132,3 +132,65 @@ function smk_base_toggle_menu() {
   $output .= render($main_menu['content']);
   return $output;
 }
+
+/**
+ * Implements hook_ds_fields_info().
+ */
+function smk_base_ds_fields_info($entity_type) {
+  $fields = array();
+
+  if ($entity_type == 'node') {
+    $fields['node']['attached_block'] = array(
+      'title' => t('Attached block'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => 'smk_base_attached_block',
+      'ui_limit' => array('generic_page|full'),
+    );
+  }
+
+  if (isset($fields[$entity_type])) {
+    return array($entity_type => $fields[$entity_type]);
+  }
+
+  return;
+}
+
+/**
+ * DS field callback.
+ *
+ * Show block with extra info if relevant.
+ *
+ * @param array $field
+ *   The context for the field.
+ */
+function smk_base_attached_block($field) {
+  $block_ref = field_get_items($field['entity_type'], $field['entity'], 'field_block_ref');
+  // If the 'attached block' field is empty, then just return.
+  if (empty($block_ref) || empty($block_ref[0]['value'])) {
+    return '';
+  }
+
+  // Find the module that 'owns' the block we want to render.
+  $module = FALSE;
+  switch ($block_ref[0]['value']) {
+    case 'routes-block':
+      $module = 'views';
+      break;
+
+    case 'menu-front-page-menu':
+      $module = 'menu';
+      break;
+  }
+
+  $output = '';
+  // If we don't know the delta, then no block will be rendered.
+  if (FALSE != $module) {
+    // Invoke the module with the block delta.
+    $block = module_invoke($module, 'block_view', $block_ref[0]['value']);
+    if (!empty($block['content'])) {
+      // Render the content.
+      $output = render($block['content']);
+    }
+  }
+  return $output;
+}

@@ -28,6 +28,7 @@ function smk_base_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         'routes-block' => 'Route List',
+        'menu-front-page-menu' => 'Front page menu',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
