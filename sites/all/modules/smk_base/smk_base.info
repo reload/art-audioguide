@@ -5,6 +5,7 @@ package = Audioguide
 dependencies[] = ctools
 dependencies[] = entity_translation
 dependencies[] = features
+dependencies[] = i18n_menu
 dependencies[] = locale
 dependencies[] = secure_permissions
 dependencies[] = secure_permissions_data
