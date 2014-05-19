@@ -1,0 +1,7 @@
+.element-invisible { display: none; }
+
+.admin-tabs { clear: both; }
+.admin-tabs ul { display: flex; }
+.admin-tabs li { display: block; vertical-align: bottom; }
+.admin-tabs li a { color: #000; background-color: #A6A7A2; padding: 5px 10px 3px; line-height: 140%; margin: 0 3px; }
+.admin-tabs li.active a { background-color: #ffffff; }

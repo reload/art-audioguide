@@ -1,0 +1,24 @@
+@import "base";
+
+// The standard Drupal tabs styled really simple.
+.admin-tabs {
+  clear: both;
+  ul {
+    display: flex;
+  }
+  li {
+    display: block;
+    vertical-align: bottom;
+
+    a {
+      color: #000;
+      background-color: #A6A7A2;
+      padding: 5px 10px 3px;
+      line-height: 140%;
+      margin: 0 3px;
+    }
+    &.active a {
+      background-color: #ffffff;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file Secure Permissions Data
+ * Module file for secure permissions in code.
+ */
+
+/**
+ * Define site roles in code.
+ *
+ * Create a secure_permissions_data module directory and place this function
+ * in secure_permissions_data.module.
+ *
+ * @return
+ *   An array defining all the roles for the site.
+ */
+function secure_permissions_data_secure_permissions_roles() {
+  return array(
+      'anonymous user',
+      'authenticated user',
+      'editor',
+  );
+}
+
+/**
+ * Define site permissions in code.
+ *
+ * Create a secure_permissions_data module directory and place this function
+ * in secure_permissions_data.module.
+ *
+ * @param $role
+ *   The role for which the permissions are being requested.
+ *
+ * @return
+ *   An array defining all the permissions for the site.
+ */
+function secure_permissions_data_secure_permissions($role) {
+  $permissions = array(
+      'anonymous user' => array(
+          'access content',
+      ),
+      'authenticated user' => array(
+          'access content',
+      ),
+      'editor' => array(
+          'access administration pages',
+          'access content',
+          'access content overview',
+          'access toolbar',
+          'create artist content',
+          'create audio content',
+          'create piece content',
+          'create route content',
+          'delete any artist content',
+          'delete any audio content',
+          'delete any piece content',
+          'delete any route content',
+          'delete own artist content',
+          'delete own audio content',
+          'delete own piece content',
+          'delete own route content',
+          'delete revisions',
+          'edit any artist content',
+          'edit any audio content',
+          'edit any piece content',
+          'edit any route content',
+          'edit own artist content',
+          'edit own audio content',
+          'edit own piece content',
+          'edit own route content',
+          'revert revisions',
+          'view own unpublished content',
+          'view revisions',
+          'view the administration theme',
+      ),
+  );
+  if (isset($permissions[$role])) {
+    return $permissions[$role];
+  }
+}

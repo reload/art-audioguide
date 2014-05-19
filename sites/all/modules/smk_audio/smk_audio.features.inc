@@ -14,6 +14,9 @@ function smk_audio_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
+  if ($module == "video_embed_field" && $api == "default_video_embed_styles") {
+    return array("version" => "1");
+  }
 }
 
 /**
@@ -22,11 +25,11 @@ function smk_audio_ctools_plugin_api($module = NULL, $api = NULL) {
 function smk_audio_node_info() {
   $items = array(
     'audio' => array(
-      'name' => t('Lyd'),
+      'name' => t('Sound'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Titel'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

@@ -44,19 +44,19 @@ function smk_audio_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'body',
-        1 => 'field_audio_file',
+        0 => 'field_audio_file',
+        1 => 'body',
+        2 => 'field_image',
+        3 => 'field_video',
       ),
     ),
     'fields' => array(
-      'body' => 'ds_content',
       'field_audio_file' => 'ds_content',
+      'body' => 'ds_content',
+      'field_image' => 'ds_content',
+      'field_video' => 'ds_content',
     ),
-    'classes' => array(
-      'layout_class' => array(
-        '' => '',
-      ),
-    ),
+    'classes' => array(),
     'wrappers' => array(
       'ds_content' => 'div',
     ),

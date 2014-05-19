@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the smk_search feature.
+ */
+
+include_once 'smk_search.features.inc';

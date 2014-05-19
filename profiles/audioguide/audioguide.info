@@ -1,0 +1,40 @@
+name = Audioguide
+description = Simple start profile for audioguide.
+core = 7.x
+; Core
+dependencies[] = block
+dependencies[] = dblog
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = toolbar
+dependencies[] = field_ui
+dependencies[] = image
+; Contrib
+dependencies[] = ctools
+dependencies[] = admin_views
+dependencies[] = date
+dependencies[] = ds_extras
+dependencies[] = ds_ui
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = field_group
+dependencies[] = i18n
+dependencies[] = l10n_update
+dependencies[] = libraries
+dependencies[] = pathauto
+dependencies[] = strongarm
+dependencies[] = token
+dependencies[] = transliteration
+dependencies[] = views
+dependencies[] = views_bulk_operations
+dependencies[] = views_ui
+; Audioguide module.
+dependencies[] = smk_audio
+dependencies[] = smk_base
+dependencies[] = smk_piece
+dependencies[] = smk_route
+dependencies[] = smk_search

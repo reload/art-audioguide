@@ -22,7 +22,7 @@ function smk_audio_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -37,6 +37,7 @@ function smk_audio_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -63,12 +64,12 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(
           'controls' => TRUE,
           'download_link' => FALSE,
-          'download_text' => 'Hent',
+          'download_text' => 'Download',
           'height' => 30,
           'width' => 300,
         ),
         'type' => 'mediaelement_audio',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -76,7 +77,7 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(
           'controls' => TRUE,
           'download_link' => FALSE,
-          'download_text' => 'Hent',
+          'download_text' => 'Download',
           'height' => 30,
           'width' => 300,
         ),
@@ -87,10 +88,11 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_audio_file',
-    'label' => 'Lydfil',
+    'label' => 'Audio file',
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => 0,
       'file_directory' => 'audio',
       'file_extensions' => 'mp3',
       'max_filesize' => '',
@@ -107,6 +109,58 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-audio-field_image'
+  $field_instances['node-audio-field_image'] = array(
+    'bundle' => 'audio',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'large',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 35,
+    ),
+  );
+
   // Exported field_instance: 'node-audio-field_piece_ref'
   $field_instances['node-audio-field_piece_ref'] = array(
     'bundle' => 'audio',
@@ -118,7 +172,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -130,9 +184,10 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_piece_ref',
-    'label' => 'Værk',
+    'label' => 'Piece',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -148,11 +203,103 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-audio-field_video'
+  $field_instances['node-audio-field_video'] = array(
+    'bundle' => 'audio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the address to the video',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'video_embed_field',
+        'settings' => array(
+          'description' => 1,
+          'description_position' => 'bottom',
+          'video_style' => 'stripped',
+        ),
+        'type' => 'video_embed_field',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => 'theme_ds_field_reset',
+    'entity_type' => 'node',
+    'field_name' => 'field_video',
+    'label' => 'Video',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'description_length' => 128,
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'video_embed_field',
+      'settings' => array(),
+      'type' => 'video_embed_field_video',
+      'weight' => 36,
+    ),
+  );
+
+  // Exported field_instance: 'node-audio-title_field'
+  $field_instances['node-audio-title_field'] = array(
+    'bundle' => 'audio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Title',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('Audio file');
   t('Body');
-  t('Lydfil');
-  t('Værk');
+  t('Enter the address to the video');
+  t('Piece');
+  t('Title');
+  t('Video');
+  t('image');
 
   return $field_instances;
 }

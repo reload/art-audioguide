@@ -5,3 +5,70 @@
  */
 
 include_once 'smk_audio.features.inc';
+
+/**
+ * Implements hook_ds_fields_info().
+ */
+function smk_audio_ds_fields_info($entity_type) {
+  $fields = array();
+
+  if ($entity_type == 'node') {
+    $fields['node']['social_media_list'] = array(
+      'title' => t('Social Media List'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => 'smk_audio_social_media_list',
+      'ui_limit' => array('audio|*'),
+    );
+  }
+
+  if (isset($fields[$entity_type])) {
+    return array($entity_type => $fields[$entity_type]);
+  }
+
+  return;
+}
+
+/**
+ * Returns an unordered list with share-functionality.
+ */
+function smk_audio_social_media_list($field) {
+  // Facebook.
+  $items[] = <<<EOT
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="fb-share-button" data-type="button"></div>
+EOT;
+
+  // Twitter.
+  $items[] = <<<EOT
+    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+EOT;
+
+  // Mail.
+  $items[] = l(
+    '<i class="fa fa-envelope"></i> ' . t('E-mail'),
+    'mailto:',
+    array(
+      'html' => TRUE,
+      'query' => array(
+        'subject' => $field['entity']->title,
+        'body' => url('node/' . $field['entity']->nid, array('absolute' => TRUE)),
+      ),
+    )
+  );
+
+  return theme('item_list', array(
+    'items' => $items,
+    'attributes' => array(
+      'class' => 'social-media',
+    ),
+  ));
+}
