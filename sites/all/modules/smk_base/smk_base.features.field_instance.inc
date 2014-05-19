@@ -1,28 +1,34 @@
 <?php
 /**
  * @file
- * smk_route.features.field_instance.inc
+ * smk_base.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function smk_route_field_default_field_instances() {
+function smk_base_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-route-body'
-  $field_instances['node-route-body'] = array(
-    'bundle' => 'route',
+  // Exported field_instance: 'node-generic_page-body'
+  $field_instances['node-generic_page-body'] = array(
+    'bundle' => 'generic_page',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -55,22 +61,25 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-route-field_audio_ref'
-  $field_instances['node-route-field_audio_ref'] = array(
-    'bundle' => 'route',
+  // Exported field_instance: 'node-generic_page-field_block_ref'
+  $field_instances['node-generic_page-field_block_ref'] = array(
+    'bundle' => 'generic_page',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'links' => 0,
-          'view_mode' => 'teaser',
-        ),
-        'type' => 'entityreference_entity_view',
-        'weight' => 1,
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -81,8 +90,8 @@ function smk_route_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_audio_ref',
-    'label' => 'Audios',
+    'field_name' => 'field_block_ref',
+    'label' => 'Attached block',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -90,21 +99,16 @@ function smk_route_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 32,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 34,
     ),
   );
 
-  // Exported field_instance: 'node-route-title_field'
-  $field_instances['node-route-title_field'] = array(
-    'bundle' => 'route',
-    'default_value' => NULL,
+  // Exported field_instance: 'node-generic_page-field_image'
+  $field_instances['node-generic_page-field_image'] = array(
+    'bundle' => 'generic_page',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -112,6 +116,16 @@ function smk_route_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -121,34 +135,40 @@ function smk_route_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'title_field',
-    'label' => 'Title',
-    'required' => TRUE,
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
     'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'text',
+      'active' => 1,
+      'module' => 'image',
       'settings' => array(
-        'size' => 60,
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
       ),
-      'type' => 'text_textfield',
-      'weight' => -5,
+      'type' => 'image_image',
+      'weight' => 33,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Audios');
+  t('Attached block');
   t('Body');
-  t('Title');
+  t('Image');
 
   return $field_instances;
 }
