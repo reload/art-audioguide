@@ -129,6 +129,7 @@ function smk_base_toggle_menu() {
     $output .= $language_links['content'];
   }
 
+  $output .= '<h4>' . t('Go to') . '</h4>';
   $output .= render($main_menu['content']);
   return $output;
 }
