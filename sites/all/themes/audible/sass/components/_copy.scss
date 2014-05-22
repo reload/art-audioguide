@@ -1,0 +1,58 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Copy
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// The copy class works as a namespace for styling text heavy sections
+// in the like of newspapaer or magazine articles. It tweaks spacing between text
+// elements, adds bullets to lists, prettyfies quotes, and so on.
+// Namespacing is used to avoid adding copy styles to every single
+// text element on the page.
+
+.copy {
+  h1 {
+    @extend .heading--large;
+  }
+  
+  h2 {
+    @extend .heading--medium;
+    margin-top: 1.1em;
+  }
+  
+  h3 {
+    @extend .heading--small;
+    // margin-bottom: .25em;
+    margin-top: 1.25em;
+  }
+  
+  h4 { 
+    @extend .heading--extra-small;
+    margin-top: 1.6em;
+  }
+
+  h5,
+  h6 {
+    margin-top: 1.45em;
+    font-style: italic;
+    color: $gray;
+  }
+
+  p {
+    margin-bottom: .85em;
+  }
+
+  ul,
+  ol {
+    margin: 1.5em 0;
+  }
+
+  ul {
+    @extend .list--bulleted;
+  }
+
+  ol {
+    @extend .list--numbered;
+  }
+
+  img {
+    margin: 1em 0 .85em * 2;  
+  }
+} // end copy

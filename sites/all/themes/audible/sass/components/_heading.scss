@@ -1,0 +1,70 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Heading
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Base class
+.heading {
+  font-family: $heading-font-family;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: $line-height * .8;
+  margin-bottom: .5em;
+  color: $black;
+  letter-spacing: -.005em;
+}
+
+// Extra small
+.heading--extra-small {
+  @extend .heading;
+}
+
+// Small
+.heading--small {
+  @extend .heading;
+  font-size: 1.2em;
+}
+
+// Medium
+.heading--medium {
+  @extend .heading;
+  font-size: 1.75em;
+}
+
+// Large
+.heading--large {
+  @extend .heading;
+  font-size: 2.75em;
+  margin-bottom: .5em;
+  letter-spacing: -.01em;
+}
+
+// Extra large
+.heading--extra-large {
+  @extend .heading;
+  font-size: 3.5em;
+  letter-spacing: -.03em;
+  line-height: $line-height * .7;
+}
+
+// Heading border
+.heading--bordered {
+  @extend .heading;
+  border-bottom: 1px solid $gray-dark;
+  padding-bottom: .25em;
+}
+
+// Heading for sections.
+.heading--section {
+    font-family: 'hill regular', sans-serif;
+  font-size: .7em;
+  font-weight: normal;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: .55em;
+}
+
+.heading--widget {
+  @extend .heading--section;
+  border: 0;
+  margin-bottom: .25em;
+}

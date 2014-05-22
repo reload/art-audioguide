@@ -1,0 +1,123 @@
+// If you want to add more icons to this font, take a look at the folder
+// 'smk_audible_icons_icomoon_package' in the root of the project.
+// Here you will find what you need to build upon the already existing icon
+// font using icomoon.io
+
+.icon {
+	font-family: 'smk_audible_icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon--facebook:before {
+	@extend .icon;
+	content: "\e600";
+}
+
+.icon--mail-2:before {
+	@extend .icon;
+	content: "\e601";
+}
+
+.icon--mail-1:before {
+	@extend .icon;
+	content: "\e602";
+}
+
+.icon--pause:before {
+	@extend .icon;
+	content: "\e603";
+}
+
+.icon--play:before {
+	@extend .icon;
+	content: "\e604";
+}
+
+.icon--angle-up:before {
+	@extend .icon;
+	content: "\e605";
+}
+
+.icon--angle-right:before {
+	@extend .icon;
+	content: "\e606";
+}
+
+.icon--angle-left:before {
+	@extend .icon;
+	content: "\e607";
+}
+
+.icon--angle-down:before {
+	@extend .icon;
+	content: "\e608";
+}
+
+.icon--smk:before {
+	@extend .icon;
+	content: "\e609";
+}
+
+.icon--search:before {
+	@extend .icon;
+	content: "\e60a";
+}
+
+.icon--menu:before {
+	@extend .icon;
+	content: "\e60b";
+}
+
+.icon--listen-2:before {
+	@extend .icon;
+	content: "\e60c";
+}
+
+.icon--listen-1:before {
+	@extend .icon;
+	content: "\e60d";
+}
+
+.icon--info-2:before {
+	@extend .icon;
+	content: "\e60e";
+}
+
+.icon--info-1:before {
+	@extend .icon;
+	content: "\e60f";
+}
+
+.icon--cross:before {
+	@extend .icon;
+	content: "\e610";
+}
+
+.icon--arrow-up:before {
+	@extend .icon;
+	content: "\e611";
+}
+
+.icon--arrow-right:before {
+	@extend .icon;
+	content: "\e612";
+}
+
+.icon--arrow-left:before {
+	@extend .icon;
+	content: "\e613";
+}
+
+.icon--arrow-down:before {
+	@extend .icon;
+	content: "\e614";
+}

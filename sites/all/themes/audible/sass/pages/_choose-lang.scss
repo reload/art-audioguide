@@ -1,0 +1,35 @@
+/*
+ § Styles for the /choose-lang page
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.page-choose-lang {
+
+  #content {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    
+    .section {
+      position: absolute;
+      top: 26%;
+      width: 100%;
+    }
+  
+    .language-link {
+      @extend .button;
+      min-width: 180px;
+      margin-right: 0;
+    }
+
+    h1 {
+      margin-bottom: 1.25em;
+    }
+
+  }//#content
+
+
+
+} // .page-choose-lang

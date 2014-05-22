@@ -1,0 +1,20 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Global layout
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+%page-width {
+  max-width: 800px;
+  min-width: 300px;
+  margin: 0 auto;
+  
+  // Add more padding on tablets
+  @media (min-width: $screen-s) {
+    // padding: 0 18px;
+  }
+  
+} //%page-width
+
+
+#page-wrapper {
+  @extend %page-width;
+}

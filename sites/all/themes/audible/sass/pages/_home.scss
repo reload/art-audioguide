@@ -1,0 +1,23 @@
+// Home
+
+/*body*/.front {
+
+  // Make tiles snap to page header
+  .page-header {
+    margin-bottom: 0;
+  }
+
+  // Hide the page title
+  .node-generic-page > h2 {
+    display: none; 
+  }
+  
+  #content {
+
+    .menu li {
+      @extend .tile; // See _tile.scss
+    }
+
+  }//#content
+
+} // .front

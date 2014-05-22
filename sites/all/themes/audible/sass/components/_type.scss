@@ -1,0 +1,93 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Type
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// The base typographic styles. Note, if you want to style large
+// chunks of text (like the body of an article), you should use the copy
+// component (see _copy.scss).
+
+/*
+ § Text elements
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html {
+  font-family: $font-family;
+}
+
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $font-color;
+  letter-spacing: .02em;
+  
+  @media (min-width: $screen-m) {
+    // font-size: 18px;
+    // line-height: $line-height * 1.075;
+  }
+}
+
+// Bold
+b,
+strong,
+%type--bold,
+.type--bold {
+  font-weight: bold;
+}
+
+// Italic
+i,
+em,
+%type--italic,
+.type--italic {
+  font-style: italic;
+}
+
+// Strikethrough
+strike,
+del,
+s,
+%type--strikethrough,
+.type--strikethrough {
+  text-decoration: line-through;
+}
+
+// Small
+small,
+%type--s, // Added this name variation for consistency in class names.
+.type--s, 
+%type--small,
+.type--small {
+  font-size: .85em;
+}
+
+// Weak
+%type--weak,
+.type--weak {
+  color: $gray-dark;
+
+  a {
+    color: lighten($purple, 10%);
+  }
+}
+
+// Superscript
+sup {
+  font-size: 75%;
+  top: -0.5em;
+}
+
+// Subscript
+sub {
+  font-size: 75%;
+  bottom: -0.25em;
+}
+
+// Code (or monospaced text)
+.type--code {
+  font-family: "Courier New", Courier, monospace;
+}
+
+// Highlighted text
+.type--highlight {
+  background: $yellow-dim;
+  padding-right: .1em;
+  padding-left: .1em;
+}
