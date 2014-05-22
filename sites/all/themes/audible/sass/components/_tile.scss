@@ -2,10 +2,10 @@
  § Standard tile (small)
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .tile {
+  // NB! Do not add any background on this element! Only children of this one.
   width: 50%;
   float: left;
   overflow: hidden;
-  background: $gray;
   text-align: center;
   position: relative;
 
@@ -16,7 +16,6 @@
   }
 
   // We can't make an inset border on a image - lets pseudo our way out of this!
-
 
   img {
     width: 100%;

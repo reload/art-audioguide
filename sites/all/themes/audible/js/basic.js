@@ -53,7 +53,12 @@
       });
 
       /**
-       * Alter the List-items.
+       * Create an image-tag with the "Menu icon" modules image.
+       *
+       * NB! This is a bit tricky. Our <a> tags have some background styling,
+       * so the background-image is being overwritten.
+       * If we move the class holding the image/styling to the parent list-item,
+       * then we can get the src of the image and append it to a new a new <img>.
        */
       // Move menu-icon classes to the list-item.
       items.each(function() {
@@ -61,20 +66,33 @@
         var link = $(this).find('a');
 
         // Move the "menu_icon" class to the list-item instead of the link.
-        $(this).addClass('menu_icon');
         link.removeClass('menu_icon');
 
         // Move the "menu-xxx" class that contains the background-image
-        // to the parent list-item.
+        // to the parent list-item, create an <img> and remove the class again.
+        // ------
+        // Get the link's classes and split it.
         var classes = link.attr('class').split(/\s+/);
+        // For each class:
         for (var i = 0; i < classes.length; i++) {
+          // If the link had a class named "menu-...":
           if (classes[i].indexOf('menu-') != -1) {
+            // Add the "menu-..." class to the list-item.
             $(this).addClass(classes[i]);
-//            link.removeClass(classes[i]);
+            // Get the background-image path and remove css' url() around the path/src.
+            var src = $(this).css('background-image').replace('url(','').replace(')', '');
+            // Remove the "menu-..." class completely.
+            $(this).removeClass(classes[i]);
+            link.removeClass(classes[i]);
+            // Append an image-tag with the new source.
+            $(this).append($('<img>', {src: src}));
           }
         }
       });
 
+      /**
+       * Make the tiles clickable.
+       */
       // Make entire tile clickable.
       items.click(function(){
         window.location = $(this).find('a').attr('href');
