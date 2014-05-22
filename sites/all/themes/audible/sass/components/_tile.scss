@@ -1,0 +1,65 @@
+/*
+ § Standard tile (small)
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.tile {
+  // NB! Do not add any background on this element! Only children of this one.
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    opacity: .85;
+  }
+
+  // We can't make an inset border on a image - lets pseudo our way out of this!
+
+  img {
+    width: 100%;
+  }
+
+  // Title
+  a {
+    @extend .heading--extra-small;
+    margin-bottom: 0;
+    color: #fff;
+    display: block;
+    text-align: center;
+    position: absolute;
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    background: rgba(0, 0, 0, .65);
+    padding: 5px;
+  }
+}
+
+/*
+ § Large tile
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.tile--large {
+  @extend .tile;
+  width: 100%;
+  float: none;
+
+  a {
+    @extend .heading--small;
+  }
+}
+
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+
+  //   &:hover,
+  //   &:focus {
+  //     @include box-shadow( inset 0 0 0 12px rgba(95, 102, 242, .4) );
+  //   }
+  // }

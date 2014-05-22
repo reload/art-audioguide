@@ -1,0 +1,112 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § List
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Basic styles for the <ul> and <ol> elements.
+
+// Base styles.
+.list {
+  
+  li {
+    margin-bottom: .5em;
+    position: relative;
+
+    // For secondary information
+    small {
+      @extend %type--weak;
+      padding-left: $xs;
+    }
+  }
+} // end list
+
+/*
+ § Bullet
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// The bullets are created using the :before element to make them more stylable.
+
+/*ul*/.list--bulleted {
+  @extend .list;
+
+  li {
+    padding-left: 1.25em;
+
+    // Add the bullets.
+    &:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      font-size: 1em;
+    }
+  }
+} // end list--bulleted
+
+/*
+ § Number
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// The numbers are created using the :before element to make them stylable.
+// http://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers
+
+/*ol*/.list--numbered {
+  @extend .list;
+  counter-reset: li; // Initiate a counter.
+
+  li {
+    padding-left: 1.25em;
+    
+    // Add the numbers.
+    &:before {
+      content: counter(li)'.';  // Use the counter as content
+      counter-increment: li; // Increment the counter by 1
+      position: absolute;
+      left: 0;
+    }
+  }
+} // end list--numbered
+
+/*
+ § Tickmark
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// A list with tickmarks.
+
+/*ul, ol*/.list--tickmarked {
+  @extend .list--bulleted;
+    
+  li {
+
+    // Add the bullets.
+    &:before {
+      content: "✓";
+    }
+  }
+} // end list--tickmarked
+
+/*
+ § Block list
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*ul, ul, div*/.list--blocky {
+  border: 1px solid $gray;
+
+  // List items.
+  // When you want a linkyfied list, just use <a> tags wrapped in a <div> and
+  // skip the <li>s.
+  > a, 
+  > li {
+    display: block;
+    border-bottom: 1px solid $gray;
+    padding: .5em .65em;
+
+    // Remove border from the last list item.
+    &:last-child { border-bottom: 0; }
+  }
+
+  // Hover and focus styles.
+  // For clickable list items.
+  > a {
+    &:hover,
+    &:focus {
+      background: $yellow-dim;
+      color: $black;
+      text-decoration: none;
+    }
+  }
+} // end list--blocky

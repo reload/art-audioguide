@@ -1,0 +1,68 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Variables
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*
+ § Screen sizes (used in media queries).
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$screen-xs:  300px;
+$screen-s:   600px;
+$screen-m:  1000px;
+$screen-l:  1300px;
+$screen-xl: 1600px;
+
+
+/*
+ § Time durations (used in animations).
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$time-xs:  100ms;
+$time-s:   200ms;
+$time-m:   300ms;
+$time-l:   500ms;
+$time-xl: 1000ms;
+
+
+/*
+ § Measurements
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$xs: .25em;  // Extra small
+$s:  .5em;   // Small
+$m:  1em;    // Medium
+$l:  2em;    // Large
+$xl: 3.5em;  // Extra large
+
+
+/*
+ § Colors
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$black:        #111;
+
+$gray:         #e6e6e8;
+$gray-dark:    #a2a2a5;
+$gray-darker:  #5f5f60;
+$gray-darkest: #39393a;
+
+$yellow:       #ffe669;
+$yellow-dim:   #fff8ac;
+
+$purple:       #5f66f2;
+$cream:        #fff8ed;
+$red:          #ea4766;
+$red-lighter:  #ffd9e5;
+$green:        #27cc6e;
+$blue:         #0ea7e2;
+
+
+/*
+ § Type
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$font-size:   15px;
+$line-height: 1.45;
+$font-family: sans-serif;
+$font-color:  $black;
+
+
+/*
+ § Headings
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$heading-font-family: 'hill bold', sans-serif;

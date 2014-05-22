@@ -1,0 +1,21 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Link
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Default look.
+a {
+  color: $purple;
+  text-decoration: none;
+  line-height: inherit;
+  // @include transition(all $time-s ease-in-out);
+}
+
+// Hover
+a:hover {
+  text-decoration: none;
+}
+
+// Focus
+a:focus {
+  // @include focus;
+}

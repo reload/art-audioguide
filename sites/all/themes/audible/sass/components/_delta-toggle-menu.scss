@@ -1,0 +1,54 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Main menu
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/;
+
+// Closed (hidden)
+.delta-toggle-menu {
+  z-index: 9999;
+  display: none;
+  @extend .heading--small;
+  font-family: 'hill regular', sans-serif;
+
+  // Menu headings
+  h4 {
+    @extend .heading--section;
+    color: $gray-dark;
+    padding: 0 12px;
+    margin-top: 1.3em;
+    margin-bottom: .25em;
+  }
+
+  h4:first-child {
+    margin-top: 0;
+  }
+
+  // Menu items
+  ul > li > a {
+    display: block;
+    padding: 6px 12px;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: $purple;
+      color: #fff;
+
+    }
+  }
+}
+
+// Open
+.delta-toggle-menu.open {
+  display: block;
+  position: absolute;
+  top: 42px;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-right: -12px;
+  margin-left: -12px;
+  background: $black;
+  color: #fff;
+  @include box-shadow( 0 1px 10px 0 rgba(0, 0, 0, .35) );
+
+}//.delta-toggle-menu.open

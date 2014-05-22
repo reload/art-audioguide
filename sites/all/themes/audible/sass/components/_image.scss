@@ -1,0 +1,28 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Image
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Ensure responsive images and SVGs.
+
+img,
+object,
+embed {
+  max-width: 100%;
+  width: auto\9; // IE7-8 fix
+  height: auto;
+}
+
+object,
+embed { 
+  height: 100%;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}

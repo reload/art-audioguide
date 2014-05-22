@@ -1,0 +1,60 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Fonts
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Load custom fonts with @fontface.
+
+// Hill Light
+// @include font-face(
+//   'hill light',          // Font family
+//   'fonts/hill_light', // Font url
+//   'hill_light'           // Font file name
+// );
+
+// Hill Thin
+// @include font-face(
+//   'hill thin',          // Font family
+//   'fonts/hill_thin', // Font url
+//   'hill_thin'           // Font file name
+// );
+
+// Hill Regular
+@include font-face(
+  'hill regular',          // Font family
+  'fonts/hill_regular', // Font url
+  'hill_regular'           // Font file name
+);
+
+// // Hill Demibold
+// @include font-face(
+//   'hill demibold',          // Font family
+//   'fonts/hill_demibold', // Font url
+//   'hill_demibold'           // Font file name
+// );
+
+// Hill Bold
+@include font-face(
+  'hill bold',          // Font family
+  'fonts/hill_bold', // Font url
+  'hill_bold'           // Font file name
+);
+
+// // Hill Heavy
+// @include font-face(
+//   'hill heavy',          // Font family
+//   'fonts/hill_heavy', // Font url
+//   'hill_heavy'           // Font file name
+// );
+
+
+// Icons
+// Snippet from icomoon download package
+@font-face {
+  font-family: 'smk_audible_icons';
+  src:url('fonts/icons/smk_audible_icons.eot?-3h9n0p');
+  src:url('fonts/icons/smk_audible_icons.eot?#iefix-3h9n0p') format('embedded-opentype'),
+    url('fonts/icons/smk_audible_icons.woff?-3h9n0p') format('woff'),
+    url('fonts/icons/smk_audible_icons.ttf?-3h9n0p') format('truetype'),
+    url('fonts/icons/smk_audible_icons.svg?-3h9n0p#smk_audible_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

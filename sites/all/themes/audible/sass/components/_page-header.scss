@@ -1,0 +1,41 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+ § Main header
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.page-header {
+  position: relative;
+  height: 42px;
+  background: #fff;
+  padding: 0 12px;
+  margin-bottom: 20px;
+  @include box-shadow( 0 1px 4px 0 rgba(0, 0, 0, .25) );
+
+  @media (min-width: $screen-s) {
+    //...
+  }
+
+}//.page-header
+
+
+/*
+ § Logo
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#logo {
+  display: block;
+  height: 42px;
+  line-height: 47px;
+  width: 60px;
+  @extend .icon--smk;
+  font-size: 22px;
+  color: $black;
+
+  &:hover,
+  &:focus {
+    color: $purple;   
+  }
+
+  // Hide the image
+  img {
+    display: none;
+  }
+} // #logo

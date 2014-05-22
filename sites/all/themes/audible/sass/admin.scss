@@ -1,5 +1,3 @@
-@import "base";
-
 // The standard Drupal tabs styled really simple.
 .admin-tabs {
   clear: both;
@@ -21,4 +19,8 @@
       background-color: #ffffff;
     }
   }
+}
+
+.element-invisible {
+  display: none;
 }
