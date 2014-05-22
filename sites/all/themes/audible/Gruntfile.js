@@ -12,10 +12,10 @@ module.exports = function (grunt) {
           livereload: false
         },
         files: ['sass/*.scss'],
-        tasks: ['compass:dev','compass:prod']
+        tasks: ['compass:prod']
       },
       css: {
-        files: ['css/*.css','css_dev/*.css'],
+        files: ['css/*.css'],
         options: {
           livereload: true
         }
@@ -26,27 +26,18 @@ module.exports = function (grunt) {
     compass: {
       options: {
         httpPath: '/sites/all/themes/audible',
-        cssDir: 'css_dev',
+        cssDir: 'css',
         sassDir: 'sass',
         imagesDir: 'images',
         javascriptsDir: 'js',
         fontsDir: 'css/fonts',
         assetCacheBuster: 'none'
       },
-      dev: {
-        options: {
-          environment: 'development',
-          outputStyle: 'expanded',
-          relativeAssets: true,
-          raw: 'line_numbers = :true\n'
-        }
-      },
       prod: {
         options: {
           environment: 'production',
           outputStyle: 'compact',
-          force: true,
-          cssDir: 'css'
+          force: true
         }
       }
     }
@@ -60,7 +51,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'compass:dev',
+    'compass:prod',
     'watch'
   ]);
 };
