@@ -7,6 +7,15 @@
 include_once 'smk_audio.features.inc';
 
 /**
+ * Implements hook_init().
+ */
+function smk_audio_init() {
+  // Include the SMK mediaelement skin files if the module is enabled.
+  drupal_add_js(drupal_get_path('module', 'smk_audio') . '/smk-mediaelement-settings.js', array('weight' => 1));
+  drupal_add_css(drupal_get_path('theme', 'audible') . '/css/smk-mediaelement-skin.css');
+}
+
+/**
  * Implements hook_ds_fields_info().
  */
 function smk_audio_ds_fields_info($entity_type) {
