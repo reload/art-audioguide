@@ -46,7 +46,7 @@ function audible_preprocess_html(&$vars) {
     ),
   );
 
-  // HTML shiv
+  // HTML shiv.
   $metatags['html5shiv'] = array(
     '#tag' => 'script',
     '#attributes' => array(
@@ -56,69 +56,85 @@ function audible_preprocess_html(&$vars) {
     '#suffix' => '</script><![endif]-->',
   );
 
-  // Apple touch icon.
-  $metatags['apple_touch_icon'] = array(
+  // Default favicon for: iOS 2.0+ and Android 2.1+
+  $metatags['apple_touch_icon_precomposed'] = array(
     '#type' => 'html_tag',
-    '#tag' => 'link',
+    '#tag' => 'meta',
     '#attributes' => array(
       'rel' => 'apple-touch-icon-precomposed',
-      'href' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon152.png',
+      'href' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-152x152.png',
     ),
   );
 
-  // Windows 8 tile.
+  // Specify image for each Apple-size (since Jacques made different
+  // favicons for the differente sizes.
+  $apple_touch_sizes = array('57x57', '72x72', '114x114', '120x120', '144x144', '152x152');
+  // Set each size/metatag.
+  foreach ($apple_touch_sizes as $size){
+    $metatags['apple_touch_icon_' . $size] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'link',
+      '#attributes' => array(
+        'rel' => 'apple-touch-icon-precomposed',
+        'href' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-' . $size . '.png',
+        'sizes' => $size,
+      ),
+    );
+  }
+
+  // Internet Explorer Metro default favicon.
   $metatags['ms_tile_image'] = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
     '#attributes' => array(
       'name' => 'msapplication-TileImage',
-      'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon144.png',
+      'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-144x144.png',
     ),
   );
-  // Windows 8 color.
+  // Internet Explorer Metro default color.
   $metatags['ms_tile_color'] = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
     '#attributes' => array(
       'name' => 'msapplication-TileColor',
-      'content' => '#204D5D',
+      'content' => '#000',
     ),
   );
-  // Windows 8 name.
+  // Internet Explorer Metro default name.
   $metatags['application_name'] = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
     '#attributes' => array(
       'name' => 'application-name',
-      'content' => 'Engineer The Future',
+      'content' => t('Statens Museum for Kunst'),
     ),
   );
 
-  // IE11 tiles.
+  // Microsoft tiles sizes (aka favicons).
   $explorer[] = array(
     'name' => 'msapplication-square70x70logo',
-    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon70.png',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-70x70.png',
   );
   $explorer[] = array(
     'name' => 'msapplication-square150x150logo',
-    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon150.png',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-150x150.png',
   );
   $explorer[] = array(
     'name' => 'msapplication-wide310x150logo',
-    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon310x150.png',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-310x150.png',
   );
   $explorer[] = array(
     'name' => 'msapplication-square310x310logo',
-    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon310x310.png',
+    'content' => drupal_get_path('theme', 'audible') . '/images/favicons/favicon-310x310.png',
   );
   foreach ($explorer as $version) {
     $metatags[$version['name']] = array(
-        '#type' => 'html_tag',
-        '#tag' => 'meta',
-        '#attributes' => array(
-          'name' => $version['name'],
-          'content' => $version['content'],
-        ),
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => $version['name'],
+        'content' => $version['content'],
+      ),
     );
   }
 
