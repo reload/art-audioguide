@@ -6,9 +6,9 @@
   top: 0;
   right: 0;
   width: 42 * 3px;
-  
+
   li a,
-  li input { // the menu toggle is not an <a> tag
+  li label { // the menu toggle is not an <a> tag
     display: inline-block;
     width: 42px;
     height: 42px;
@@ -20,7 +20,7 @@
 
     &:hover {
       color: $purple;
-      cursor: pointer;   
+      cursor: pointer;
     }
   }//li
 
@@ -42,17 +42,21 @@
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 // Hide the label
 .icon-menu {
-  label {
+  input {
     display: none;
   }
 }
 
-#menu-toggle {
+label[for="menu-toggle"] {
   @extend .icon--menu;
 
   &:hover,
   &:focus {
-    outline: none;   
+    outline: none;
+  }
+
+  &:before {
+    @include transition(.2s);
   }
 
   // When active
@@ -60,6 +64,9 @@
     background: $black;
     color: #fff;
     @extend .icon--cross;
+    &:before {
+      @include rotate(360deg);
+    }
   }
 }
 
