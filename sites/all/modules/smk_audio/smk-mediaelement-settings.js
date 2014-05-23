@@ -14,7 +14,7 @@
         // height of audio player
         audioHeight: 30,
         // initial volume when the player starts
-        startVolume: 0.8,
+        startVolume: 1, // default: 0.8.
         // audio volume direction (horizontal / vertical).
         audioVolume: 'vertical',
         // useful for <audio> player loops
@@ -22,7 +22,7 @@
         // enables Flash and Silverlight to resize to content size
         enableAutosize: true,
         // the order of controls you want on the control bar (and other plugins below)
-        features: ['playpause','progress','current','duration','volume'],
+        features: ['current', 'playpause','progress','duration'],
         // Hide controls when playing and mouse is not over the video
         alwaysShowControls: false,
         // force iPad's native controls
@@ -42,6 +42,7 @@
         // array of keyboard commands
         keyActions: []
       });
+
     }
   }
 
