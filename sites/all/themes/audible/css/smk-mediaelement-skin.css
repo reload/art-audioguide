@@ -1,0 +1,10 @@
+/** Custom SMK mediaelement skin. ---------------------------------------------- We use .js to set a class on all <audio> tags called "mejs-smk", which tells mediaelement.js to look for this class for styling.  Some settings like width & height of the player is set in "sites/all/modules/smk_audio/smk-mediaelement-settings.js". */
+.mejs-container.mejs-smk { background: grey; /** The controls. */ }
+.mejs-container.mejs-smk .mejs-controls { background: none; /** The play/pause button. */ /** Time-bar. */ /**
+* The 00:32 time played.
+*/ /**
+* The 01:32 time duration.
+*/ }
+.mejs-container.mejs-smk .mejs-controls .mejs-time-rail .mejs-time-total { background: red; }
+.mejs-container.mejs-smk .mejs-controls .mejs-time-rail .mejs-time-total .mejs-time-current { background: blue; }
+.mejs-container.mejs-smk .mejs-controls .mejs-time-rail .mejs-time-total .mejs-time-loaded { background: green; }
