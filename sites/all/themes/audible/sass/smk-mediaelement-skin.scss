@@ -6,7 +6,7 @@
  * to look for this class for styling.
  *
  * Some settings like width & height of the player is set in
- *
+ * "sites/all/modules/smk_audio/smk-mediaelement-settings.js".
  */
 .mejs-container.mejs-smk {
   background: grey;
@@ -61,35 +61,6 @@
     */
     .mejs-duration {
 
-    }
-
-    /**
-     * The volume button.
-     */
-    .mejs-volume-button {
-      // The button itself.
-      button {
-
-      }
-      // The slider that shows after hover.
-      .mejs-volume-slider {
-        background: green;
-
-        // Slider-volume background.
-        .mejs-volume-total {
-          background: red;
-        }
-
-        // Current slider-volume.
-        .mejs-volume-current {
-          background: blue;
-        }
-
-        // Handle.
-        .mejs-volume-handle {
-          background: yellow;
-        }
-      }
     }
   }
 }
