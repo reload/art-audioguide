@@ -14,7 +14,6 @@ stylesheets[all][] = user.css
 stylesheets[all][] = views.css
 
 stylesheets[all][] = css/audible.css
-stylesheets[all][] = css/componenets/icons.css
 stylesheets[all][] = css/admin.css
 stylesheets[all][] = css/font-awesome.min.css
 stylesheets[all][] = css/audible.misc.css
