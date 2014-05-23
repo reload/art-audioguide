@@ -67,7 +67,7 @@ function audible_preprocess_html(&$vars) {
   );
 
   // Specify image for each Apple-size (since Jacques made different
-  // favicons for the differente sizes.
+  // favicons for the differente sizes).
   $apple_touch_sizes = array('57x57', '72x72', '114x114', '120x120', '144x144', '152x152');
   // Set each size/metatag.
   foreach ($apple_touch_sizes as $size){
