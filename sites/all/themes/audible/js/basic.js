@@ -6,17 +6,12 @@
   Drupal.behaviors.menuToggle = {
     attach: function (context, settings) {
 
-      // Check if the menu is checked.
-      $('#menu-toggle').change(function(){
-        // The menu selector.
-        var menu = $('.delta-toggle-menu', context);
-        $('.delta-toggle-menu').toggleClass('open');
-        // Check if the "burger" is checked.
-        if (this.checked) {
-          menu.show();
-        } else {
-          menu.hide();
-        }
+      // Check if someone wants to change the menu.
+      $('#menu-toggle', context).change(function(){
+        // Toggle the icon (change it to a cross).
+        $('label[for="menu-toggle"]', context).toggleClass('active');
+        // Toggle the menu (open/close).
+        $('.delta-toggle-menu', context).toggleClass('open');
       });
 
     }

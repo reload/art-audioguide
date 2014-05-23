@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         options: {
           livereload: false
         },
-        files: ['sass/*.scss'],
+        files: ['sass/*.scss', 'sass/*/*.scss'],
         tasks: ['compass:prod']
       },
       css: {
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         options: {
           environment: 'production',
           outputStyle: 'compact',
-          force: true
+          relativeAssets: false
         }
       }
     }

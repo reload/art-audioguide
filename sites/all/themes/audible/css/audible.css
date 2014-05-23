@@ -275,17 +275,19 @@ a:hover { text-decoration: none; }
 /* § Menu
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .icon-menu { position: absolute; top: 0; right: 0; width: 126px; }
-.icon-menu li a, .icon-menu li input { display: inline-block; width: 42px; height: 42px; float: left; font-size: 22px; line-height: 47px; text-align: center; color: #111111; }
-.icon-menu li a:hover, .icon-menu li input:hover { color: #5f66f2; cursor: pointer; }
+.icon-menu li a, .icon-menu li label { display: inline-block; width: 42px; height: 42px; float: left; font-size: 22px; line-height: 47px; text-align: center; color: #111111; }
+.icon-menu li a:hover, .icon-menu li label:hover { color: #5f66f2; cursor: pointer; }
 .icon-menu li a.active { background: #e6e6e8; }
 .icon-menu li a.active:hover, .icon-menu li a.active:focus { color: black; }
 
 /* § Menu toggle
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.icon-menu label { display: none; }
+.icon-menu input { display: none; }
 
-#menu-toggle:hover, #menu-toggle:focus { outline: none; }
-#menu-toggle.active { background: #111111; color: #fff; }
+label[for="menu-toggle"]:hover, label[for="menu-toggle"]:focus { outline: none; }
+label[for="menu-toggle"]:before { -webkit-transition: 0.2s; -moz-transition: 0.2s; -o-transition: 0.2s; transition: 0.2s; }
+label[for="menu-toggle"].active { background: #111111; color: #fff; }
+label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); }
 
 /* § Search
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -312,7 +314,7 @@ a:hover { text-decoration: none; }
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .tile--large { width: 100%; float: none; }
 
-.icon, .icon--facebook:before, .icon--mail-2:before, .icon--mail-1:before, .icon--pause:before, .icon--play:before, .icon--angle-up:before, .icon--angle-right:before, .icon--angle-left:before, .icon--angle-down:before, .icon--smk:before, #logo:before, .icon--search:before, .icon-menu .fa-search:before, .icon--menu:before, #menu-toggle:before, .icon--listen-2:before, .icon--listen-1:before, .icon-menu .fa-th:before, .icon--info-2:before, .icon--info-1:before, .icon--cross:before, #menu-toggle.active:before, .icon--arrow-up:before, .icon--arrow-right:before, .icon--arrow-left:before, .icon--arrow-down:before { font-family: 'smk_audible_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.icon, .icon--facebook:before, .icon--mail-2:before, .icon--mail-1:before, .icon--pause:before, .icon--play:before, .icon--angle-up:before, .icon--angle-right:before, .icon--angle-left:before, .icon--angle-down:before, .icon--smk:before, #logo:before, .icon--search:before, .icon-menu .fa-search:before, .icon--menu:before, label[for="menu-toggle"]:before, .icon--listen-2:before, .icon--listen-1:before, .icon-menu .fa-th:before, .icon--info-2:before, .icon--info-1:before, .icon--cross:before, label[for="menu-toggle"].active:before, .icon--arrow-up:before, .icon--arrow-right:before, .icon--arrow-left:before, .icon--arrow-down:before { font-family: 'smk_audible_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 .icon--facebook:before { content: "\e600"; }
 
@@ -336,7 +338,7 @@ a:hover { text-decoration: none; }
 
 .icon--search:before, .icon-menu .fa-search:before { content: "\e60a"; }
 
-.icon--menu:before, #menu-toggle:before { content: "\e60b"; }
+.icon--menu:before, label[for="menu-toggle"]:before { content: "\e60b"; }
 
 .icon--listen-2:before { content: "\e60c"; }
 
@@ -346,7 +348,7 @@ a:hover { text-decoration: none; }
 
 .icon--info-1:before { content: "\e60f"; }
 
-.icon--cross:before, #menu-toggle.active:before { content: "\e610"; }
+.icon--cross:before, label[for="menu-toggle"].active:before { content: "\e610"; }
 
 .icon--arrow-up:before { content: "\e611"; }
 
