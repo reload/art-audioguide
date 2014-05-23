@@ -1,0 +1,66 @@
+/*
+ § Default
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.info-panel {
+  
+  position: relative;
+  background: $gray-lighter;
+  padding: 18px 12px 10px;
+  @include box-shadow(inset 0 -1px 4px 0 rgba(0, 0, 0, .1) );
+  text-align: center;
+
+  &.open {
+    text-align: left;
+  }
+
+  // Title
+  > h2 {
+    @extend .heading--medium;
+  }
+
+  // Content
+  .content {
+    @extend .copy; // see _copy.scss
+  }
+
+}//.info-panel
+
+
+/*
+ § Expandable
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.info-panel--expandable {
+  @extend .info-panel;
+  padding-bottom: 36px;
+
+  // Open panel
+  .toggle {
+    display: block;
+    height: 34px;
+    width: 100%;
+    color: rgba(0, 0, 0, .4);
+    line-height: 36px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @extend .icon--angle-down;
+    text-align: center;
+    font-size: 22px;
+
+    &:hover,
+    &:focus {
+      color: $black;   
+    }
+  }//.open
+
+  // Close panel
+  .open {
+    @extend .open;
+
+    // Upward angle - see _icons.scss
+    &:before {
+      content: "\e605" !important;
+    }
+  }
+
+}//.info-panel--expandable

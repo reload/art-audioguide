@@ -7,7 +7,6 @@
 
 // Compass
 @import "compass/css3";
-@import "compass/utilities/general/clearfix";
 
 // Variables
 @import "variables";
@@ -21,6 +20,7 @@
 
 // Global layout
 @import "components/layout";
+
 
 // Typography
 @import "components/fonts";   // Load custom font with @fontface.
@@ -36,6 +36,8 @@
 @import "components/icon-menu";
 @import "components/delta-toggle-menu";
 @import "components/tile";
+@import "components/info-panel";
+@import "components/compact-list";
 
 // Icons
 @import "components/icons";
@@ -44,3 +46,4 @@
 // Page specific styles
 @import "pages/choose-lang";
 @import "pages/home";
+@import "pages/route";

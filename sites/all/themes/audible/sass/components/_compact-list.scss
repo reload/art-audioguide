@@ -1,0 +1,44 @@
+/*
+ § List
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.compact-list {
+
+
+
+}//.compact-list
+
+
+/*
+ § List item
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.compact-list__item {
+  border-bottom: 1px solid $gray;
+  position: relative;
+  height: 71px;
+
+  // thumbnail
+  .thumbnail-wrapper {
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // Number
+    span {
+      display: inline-block;
+      background: $black;
+      color: #fff;
+      padding: 4px 10px;
+      min-width: 24px;
+      border-radius: 50px;
+      text-align: center;
+      line-height: normal;
+      font-family: 'hill bold';
+      font-size: 16px;
+      position: absolute;
+      top: 32%;
+      left: 50%;
+    }
+  }
+
+}//.compact-list__item

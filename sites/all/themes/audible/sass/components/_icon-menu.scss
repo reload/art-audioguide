@@ -6,7 +6,7 @@
   top: 0;
   right: 0;
   width: 42 * 3px;
-
+  
   li a,
   li label { // the menu toggle is not an <a> tag
     display: inline-block;
@@ -20,7 +20,7 @@
 
     &:hover {
       color: $purple;
-      cursor: pointer;
+      cursor: pointer;   
     }
   }//li
 
@@ -52,11 +52,7 @@ label[for="menu-toggle"] {
 
   &:hover,
   &:focus {
-    outline: none;
-  }
-
-  &:before {
-    @include transition(.2s);
+    outline: none;   
   }
 
   // When active
@@ -64,9 +60,6 @@ label[for="menu-toggle"] {
     background: $black;
     color: #fff;
     @extend .icon--cross;
-    &:before {
-      @include rotate(360deg);
-    }
   }
 }
 

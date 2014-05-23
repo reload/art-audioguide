@@ -108,7 +108,7 @@ function smk_base_icon_menu() {
   $links[] = l('', 'number-search', array('attributes' => array('class' => array('test-link', 'menu', 'fa', 'fa-th'))));
   // Burger icon.
   $links[] = '
-    <label for="menu-toggle"><i class="fa fa-bars"></i></label>
+    <label for="menu-toggle"></label>
     <input id="menu-toggle" type="checkbox">
   ';
 

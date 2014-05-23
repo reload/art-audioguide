@@ -2,12 +2,14 @@
  § Standard tile (small)
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .tile {
-  // NB! Do not add any background on this element! Only children of this one.
+  // IMPORTANT! Don't define any background for this element (reason: jQuery Hack).
   width: 50%;
   float: left;
   overflow: hidden;
   text-align: center;
   position: relative;
+  margin-bottom: 12px;
+  padding-right: 6px;
 
   &:hover,
   &:focus {
@@ -17,6 +19,7 @@
 
   // We can't make an inset border on a image - lets pseudo our way out of this!
 
+
   img {
     width: 100%;
   }
@@ -24,42 +27,75 @@
   // Title
   a {
     @extend .heading--extra-small;
+    font-family: 'hill regular', sans-serif;
+    // text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
     margin-bottom: 0;
     color: #fff;
     display: block;
     text-align: center;
     position: absolute;
-    right: 12px;
-    left: 12px;
-    bottom: 12px;
-    background: rgba(0, 0, 0, .65);
-    padding: 5px;
+    right: 6px;
+    left: 0;
+    bottom: 0;
+    background: $black;
+    padding: 10px 5px 12px;
   }
 }
+
+
+/*
+ § Every second tile
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Every second tile is being tweaked to create the crease between tiles.
+// This way of doing it makes sure that we can maintain a responsive layout
+// without adjusting the markup.
+
+.tile:nth-child(even) {
+  padding-right: 0;
+  padding-left: 6px;
+
+  // Title
+  a {
+    right: 0;
+    left: 6px;
+  }
+}
+
 
 /*
  § Large tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile--large {
+.tile--large,
+.tile--large:nth-child(even) {
   @extend .tile;
+  padding: 0;
   width: 100%;
   float: none;
 
   a {
     @extend .heading--small;
+    padding: 12px 5px 13px;
+    right: 0;
+    left: 0;
   }
 }
 
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 0;
 
-  //   &:hover,
-  //   &:focus {
-  //     @include box-shadow( inset 0 0 0 12px rgba(95, 102, 242, .4) );
-  //   }
-  // }
+/*
+ § "All artworks" and "All routes"
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// A tile that is not a route, but a reference to a list or other content.
+.tile--utility {
+
+  // Title
+  a {
+    text-shadow: none;
+  }
+}
+
+.tile--artworks,
+.tile--routes {
+
+
+}

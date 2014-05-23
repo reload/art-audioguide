@@ -3,11 +3,12 @@
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .page-header {
+  z-index: 999;
   position: relative;
   height: 42px;
   background: #fff;
   padding: 0 12px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   @include box-shadow( 0 1px 4px 0 rgba(0, 0, 0, .25) );
 
   @media (min-width: $screen-s) {
@@ -38,4 +39,4 @@
   img {
     display: none;
   }
-} // #logo
+}//#logo
