@@ -7,6 +7,14 @@
 include_once 'smk_search.features.inc';
 
 /**
+ * Implements hook_init().
+ */
+function smk_search_init() {
+  // Add JavaScript dependencies for the Number-Pad.
+  drupal_add_js(drupal_get_path('module', 'smk_search') . '/numberpad.js', array('type' => 'file'));
+}
+
+/**
  * Implements hook_theme().
  */
 function smk_search_theme($existing, $type, $theme, $path) {
