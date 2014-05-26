@@ -58,10 +58,18 @@ small,
   font-size: .75em;
 }
 
+// Small type in Hill
+.type--small-stylish {
+  font-size: 1em;
+  color: $gray-darker;
+  font-family: 'hill regular', sans-serif;
+
+}
+
 // Weak
 %type--weak,
 .type--weak {
-  color: $gray-dark;
+  color: $gray-darker;
 
   a {
     color: lighten($purple, 10%);
@@ -91,3 +99,4 @@ sub {
   padding-right: .1em;
   padding-left: .1em;
 }
+

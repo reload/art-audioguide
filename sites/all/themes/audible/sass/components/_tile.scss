@@ -2,7 +2,7 @@
  § Standard tile (small)
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .tile {
-  // IMPORTANT! Don't define any background for this element (reason: jQuery Hack).
+  // IMPORTANT: Don't define any background on tiles (reason: jQuery hack).
   width: 50%;
   float: left;
   overflow: hidden;

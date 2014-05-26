@@ -5,7 +5,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 42 * 3px;
+  width: 42 * 4px;
+  @include user-select(none);
   
   li a,
   li label { // the menu toggle is not an <a> tag
@@ -18,15 +19,19 @@
     text-align: center;
     color: $black;
 
-    &:hover {
+    &:active {
       color: $purple;
-      cursor: pointer;   
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer; 
     }
   }//li
 
   // Active menu item
   li a.active {
-    background: $gray;
+    background: $gray-lighter;
 
     &:hover,
     &:focus {
@@ -50,16 +55,28 @@
 label[for="menu-toggle"] {
   @extend .icon--menu;
 
+  &:active {
+    color: $purple;
+  }
+
   &:hover,
   &:focus {
-    outline: none;   
+    outline: none;
+    cursor:pointer;
+  }
+
+  &:before {
+    @include transition(.2s);
   }
 
   // When active
   &.active {
     background: $black;
-    color: #fff;
+    color: #fff !important;
     @extend .icon--cross;
+    &:before {
+      @include rotate(360deg);
+    }
   }
 }
 

@@ -17,6 +17,46 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon--note:before {
+	@extend .icon;
+	content: "\e61c";
+}
+
+.icon--cross-2:before {
+	@extend .icon;
+	content: "\e61b";
+}
+
+.icon--facebook-2:before {
+	@extend .icon;
+	content: "\e61a";
+}
+
+.icon--mail-3:before {
+	@extend .icon;
+	content: "\e619";
+}
+
+.icon--pause-2:before {
+	@extend .icon;
+	content: "\e617";
+}
+
+.icon--play-2:before {
+	@extend .icon;
+	content: "\e618";
+}
+
+.icon--angle-left-2:before {
+	@extend .icon;
+	content: "\e615";
+}
+
+.icon--angle-right-2:before {
+	@extend .icon;
+	content: "\e616";
+}
+
 .icon--facebook:before {
 	@extend .icon;
 	content: "\e600";

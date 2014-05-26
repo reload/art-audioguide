@@ -1,11 +1,8 @@
 /*
  § List
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.compact-list {
-
-
-
-}//.compact-list
+// .compact-list {
+// }
 
 
 /*
@@ -14,31 +11,121 @@
 .compact-list__item {
   border-bottom: 1px solid $gray;
   position: relative;
-  height: 71px;
+  height: 80px;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover,
+  &:focus {
+    background: $gray-lighter;   
+  }
 
   // thumbnail
   .thumbnail-wrapper {
-    width: 70px;
+    width: 80px;
+    height: 80px;
     position: absolute;
     top: 0;
     left: 0;
+
+    // Bottom line on thumbnail
+    &:before {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: rgba(255, 255, 255, .5);
+      position: absolute;
+      bottom: 0;
+    }
 
     // Number
     span {
       display: inline-block;
       background: $black;
       color: #fff;
-      padding: 4px 10px;
+      padding: 4px 9px;
       min-width: 24px;
       border-radius: 50px;
       text-align: center;
       line-height: normal;
       font-family: 'hill bold';
-      font-size: 16px;
+      font-size: 15px;
       position: absolute;
-      top: 32%;
+      top: 35%;
       left: 50%;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, .4);
+    }
+  }
+
+  // title
+  h2 {
+    @extend .heading--small;
+    font-family: 'hill regular', sans-serif;
+    margin-left: 90px;
+    margin-bottom: 2px;
+    padding-top: 10px;
+
+    // CSS truncation
+    width: 220px; // This width is being adjusted dynamically in audible.js
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    b {
+      font-weight: normal;
+      font-family: 'hill bold', sans-serif;
+    }
+
+    a {
+      color: $black;
+    }
+
+    // Audio id
+    span {
+      @extend .audio-id; // see _audio-id.scss
+    }
+  }
+
+  // Meta info
+  .content {
+    @extend .type--small-stylish;
+    margin-left: 90px;
+    line-height: 1.35;
+
+    div {
+      width: 220px; // This width is being adjusted dynamically in audible.js
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
 }//.compact-list__item
+
+
+/*
+ § Compact list for search results (show artworks)
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.compact-list--search {
+
+  .compact-list__item {
+    @extend .compact-list__item;
+
+    .thumbnail-wrapper {
+      border-right: 1px solid $gray;
+      padding: 12px;
+      text-align: center;
+
+      img {
+        max-height: 56px;
+      }
+
+      // Remove bottom line on thumbnail
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+}

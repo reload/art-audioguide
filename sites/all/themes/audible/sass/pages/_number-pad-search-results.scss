@@ -1,9 +1,10 @@
-// Route
+// Number pad search results
 
-.page-route {
+.page-number-pad-search-results {
 
   // Extending compact-list styles to view rows
   .view-content {
+    // @extend .compact-list;
 
     .views-row {
       @extend .compact-list__item;

@@ -1,9 +1,10 @@
-// Route
+// All routes
 
-.page-route {
+.page-all-routes {
 
   // Extending compact-list styles to view rows
   .view-content {
+    // @extend .compact-list;
 
     .views-row {
       @extend .compact-list__item;

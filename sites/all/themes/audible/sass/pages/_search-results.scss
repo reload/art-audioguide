@@ -1,9 +1,10 @@
-// Route
+// Search results
 
-.page-route {
+.page-search-results {
 
   // Extending compact-list styles to view rows
   .view-content {
+    @extend .compact-list--search;
 
     .views-row {
       @extend .compact-list__item;

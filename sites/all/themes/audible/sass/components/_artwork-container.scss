@@ -1,0 +1,16 @@
+.artwork-container {
+  padding: 12px;
+  padding-bottom: 18px;
+  text-align: center;
+
+  img {
+    margin-bottom: .5em;
+  }
+
+  // Credits and copyright
+  p {
+    @extend .type--small;
+    @extend .type--weak;
+  }
+
+}

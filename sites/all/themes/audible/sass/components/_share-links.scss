@@ -1,0 +1,22 @@
+.share-links {
+  font-family: 'hill regular', sans-serif;
+  padding: 20px 12px 26px;
+  text-align: center;
+  line-height: 20px;
+  background: $gray-lighter;
+  @include box-shadow( 0 -1px 4px 0 rgba(0, 0, 0, .22) );
+
+  // Share links (icons)
+  a {
+    color: $black;
+    font-size: 20px;
+    display: inline-block;
+    margin-left: .4em;
+    position: relative;
+    top: .2em;
+
+    &.icon--facebook-2 {
+      margin-left: .2em;
+    }
+  }
+}

@@ -35,7 +35,7 @@
 // Large
 .heading--large {
   @extend .heading;
-  font-size: 2.75em;
+  font-size: 1.75em;
   margin-bottom: .5em;
   letter-spacing: -.01em;
 }
@@ -60,7 +60,6 @@
     font-family: 'hill regular', sans-serif;
   font-size: .7em;
   font-weight: normal;
-  letter-spacing: .07em;
   text-transform: uppercase;
   margin-bottom: .55em;
 }

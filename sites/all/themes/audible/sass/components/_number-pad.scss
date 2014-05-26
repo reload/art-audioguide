@@ -1,0 +1,157 @@
+.number-pad {
+  position: absolute;
+  top: 42px;
+  bottom: 0;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+
+  // Display
+  .display {
+    padding: 22px 12px 2px;
+    background: #fff;
+    background: $gray-lighter;
+    position: relative;
+    @include box-shadow(inset 0 -1px 4px 0 rgba(0, 0, 0, .1) );
+
+    .audio-id-value {
+      font-family: 'hill bold', sans-serif;
+      font-size: 56px;
+      color: $purple;
+      text-align: right;
+      height: 72px;
+      width: 100%;
+      line-height: 1;
+    }
+
+    .placeholder {
+      // display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      @extend .type--small-stylish;
+      font-size: 15px;
+      margin-left: -12px;
+
+      .inner {
+        position: relative;
+        top: 27px;
+      }
+    }
+
+    .clear {
+      display: none;
+      @extend .icon--cross-2;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      line-height: 104px;
+      padding-left: 16px;
+      width: 80px;
+      font-size: 34px;
+      color: rgba(0, 0, 0, .2);
+
+      &:hover,
+      &:focus {
+        color: $black;   
+      }
+    }
+  }
+  
+  .keys {
+    overflow: hidden;
+  }
+
+  // Key base styles
+  .key {
+    display: block;
+    width: 33.33%;
+    height: 42px;
+    float: left;
+    text-align: center;
+    font-family: 'hill regular', sans-serif;
+    font-size: 34px;
+    color: $black;
+    position: relative;
+    @include box-shadow(inset -1px 0 0 0 $gray, inset 0 -1px 0 0 $gray);
+
+    &:active {
+      background: $black;
+      color: #fff;   
+    }
+
+    // Removing redundant lines between keys
+    // Last in row keys
+    &.last {
+      @include box-shadow(inset 0 -1px 0 0 $gray);
+    }
+
+    // OK key
+    &.last.bottom {
+      @include box-shadow(inset 0 -1px 0 0 $gray);
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      margin-top: -22px;
+      margin-right: -9px;
+
+    }
+  }//.key
+
+  .key-backspace {
+    span {
+      @extend .icon;
+      margin-top: -16px;
+      margin-right: -17px;
+    }
+  }
+
+  .key-submit {
+    background: $black;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 31px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      outline: none;  
+      background: $purple; 
+    }
+  }
+
+  // Help
+  .help {
+    text-align: center;
+    line-height: 37px;
+    // background: $gray-lighter;
+
+    a {
+      // @include box-shadow( inset 0 1px 5px 0 rgba(0, 0, 0, 0.2) );
+      display: block;
+      height: 36px;
+      color: $black;
+      @extend .type--small-stylish;
+
+      &:active {
+        background: $black;
+        color: #fff;
+      }
+
+      // Icon
+      i {
+        position: relative;
+        top: .1em;
+      }
+    }
+  }
+
+}//.number-pad
