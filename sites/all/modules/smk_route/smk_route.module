@@ -5,3 +5,37 @@
  */
 
 include_once 'smk_route.features.inc';
+
+/**
+ * Implements hook_ds_fields_info().
+ */
+function smk_route_ds_fields_info($entity_type) {
+  $fields = array();
+
+  if ($entity_type == 'node') {
+    $fields['node']['amount_of_sounds'] = array(
+        'title' => t('Amount of sounds'),
+        'field_type' => DS_FIELD_TYPE_FUNCTION,
+        'function' => 'smk_route_amount_of_sounds',
+        'ui_limit' => array('route|*'),
+    );
+  }
+
+  if (isset($fields[$entity_type])) {
+    return array($entity_type => $fields[$entity_type]);
+  }
+
+  return;
+}
+
+/**
+ * Returns the amount of sounds the route references.
+ */
+function smk_route_amount_of_sounds($field) {
+  // Get amount of references.
+  $result = db_query("SELECT COUNT(field_audio_ref_target_id) FROM field_data_field_audio_ref WHERE entity_id = :nid", array(
+    'nid' => $field['entity']->nid,
+  ));
+  // Return the result.
+  return $result->fetchField() . ' ' . t('Sounds');
+}
