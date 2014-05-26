@@ -6,6 +6,7 @@ dependencies[] = ds
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = file
+dependencies[] = file_entity
 dependencies[] = image
 dependencies[] = mediaelement
 dependencies[] = smk_base
