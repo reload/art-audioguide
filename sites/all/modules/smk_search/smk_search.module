@@ -29,14 +29,17 @@ function smk_search_theme($existing, $type, $theme, $path) {
 
 // Implements hook_form_alter().
 function smk_search_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'views_exposed_form':
-      // Append the number-search template after the real form.
+  // Check if we're on the number-search page (adding scope).
+  if (strtolower(arg(0)) == 'number-search') {
+    // Get the exposed form.
+    if ($form_id == 'views_exposed_form') {
+      // Append the number-search template after the "real form".
       $form['#suffix'] = theme('number_search', array(
           'intro' => t('Enter the artworks number.'),
           'example' => t('For example'),
           'help' => l('<i class="icon--info-2"></i> ' . t('Help. How do I use this?'), '<front>', array('html' => TRUE)),
         )
       );
+    }
   }
 }
