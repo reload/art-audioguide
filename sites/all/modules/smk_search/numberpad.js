@@ -57,7 +57,7 @@
         input.attr('defaultValue', input.attr('defaultValue').slice(0, -1) );
 
         // Remove from display.
-        display.text( $().text().slice(0, -1) );
+        display.text( display.text().slice(0, -1) );
       }
 
       // Clear display.
