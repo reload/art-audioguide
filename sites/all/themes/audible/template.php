@@ -28,6 +28,13 @@ function audible_menu_link(array $variables) {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ */
+function audible_preprocess_page(&$variables) {
+  drupal_add_js(libraries_get_path('fastclick') .'/fastclick.js', 'file');
+}
+
+/**
  * Implements hook_preprocess_html().
  */
 function audible_preprocess_html(&$vars) {
