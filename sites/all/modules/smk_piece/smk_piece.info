@@ -27,6 +27,7 @@ features[field_instance][] = node-piece-field_artist
 features[field_instance][] = node-piece-field_image
 features[field_instance][] = node-piece-field_piece_id
 features[field_instance][] = node-piece-title_field
+features[field_instance][] = node-route-field_image
 features[node][] = artist
 features[node][] = piece
 features[variable][] = entity_translation_settings_node__artist
