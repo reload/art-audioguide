@@ -80,3 +80,22 @@ EOT;
     ),
   ));
 }
+
+
+/**
+ * Implements hook_file_insert().
+ */
+function smk_route_file_insert($file) {
+  // Check if it's an audio-file we're uploading.
+  if ($file->type == 'audio') {
+    // Require php script: "mp3 class".
+    require_once libraries_get_path('mp3file') . '/mp3file.class.php';
+    // Get the meta-data of the mp3 file.
+    $mp3 = new mp3file($file->uri);
+    $metadata = $mp3->get_metadata();
+    // Set the duration.
+    $wrapper = entity_metadata_wrapper('file', $file->fid);
+    $wrapper->field_duration->set($metadata['Length']);
+    $wrapper->save();
+  }
+}

@@ -44,6 +44,24 @@ function smk_audio_field_default_field_bases() {
     'type' => 'file',
   );
 
+  // Exported field_base: 'field_duration'
+  $field_bases['field_duration'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_duration',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_piece_ref'
   $field_bases['field_piece_ref'] = array(
     'active' => 1,

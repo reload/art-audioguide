@@ -10,6 +10,60 @@
 function smk_audio_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'file-audio-field_duration'
+  $field_instances['file-audio-field_duration'] = array(
+    'bundle' => 'audio',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Duration of file in seconds',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'file',
+    'field_name' => 'field_duration',
+    'label' => 'Duration',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => -4,
+    ),
+  );
+
   // Exported field_instance: 'node-audio-body'
   $field_instances['node-audio-body'] = array(
     'bundle' => 'audio',
@@ -295,6 +349,8 @@ function smk_audio_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Audio file');
   t('Body');
+  t('Duration');
+  t('Duration of file in seconds');
   t('Enter the address to the video');
   t('Piece');
   t('Title');
