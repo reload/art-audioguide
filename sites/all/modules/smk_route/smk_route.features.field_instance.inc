@@ -219,7 +219,7 @@ function smk_route_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'compact_list',
+          'image_style' => 'all_routes_style__80x80_crop',
         ),
         'type' => 'image',
         'weight' => 1,

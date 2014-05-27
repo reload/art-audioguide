@@ -32,12 +32,12 @@ function smk_route_views_api($module = NULL, $api = NULL) {
 function smk_route_image_default_styles() {
   $styles = array();
 
-  // Exported image style: compact_list.
-  $styles['compact_list'] = array(
-    'name' => 'compact_list',
-    'label' => 'Compact list (80x80)',
+  // Exported image style: all_routes_style__80x80_crop.
+  $styles['all_routes_style__80x80_crop'] = array(
+    'name' => 'all_routes_style__80x80_crop',
+    'label' => 'All routes (80x80 crop)',
     'effects' => array(
-      2 => array(
+      3 => array(
         'label' => 'Scale and crop',
         'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
