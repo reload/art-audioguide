@@ -85,5 +85,28 @@ function smk_base_modules_enabled($modules) {
       'link_title' => 'All Routes',
     );
     menu_link_save($item);
+
+    // The artwork list node.
+    $values = array(
+        'type' => 'generic_page',
+        'title' => 'All artworks',
+        'language' => 'en',
+    );
+    // Create the node.
+    $all_artworks_node = entity_create('node', $values);
+    node_save($all_artworks_node);
+
+    // And add the field value.
+    $wrapper = entity_metadata_wrapper('node', $all_artworks_node);
+    $wrapper->field_block_ref->set('artworks-block');
+    $wrapper->save();
+
+    // Create a menu item for the front page with the 'all artworks' node.
+    $item = array(
+        'menu_name' => 'menu-front-page-menu',
+        'link_path' => 'node/' . $all_artworks_node->nid,
+        'link_title' => 'All Artworks',
+    );
+    menu_link_save($item);
   }
 }
