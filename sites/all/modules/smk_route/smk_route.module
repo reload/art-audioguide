@@ -13,10 +13,13 @@ function smk_route_ds_fields_info($entity_type) {
   $fields = array();
 
   if ($entity_type == 'node') {
+    // Amount of referenced sounds.
     $fields['node']['amount_of_sounds'] = array(
         'title' => t('Amount of sounds'),
         'field_type' => DS_FIELD_TYPE_FUNCTION,
-        'function' => 'smk_route_amount_of_sounds',
+        'function' => '_smk_route_amount_of_sounds',
+        'ui_limit' => array('route|*'),
+    );
         'ui_limit' => array('route|*'),
     );
   }
@@ -29,13 +32,17 @@ function smk_route_ds_fields_info($entity_type) {
 }
 
 /**
- * Returns the amount of sounds the route references.
+ * Returns the amount of sounds a route references.
  */
-function smk_route_amount_of_sounds($field) {
-  // Get amount of references.
-  $result = db_query("SELECT COUNT(field_audio_ref_target_id) FROM field_data_field_audio_ref WHERE entity_id = :nid", array(
+function _smk_route_amount_of_sounds($field) {
+  // Set query to get the amount of references.
+  $query = db_query("SELECT COUNT(field_audio_ref_target_id) FROM field_data_field_audio_ref WHERE entity_id = :nid", array(
     'nid' => $field['entity']->nid,
   ));
-  // Return the result.
-  return $result->fetchField() . ' ' . t('Sounds');
+  // Get the result as a string.
+  $result = $query->fetchField();
+
+  // Return the string.
+  return format_plural($result, t('!result sound'), t('!result sounds'), array('!result' => $result));
+}
 }
