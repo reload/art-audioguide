@@ -29,6 +29,7 @@ features[field_instance][] = file-image-field_file_image_alt_text
 features[field_instance][] = file-image-field_file_image_title_text
 features[field_instance][] = node-route-body
 features[field_instance][] = node-route-field_audio_ref
+features[field_instance][] = node-route-field_image
 features[field_instance][] = node-route-title_field
 features[image][] = compact_list
 features[node][] = route
