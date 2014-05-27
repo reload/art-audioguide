@@ -101,12 +101,12 @@
   }
 
   /**
-   * Compact list.
+   * Clickable list (views-lists).
    */
   Drupal.behaviors.compactList = {
     attach: function (context, settings) {
       // Selectors.
-      var page = $('.node-type-generic-page .view-routes', context);
+      var page = $('.node-type-generic-page', context);
       var items = $('.views-row, .compact-list__item', page);
 
       /**
@@ -115,6 +115,17 @@
       items.click(function(){
         window.location = $(this).find('a').attr('href');
       });
+    }
+  }
+
+  /**
+   * Compact list item title and content truncation (Routes).
+   */
+  Drupal.behaviors.compactListTruncation = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.node-type-generic-page .view-routes', context);
+      var items = $('.views-row, .compact-list__item', page);
 
       /**
        * Compact list item title and content truncation.
@@ -133,6 +144,37 @@
       $(window).resize(function(){
         setCompactListItemContentWidth();
       });
+    }
+  }
+
+  /**
+   * Vertically center thumbnails in list (search results & artworks/pieces).
+   */
+  Drupal.behaviors.verticallyAlignThumbs = {
+    attach: function (context, settings) {
+
+      // Function to vertically align thumbnails.
+      function verticalAlignThumbs() {
+        var page = $('.node-type-generic-page .view-artworks', context);
+        var images = $('.thumbnail-wrapper img', page);
+
+        images.each( function() {
+          // Calculating offset that will vertically center the thumb
+          // NOTE: 56 is the maximum thumb height in pixels
+          var thumbHeight = $(this).height();
+          var verticalOffset = (56 - thumbHeight) / 2;
+
+          if( $(this).height() < 56 ) {
+            $(this).css('margin-top', verticalOffset + 'px');
+          }
+        });
+      }
+
+      // Execute the function when the window is loaded.
+      $(window).load(function() {
+        verticalAlignThumbs();
+      });
+
     }
   }
 

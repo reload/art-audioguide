@@ -87,13 +87,13 @@ function smk_piece_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '2',
         ),
         'xmlsitemap' => array(
           'weight' => '30',

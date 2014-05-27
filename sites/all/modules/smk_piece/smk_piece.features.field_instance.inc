@@ -173,12 +173,9 @@ function smk_piece_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'node',
@@ -198,7 +195,7 @@ function smk_piece_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 3,
     ),
   );
 
@@ -219,10 +216,13 @@ function smk_piece_field_default_field_instances() {
         'weight' => 1,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 0,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 11,
       ),
     ),
     'ds_extras_field_template' => '',
@@ -243,7 +243,7 @@ function smk_piece_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 32,
+      'weight' => 5,
     ),
   );
 
@@ -264,9 +264,13 @@ function smk_piece_field_default_field_instances() {
         'weight' => 5,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'all_artworks__55x56',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
     ),
@@ -295,7 +299,7 @@ function smk_piece_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 34,
+      'weight' => 7,
     ),
   );
 
@@ -316,7 +320,7 @@ function smk_piece_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 12,
       ),
     ),
     'ds_extras_field_template' => '',
@@ -336,7 +340,61 @@ function smk_piece_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 33,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-piece-field_year_of_creation'
+  $field_instances['node-piece-field_year_of_creation'] = array(
+    'bundle' => 'piece',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The year the artwork was created',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 12,
+      ),
+    ),
+    'ds_extras_field_template' => 'theme_ds_field_reset',
+    'entity_type' => 'node',
+    'field_name' => 'field_year_of_creation',
+    'label' => 'Year of creation',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
     ),
   );
 
@@ -354,10 +412,15 @@ function smk_piece_field_default_field_instances() {
         'weight' => 6,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => 'content',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -379,7 +442,7 @@ function smk_piece_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => 0,
     ),
   );
 
@@ -390,7 +453,9 @@ function smk_piece_field_default_field_instances() {
   t('Body');
   t('Description');
   t('Inventory ID');
+  t('The year the artwork was created');
   t('Title');
+  t('Year of creation');
   t('image');
 
   return $field_instances;
