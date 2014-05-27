@@ -607,5 +607,3 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 
 .page-generic .page-title { margin: 14px 12px; padding-bottom: 12px; border-bottom: 1px solid #e6e6e8; }
 .page-generic .copy, .page-generic .info-panel .content, .info-panel .page-generic .content, .page-generic .info-panel--expandable .content, .info-panel--expandable .page-generic .content, .page-generic .search-panel .content, .search-panel .page-generic .content { padding: 0 12px 12px; }
-
-.node-type-generic-page .view-routes .view-content .views-row fieldset.content legend { display: none; }

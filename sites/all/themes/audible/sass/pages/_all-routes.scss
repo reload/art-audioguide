@@ -7,13 +7,6 @@
 
     .views-row {
       @extend .compact-list__item;
-
-      // Remove the fieldset's title.
-      fieldset.content {
-        legend {
-          display: none;
-        }
-      }
     }
   }
 }
