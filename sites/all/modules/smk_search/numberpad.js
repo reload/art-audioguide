@@ -30,10 +30,10 @@
     attach: function (context, settings) {
       // Selectors.
       var page = $('.page-number-search', context);
-      var numberPad = $('.number-pad', page);
       var form = $('form', page);
       var input = $('input[name="id"]', form);
-      var display = $('.number-pad div.audio-id-value', page);
+      var numberPad = $('.number-pad', page);
+      var display = $('div.audio-id-value', numberPad);
       var clear = $('.clear', numberPad);
 
       // If there's any results on the page.
@@ -42,7 +42,7 @@
         numberPad.hide();
       }
 
-      // Add number.
+      // Function: Add number.
       function numberPadAddNumber(value) {
         // Add to hidden input field.
         input.attr('defaultValue', input.attr('defaultValue') + value );
@@ -51,7 +51,7 @@
         display.append(value);
       }
 
-      // Remove number (one at a time).
+      // Function: Remove number (one at a time).
       function numberPadRemoveNumber() {
         // Remove from hidden input field.
         input.attr('defaultValue', input.attr('defaultValue').slice(0, -1) );
@@ -60,7 +60,7 @@
         display.text( display.text().slice(0, -1) );
       }
 
-      // Clear display.
+      // Function: Clear display.
       function numberPadClear() {
         // Clear hidden input field.
         input.attr('defaultValue', '');
@@ -68,6 +68,11 @@
         // Clear display.
         display.text('');
       }
+
+      // Run a "clear" when loading the page.
+      // This is to prevent "adding" to the previous number
+      // after someone already submitted.
+      numberPadClear();
 
       // When a number key is clicked.
       $('.key-number', numberPad).click( function(e){
