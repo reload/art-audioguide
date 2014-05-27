@@ -20,6 +20,11 @@ function smk_route_ds_fields_info($entity_type) {
         'function' => '_smk_route_amount_of_sounds',
         'ui_limit' => array('route|*'),
     );
+    //
+    $fields['node']['sounds_duration'] = array(
+        'title' => t('The combined duration of the sounds.'),
+        'field_type' => DS_FIELD_TYPE_FUNCTION,
+        'function' => '_smk_route_sounds_duration',
         'ui_limit' => array('route|*'),
     );
   }
@@ -45,4 +50,36 @@ function _smk_route_amount_of_sounds($field) {
   // Return the string.
   return format_plural($result, t('!result sound'), t('!result sounds'), array('!result' => $result));
 }
+
+/**
+ * Returns the combined time of the associated sounds (For Routes).
+ */
+function _smk_route_sounds_duration($field) {
+  $query = db_select('field_data_field_audio_ref', 'ref')
+    ->fields('ref', array('field_audio_ref_target_id'))
+    ->condition('ref.entity_id', $field['entity']->nid, '=')
+    ->execute();
+
+  // Define sum variable.
+  $seconds = 0;
+  // Loop through the results.
+  foreach ($query as $reference) {
+    // Load the node.
+    $node = node_load($reference->field_audio_ref_target_id);
+    // Wrap the node.
+    $wrapper = entity_metadata_wrapper('node', $node);
+    // Get the file field.
+    $file = $wrapper->field_audio_file->value();
+    // Wrap the field.
+    $fileWrapper = entity_metadata_wrapper('file', $file['fid']);
+    // Get the duration field from the file and add it to "sum".
+    $seconds += $fileWrapper->field_duration->value();
+  }
+
+  // Check if the combined duration includes "hours".
+  if (gmdate('H', $seconds) == '00') {
+    return t('Combined time: !time', array('!time' => gmdate('i:s', $seconds)));
+  } else {
+    return t('Combined time: !time', array('!time' => gmdate('H:i:s', $seconds)));
+  }
 }
