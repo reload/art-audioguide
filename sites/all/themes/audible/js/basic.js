@@ -100,4 +100,40 @@
     }
   }
 
+  /**
+   * Compact list.
+   */
+  Drupal.behaviors.compactList = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.node-type-generic-page .view-routes', context);
+      var items = $('.views-row, .compact-list__item', page);
+
+      /**
+       * Make compact list item clickable.
+       */
+      items.click(function(){
+        window.location = $(this).find('a').attr('href');
+      });
+
+      /**
+       * Compact list item title and content truncation.
+       * ------
+       * The truncation is made with CSS, but doing this requires a set width for the
+       * list item. Therefore we set the width dynamically.
+       */
+      function setCompactListItemContentWidth() {
+        var compactListItemWidth = items.outerWidth() - 100;
+        items.find('h2, div').width(compactListItemWidth);
+      }
+      // Execute truncation on init.
+      setCompactListItemContentWidth();
+
+      // Execute truncation on resize.
+      $(window).resize(function(){
+        setCompactListItemContentWidth();
+      });
+    }
+  }
+
 })(jQuery);

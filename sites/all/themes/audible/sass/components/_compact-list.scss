@@ -17,7 +17,7 @@
 
   &:hover,
   &:focus {
-    background: $gray-lighter;   
+    background: $gray-lighter;
   }
 
   // thumbnail
@@ -25,6 +25,7 @@
     width: 80px;
     height: 80px;
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
 
@@ -67,7 +68,7 @@
     padding-top: 10px;
 
     // CSS truncation
-    width: 220px; // This width is being adjusted dynamically in audible.js
+    width: 220px; // This width is being adjusted dynamically in basic.js
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -94,7 +95,7 @@
     line-height: 1.35;
 
     div {
-      width: 220px; // This width is being adjusted dynamically in audible.js
+      width: 220px; // This width is being adjusted dynamically in basic.js
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -127,5 +128,4 @@
       }
     }
   }
-
 }

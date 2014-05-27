@@ -1,6 +1,5 @@
 // All routes
-
-.page-all-routes {
+.node-type-generic-page .view-routes {
 
   // Extending compact-list styles to view rows
   .view-content {
@@ -8,6 +7,13 @@
 
     .views-row {
       @extend .compact-list__item;
+
+      // Remove the fieldset's title.
+      fieldset.content {
+        legend {
+          display: none;
+        }
+      }
     }
   }
 }
