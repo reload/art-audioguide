@@ -218,7 +218,7 @@ function smk_route_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => 'file',
+          'image_link' => 'content',
           'image_style' => 'compact_list',
         ),
         'type' => 'image',
@@ -276,7 +276,7 @@ function smk_route_field_default_field_instances() {
           'title_style' => 'h2',
         ),
         'type' => 'title_linked',
-        'weight' => 1,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',

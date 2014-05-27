@@ -114,16 +114,16 @@ function smk_route_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'title_field',
+        0 => 'title_field',
+        1 => 'field_image',
         2 => 'group_content',
         3 => 'amount_of_sounds',
         4 => 'sounds_duration',
       ),
     ),
     'fields' => array(
-      'field_image' => 'ds_content',
       'title_field' => 'ds_content',
+      'field_image' => 'ds_content',
       'group_content' => 'ds_content',
       'amount_of_sounds' => 'ds_content',
       'sounds_duration' => 'ds_content',

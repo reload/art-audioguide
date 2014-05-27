@@ -26,12 +26,16 @@ function smk_route_field_group_info() {
       0 => 'amount_of_sounds',
       1 => 'sounds_duration',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'div',
     'format_settings' => array(
       'label' => 'Content',
       'instance_settings' => array(
         'classes' => 'content',
         'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'none',
       ),
       'formatter' => 'open',
     ),
