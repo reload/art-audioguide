@@ -49,6 +49,11 @@ function smk_route_ds_field_settings_info() {
         ),
       ),
     ),
+    'title_field' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_image' => array(
       'formatter_settings' => array(
         'ft' => array(
