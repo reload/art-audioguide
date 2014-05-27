@@ -373,7 +373,7 @@ function smk_piece_field_default_field_instances() {
           'thousand_separator' => '',
         ),
         'type' => 'number_integer',
-        'weight' => 12,
+        'weight' => 13,
       ),
     ),
     'ds_extras_field_template' => 'theme_ds_field_reset',
