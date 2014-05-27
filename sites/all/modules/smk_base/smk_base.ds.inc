@@ -18,9 +18,15 @@ function smk_base_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '0',
+      'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'h2',
+        'class' => '',
+        'ft' => array(),
+      ),
     ),
     'attached_block' => array(
       'weight' => '3',
@@ -49,16 +55,16 @@ function smk_base_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'title',
-        1 => 'body',
-        2 => 'field_image',
+        0 => 'group_info_panel',
+        1 => 'title',
+        2 => 'body',
         3 => 'attached_block',
       ),
     ),
     'fields' => array(
+      'group_info_panel' => 'ds_content',
       'title' => 'ds_content',
       'body' => 'ds_content',
-      'field_image' => 'ds_content',
       'attached_block' => 'ds_content',
     ),
     'classes' => array(),
