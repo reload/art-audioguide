@@ -181,6 +181,10 @@ function smk_base_attached_block($field) {
     case 'menu-front-page-menu':
       $module = 'menu';
       break;
+
+    case 'artworks-block':
+      $module = 'views';
+      break;
   }
 
   $output = '';
