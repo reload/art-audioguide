@@ -14,6 +14,10 @@
   #content {
     padding: 12px;
 
+    .info-panel {
+      display: none;
+    }
+
     .menu li {
       @extend .tile; // See _tile.scss
     }

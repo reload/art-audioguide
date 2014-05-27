@@ -602,6 +602,7 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .front .page-header { margin-bottom: 2px; }
 .front .node-generic-page > h2 { display: none; }
 .front #content { padding: 12px; }
+.front #content .info-panel, .front #content .info-panel--expandable, .front #content .search-panel { display: none; }
 
 .page-number-search form { display: none; }
 
