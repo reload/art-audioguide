@@ -1,12 +1,8 @@
 // Route
-
-.page-route {
+.node-type-route {
 
   // Extending compact-list styles to view rows
-  .view-content {
-
-    .views-row {
-      @extend .compact-list__item;
-    }
+  .node-audio.node-teaser {
+    @extend .compact-list__item;
   }
 }

@@ -178,4 +178,77 @@
     }
   }
 
+  /**
+   * Track numbers.
+   */
+  Drupal.behaviors.trackNumbers = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.node-type-route', context);
+      var items = $('.node-audio.node-teaser', page);
+      var images = $('.thumbnail-wrapper', items);
+
+      // Append span-element to contain track-numbers.
+      images.append($('<span>', {class: 'track-number'}));
+
+      // Loop through each track-number.
+      var i = 1;
+      $('.track-number', images).each(function() {
+        // Set track-index.
+        $(this).html(i);
+        i++;
+        // Adjust each track number, vertically.
+        $(this).css('margin-left', '-' + $(this).outerWidth() / 2 + 'px' );
+      });
+    }
+  }
+
+  /**
+   * Info panel (expandability).
+   */
+  Drupal.behaviors.expandability = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.node-type-route', context);
+      var infoPanel = $('.info-panel--expandable', page);
+      var infoPanelContent = $('.content', infoPanel);
+      var infoPanelSummary = $('.info-panel--expandable > .truncated-paragraph', page);
+
+      // Hide the main-content of the info-panel.
+      infoPanelContent.hide();
+
+      // We "clone" the body field in Drupal, as a dynamic field.
+      // Because we do this, the copied field also get the class
+      // "truncated paragraph".
+      // To fix this, we take the content and move it to the parent.
+      var content = infoPanelContent.find('.truncated-paragraph').html();
+      infoPanelContent.html(content);
+
+      // Add toggle button.
+      infoPanelContent.after($('<a>', {href: '#', class: 'toggle'}));
+      var button = $('.toggle', infoPanel);
+
+      // Open/Close toggle
+      button.click(function(e) {
+        // Prevent link from redirecting.
+        e.preventDefault();
+
+        // If is open
+        if( !infoPanel.hasClass('open') ) {
+          infoPanelSummary.hide();
+          infoPanelContent.show();
+        }
+        // If closed.
+        else {
+          infoPanelSummary.show();
+          infoPanelContent.hide();
+        }
+
+        // Set toggle-state.
+        $(this).toggleClass('open');
+        infoPanel.toggleClass('open');
+      });
+    }
+  }
+
 })(jQuery);
