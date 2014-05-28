@@ -85,7 +85,7 @@ EOT;
 /**
  * Implements hook_file_insert().
  */
-function smk_route_file_insert($file) {
+function smk_audio_file_insert($file) {
   // Check if it's an audio-file we're uploading.
   if ($file->type == 'audio') {
     // Require php script: "mp3 class".
