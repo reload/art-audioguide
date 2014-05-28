@@ -21,10 +21,18 @@ function smk_audio_ds_fields_info($entity_type) {
   $fields = array();
 
   if ($entity_type == 'node') {
+    // A unordered list of different social media.
     $fields['node']['social_media_list'] = array(
       'title' => t('Social Media List'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => 'smk_audio_social_media_list',
+      'ui_limit' => array('audio|*'),
+    );
+    // The duration of a sound.
+    $fields['node']['sound_duration'] = array(
+      'title' => t('The duration of the sound'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_sound_duration',
       'ui_limit' => array('audio|*'),
     );
   }
@@ -81,6 +89,24 @@ EOT;
   ));
 }
 
+/**
+ * Return the duration of a sound.
+ */
+function _smk_audio_sound_duration($field) {
+  // Wrap the sound entity.
+  $wrapper = entity_metadata_wrapper('node', $field['entity']->nid);
+  // Wrap the file.
+  $file = entity_metadata_wrapper('file', $wrapper->field_audio_file->value()['fid']);
+  // Get duration.
+  $duration = $file->field_duration->value();
+
+  // Check if the combined duration includes "hours".
+  if (gmdate('H', $duration) == '00') {
+    return gmdate('i:s', $duration);
+  } else {
+    return gmdate('H:i:s', $duration);
+  }
+}
 
 /**
  * Implements hook_file_insert().
