@@ -40,6 +40,55 @@ function smk_audio_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'audio';
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
+    'sound_duration' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'duration',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_artist' => array(
+      'weight' => '0',
+      'label' => 'inline',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-el' => 'span',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'artist',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_piece_id' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => '',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
     'field_image' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -114,13 +163,21 @@ function smk_audio_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_image',
-        1 => 'title_field',
-        2 => 'group_content',
+        0 => 'sound_artist',
+        1 => 'field_image',
+        2 => 'group_headline',
+        3 => 'sound_duration',
+        4 => 'sound_piece_id',
+        5 => 'title_field',
+        6 => 'group_content',
       ),
     ),
     'fields' => array(
+      'sound_artist' => 'ds_content',
       'field_image' => 'ds_content',
+      'group_headline' => 'ds_content',
+      'sound_duration' => 'ds_content',
+      'sound_piece_id' => 'ds_content',
       'title_field' => 'ds_content',
       'group_content' => 'ds_content',
     ),

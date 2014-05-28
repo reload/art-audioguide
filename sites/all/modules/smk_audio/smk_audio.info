@@ -32,6 +32,7 @@ features[field_base][] = field_piece_ref
 features[field_base][] = field_video
 features[field_group][] = group_content|node|audio|default
 features[field_group][] = group_content|node|audio|teaser
+features[field_group][] = group_headline|node|audio|teaser
 features[field_instance][] = file-audio-field_duration
 features[field_instance][] = node-audio-body
 features[field_instance][] = node-audio-field_audio_file
