@@ -35,6 +35,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_sound_duration',
       'ui_limit' => array('audio|*'),
     );
+    // Get the artist of a sound.
+    $fields['node']['sound_artist'] = array(
+      'title' => t('Artist'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_artist',
+      'ui_limit' => array('audio|*'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -106,6 +113,22 @@ function _smk_audio_sound_duration($field) {
   } else {
     return gmdate('H:i:s', $duration);
   }
+}
+
+/**
+ * Return the artist of a sound.
+ *
+ * @TODO Camilla, how to wrap a single field?.
+ */
+function _smk_audio_artist($field) {
+  // Wrap the sound entity.
+  $sound = entity_metadata_wrapper('node', $field['entity']->nid);
+  // Wrap the piece entity.
+  $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  // Wrap the artist entity.
+  $artist = $piece->field_artist->value();
+  // Return the artist name.
+  return $artist->title;
 }
 
 /**
