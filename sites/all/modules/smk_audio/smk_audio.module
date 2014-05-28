@@ -42,6 +42,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_artist',
       'ui_limit' => array('audio|*'),
     );
+    // Get the inventory ID of an artist.
+    $fields['node']['sound_piece_id'] = array(
+      'title' => t('Piece ID'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_piece_id',
+      'ui_limit' => array('audio|*'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -129,6 +136,18 @@ function _smk_audio_artist($field) {
   $artist = $piece->field_artist->value();
   // Return the artist name.
   return $artist->title;
+}
+
+/**
+ * Return the artwork/piece ID of a sound.
+ */
+function _smk_audio_piece_id($field) {
+  // Wrap the sound entity.
+  $sound = entity_metadata_wrapper('node', $field['entity']->nid);
+  // Wrap the piece entity.
+  $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  // Return the piece ID.
+  return $piece->field_piece_id->value();
 }
 
 /**
