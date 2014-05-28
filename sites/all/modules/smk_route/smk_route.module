@@ -15,17 +15,17 @@ function smk_route_ds_fields_info($entity_type) {
   if ($entity_type == 'node') {
     // Amount of referenced sounds.
     $fields['node']['amount_of_sounds'] = array(
-        'title' => t('Amount of sounds'),
-        'field_type' => DS_FIELD_TYPE_FUNCTION,
-        'function' => '_smk_route_amount_of_sounds',
-        'ui_limit' => array('route|*'),
+      'title' => t('Amount of sounds'),
+       'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_route_amount_of_sounds',
+      'ui_limit' => array('route|*'),
     );
     // The combined duration of a routes sounds.
     $fields['node']['sounds_duration'] = array(
-        'title' => t('The combined duration of the sounds.'),
-        'field_type' => DS_FIELD_TYPE_FUNCTION,
-        'function' => '_smk_route_sounds_duration',
-        'ui_limit' => array('route|*'),
+      'title' => t('The combined duration of the sounds.'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_route_sounds_duration',
+      'ui_limit' => array('route|*'),
     );
   }
 
