@@ -22,12 +22,13 @@
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #logo {
   display: block;
-  height: 42px;
+  height: $header-height;
   line-height: 47px;
   width: 60px;
   @extend .icon--smk;
   font-size: 22px;
   color: $black;
+  float: left;
 
   &:hover,
   &:focus {

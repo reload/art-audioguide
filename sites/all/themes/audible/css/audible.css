@@ -273,16 +273,18 @@ a:hover { text-decoration: none; }
 
 /* § Logo
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#logo { display: block; height: 42px; line-height: 47px; width: 60px; font-size: 22px; color: #111111; }
+#logo { display: block; height: 42px; line-height: 47px; width: 60px; font-size: 22px; color: #111111; float: left; }
 #logo:hover, #logo:focus { color: #5f66f2; }
 #logo img { display: none; }
 
 /* § Menu
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.icon-menu { position: absolute; top: 0; right: 0; width: 168px; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-.icon-menu li a, .icon-menu li label { display: inline-block; width: 42px; height: 42px; float: left; font-size: 22px; line-height: 47px; text-align: center; color: #111111; }
-.icon-menu li a:active, .icon-menu li label:active { color: #5f66f2; }
-.icon-menu li a:hover, .icon-menu li a:focus, .icon-menu li label:hover, .icon-menu li label:focus { cursor: pointer; }
+.icon-menu { position: absolute; top: 0; right: 0; float: right; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
+.icon-menu li { display: inline-block; margin: 0 -2px; }
+.icon-menu li.last { margin-right: 0; }
+.icon-menu li a, .icon-menu li label { height: 42px; display: inline-block; text-align: center; line-height: 47px; font-size: 22px; color: #111111; width: 42px; float: left; }
+.icon-menu li:active { color: #5f66f2; }
+.icon-menu li:hover, .icon-menu li:focus { cursor: pointer; }
 .icon-menu li a.active { background: #f2f2f4; }
 .icon-menu li a.active:hover, .icon-menu li a.active:focus { color: black; }
 

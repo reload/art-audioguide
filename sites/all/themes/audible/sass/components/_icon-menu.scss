@@ -5,19 +5,26 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 42 * 4px;
+  float: right;
   @include user-select(none);
-  
-  li a,
-  li label { // the menu toggle is not an <a> tag
+
+  li {
     display: inline-block;
-    width: 42px;
-    height: 42px;
-    float: left;
-    font-size: 22px;
-    line-height: 47px;
-    text-align: center;
-    color: $black;
+    margin: 0 -2px;
+    &.last {
+      margin-right: 0;
+    }
+
+    a, label {
+      height: $header-height;
+      display: inline-block;
+      text-align: center;
+      line-height: 47px;
+      font-size: 22px;
+      color: $black;
+      width: 42px;
+      float: left;
+    }
 
     &:active {
       color: $purple;
@@ -37,6 +44,7 @@
     &:focus {
       color: black;
     }
+
   }
 
 }//.icon-menu
