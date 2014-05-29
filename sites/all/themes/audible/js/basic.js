@@ -251,4 +251,40 @@
     }
   }
 
+  /**
+   * This script will make all social media icons on the sound
+   * page show in a popup window, instead of redirecting them.
+   * ---
+   * This can handle multiple icons by defining them in the "icons"
+   * variable, but it only handles the Facebook icon atm.
+   */
+  Drupal.behaviors.socialMediaPopup = {
+    attach: function (context, settings) {
+      // Select icons
+      var icons = $('.node-type-audio .share-links .icon--facebook-2', context);
+
+      // When an icon is being clicked.
+      icons.click(function(event) {
+        // Prevent default behaviour.
+        event.preventDefault();
+        event.stopPropagation();
+        // Make the link create a pop-up window instead.
+        window.open(
+          this.href,
+          'popUpWindow',
+          'height=325,' +
+            'width=500,' +
+            'left=200,' +
+            'top=200,' +
+            'resizable=no,' +
+            'scrollbars=yes,' +
+            'toolbar=yes,' +
+            'menubar=no,' +
+            'location=no,' +
+            'status=yes'
+        );
+      });
+    }
+  }
+
 })(jQuery);
