@@ -124,8 +124,6 @@ function _smk_audio_sound_duration($field) {
 
 /**
  * Return the artist of a sound.
- *
- * @TODO Camilla, how to wrap a single field?.
  */
 function _smk_audio_artist($field) {
   // Wrap the sound entity.
