@@ -49,6 +49,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_piece_id',
       'ui_limit' => array('audio|*'),
     );
+    // Get the name of a sound's route.
+    $fields['node']['sound_route_name'] = array(
+      'title' => t('Route name'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_route_name',
+      'ui_limit' => array('audio|*'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -159,4 +166,19 @@ function smk_audio_file_insert($file) {
     $wrapper->field_duration->set($metadata['Length']);
     $wrapper->save();
   }
+}
+
+/**
+ * Return the Route name of a sound.
+ *
+ * @TODO Fetch route-id dynamically.
+ */
+function _smk_audio_route_name($field) {
+  // Route ID.
+  $route_id = 75;
+  $route = node_load($route_id);
+  $route = entity_metadata_wrapper('node', $route);
+
+  // Return the name of the sounds route.
+  return $route->title->value();
 }
