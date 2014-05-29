@@ -209,7 +209,7 @@
   Drupal.behaviors.expandability = {
     attach: function (context, settings) {
       // Selectors.
-      var page = $('.node-type-route', context);
+      var page = $('.node-type-route, .node-type-audio', context);
       var infoPanel = $('.info-panel--expandable', page);
       var infoPanelContent = $('.content', infoPanel);
       var infoPanelSummary = $('.info-panel--expandable > .truncated-paragraph', page);
