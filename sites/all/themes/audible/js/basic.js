@@ -106,8 +106,8 @@
   Drupal.behaviors.compactList = {
     attach: function (context, settings) {
       // Selectors.
-      var page = $('.node-type-generic-page', context);
-      var items = $('.views-row, .compact-list__item', page);
+      var page = $('.node-type-generic-page, .node-type-route', context);
+      var items = $('.views-row, .compact-list__item, .node-audio.node-teaser', page);
 
       /**
        * Make compact list item clickable.
