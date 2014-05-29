@@ -7,10 +7,7 @@
     attach: function (context, settings) {
       // Selectors.
       var audio = $('audio', context);
-
-
-      // Add "skin class" to the player.
-      audio.addClass('mejs-smk');
+      var mediaelement = $('.mediaelement-audio', context);
 
       // Init the player.
       audio.mediaelementplayer({
@@ -24,14 +21,16 @@
       // element. Screwy, I know.
       function setMediaelementWidth() {
         if( $(window).width() < 800 ) {
-          $('.mediaelement-audio', context).width( $(window).width() - 24 );
+          mediaelement.width( $(window).width() - 24 );
+        } else {
+          mediaelement.width('100%');
         }
       }
 
-      $(document).ready(function($) {
-        setMediaelementWidth();
-      });
+      // Execute width-sizing on init.
+      setMediaelementWidth();
 
+      // Execute width-sizing on resize.
       $(window).resize(function(){
         setMediaelementWidth();
       });
