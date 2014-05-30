@@ -119,7 +119,8 @@ function _smk_audio_sound_duration($field) {
   // Wrap the sound entity.
   $wrapper = entity_metadata_wrapper('node', $field['entity']->nid);
   // Wrap the file.
-  $file = entity_metadata_wrapper('file', $wrapper->field_audio_file->value()['fid']);
+  $file = $wrapper->field_audio_file->value();
+  $file = entity_metadata_wrapper('file', $file['fid']);
   // Get duration.
   $duration = $file->field_duration->value();
 
