@@ -49,18 +49,11 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_piece_id',
       'ui_limit' => array('audio|*'),
     );
-    // Get the name of a sound's route.
-    $fields['node']['sound_route_name'] = array(
-      'title' => t('Route name'),
+    // Get the title and prev/next links for a specific sound on a route.
+    $fields['node']['sound_mediaplayer_metadata'] = array(
+      'title' => t('Mediaplayer Metadata'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
-      'function' => '_smk_audio_route_name',
-      'ui_limit' => array('audio|*'),
-    );
-    // Get the previous / next track's links as buttons.
-    $fields['node']['sound_next_prev_tracks'] = array(
-      'title' => t('Next / Prev track buttons'),
-      'field_type' => DS_FIELD_TYPE_FUNCTION,
-      'function' => '_smk_audio_next_prev_tracks',
+      'function' => '_smk_audio_mediaplayer_metadata',
       'ui_limit' => array('audio|*'),
     );
   }
@@ -176,31 +169,20 @@ function smk_audio_file_insert($file) {
 }
 
 /**
- * Return the Route name of a sound.
- *
- * @TODO Fetch route-id dynamically.
- */
-function _smk_audio_route_name($field) {
-  // Route ID.
-  $route_id = 75;
-  $route = node_load($route_id);
-  $route = entity_metadata_wrapper('node', $route);
-
-  // Return the name of the sounds route.
-  return $route->title->value();
-}
-
-/**
- * Return two buttons (prev / next track).
+ * Return metadata for the mediaplayer.
  * ---
  * @TODO dynamically fetch route ID.
  */
-function _smk_audio_next_prev_tracks($field) {
+function _smk_audio_mediaplayer_metadata($field) {
   // Node id.
   $nid = $field['entity']->nid;
 
   // Route ID.
   $routeId = 75;
+  // Load route.
+  $route = node_load($routeId);
+  // Wrap route.
+  $route = entity_metadata_wrapper('node', $route);
 
   // Get references from the DB.
   $query = db_select('field_data_field_audio_ref', 'ref')
@@ -209,13 +191,18 @@ function _smk_audio_next_prev_tracks($field) {
     ->execute();
 
   // Loop through the results/referenced sounds.
-  foreach ($query as $route) {
-    $targetId = $route->field_audio_ref_target_id;
-    $delta = $route->delta;
+  $totalSounds = 0;
+  foreach ($query as $reference) {
+    // Define
+    $targetId = $reference->field_audio_ref_target_id;
+    $delta = $reference->delta;
+    // Add 1 to the total amount of sounds that's referenced.
+    $totalSounds++;
 
     // If the first delta is the current sound, then skip "previous".
     if ($delta == 0 && $nid == $targetId) {
       $setPrevious = True;
+      $currentDelta = $delta;
     }
     // If the current sound doesn't match the reference & we haven't looped
     // over the current sound yet, set new value for "$previous".
@@ -226,6 +213,7 @@ function _smk_audio_next_prev_tracks($field) {
     // a new "previous".
     else if ($nid == $targetId && !isset($setPrevious)) {
       $setPrevious = True;
+      $currentDelta = $delta;
     }
     // We passed the current sound & the next reference will be our "next" id.
     else if ($nid != $targetId && $setPrevious == True && !isset($next)) {
@@ -235,6 +223,26 @@ function _smk_audio_next_prev_tracks($field) {
 
   // Define output array.
   $output = array();
+
+  // The route title.
+  $items[] = t('Route: !title', array(
+    '!title' => $route->title->value(),
+  ));
+
+  // The current route "position": X out of X.
+  $items[] = t('!current out of !total', array(
+    // The delta is 0-based index, so we add 1.
+    '!current' => intval($currentDelta + 1),
+    '!total' => $totalSounds,
+  ));
+
+  // Return the list with title information.
+  $output[] = theme('item_list', array(
+    'items' => $items,
+    'attributes' => array(
+      'class' => 'audio-title',
+    ),
+  ));
 
   // If there is a "previous sound".
   if (isset($previous)) {
@@ -268,6 +276,6 @@ function _smk_audio_next_prev_tracks($field) {
     );
   }
 
-  // Return the two links/buttons.
+  // Return the metadata.
   return implode('', $output);
 }
