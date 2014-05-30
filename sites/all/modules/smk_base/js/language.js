@@ -7,10 +7,6 @@
    */
   Drupal.behaviors.checkLanguage = {
     attach: function (context, settings) {
-      if (null == $.cookie('ag-language') && '/choose-lang' != window.location.pathname) {
-        // Redirect to the language chooser page.
-        window.location = '/choose-lang';
-      }
       // Add click handler to both the "burger menu items" and the actual
       // language page links.
       $('.page-choose-lang .language-link, .language-switcher-locale-url .language-link').click(function() {
