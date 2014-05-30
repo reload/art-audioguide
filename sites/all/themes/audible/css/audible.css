@@ -168,7 +168,7 @@ a:hover { text-decoration: none; }
 
 .heading--bordered { border-bottom: 1px solid #a2a2a5; padding-bottom: .25em; }
 
-.heading--section, .heading--widget, .delta-toggle-menu h4, .mediaelement-audio .track-navigation { font-family: 'hill regular', sans-serif; font-size: .7em; font-weight: normal; text-transform: uppercase; margin-bottom: .55em; }
+.heading--section, .heading--widget, .delta-toggle-menu h4, .mediaplayer .track-navigation { font-family: 'hill regular', sans-serif; font-size: .7em; font-weight: normal; text-transform: uppercase; margin-bottom: .55em; }
 
 .heading--widget { border: 0; margin-bottom: .25em; }
 
@@ -380,12 +380,12 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 /** Custom SMK mediaelement skin. ---------------------------------------------- Some settings like width & height of the player is set in "sites/all/modules/smk_audio/smk-mediaelement-settings.js". */
 /* § Track navigation
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.mediaelement-audio { position: relative; height: 163px; background: #fff; margin: 0 auto; margin-bottom: 12px; }
-.mediaelement-audio .track-navigation { font-size: 12px; color: #111111; position: absolute; top: 0px; left: -12px; padding-left: 26px; display: block; height: 120px; line-height: 124px; width: 33.33%; }
-.mediaelement-audio .track-navigation:active { color: #5f66f2; }
-.mediaelement-audio .track-navigation:before { content: "\e615"; font-size: 34px; position: absolute; top: 45px; left: 2px; }
-.mediaelement-audio .track-navigation.next { left: auto; right: -12px; padding-right: 26px; text-align: right; }
-.mediaelement-audio .track-navigation.next:before { content: "\e616"; left: auto; right: 2px; }
+.mediaplayer { position: relative; height: 163px; background: #fff; margin: 0 auto; margin-bottom: 12px; }
+.mediaplayer .track-navigation { font-size: 12px; color: #111111; position: absolute; top: 0px; left: -12px; padding-left: 26px; display: block; height: 120px; line-height: 124px; width: 33.33%; }
+.mediaplayer .track-navigation:active { color: #5f66f2; }
+.mediaplayer .track-navigation:before { content: "\e615"; font-size: 34px; position: absolute; top: 45px; left: 2px; }
+.mediaplayer .track-navigation.next { left: auto; right: -12px; padding-right: 26px; text-align: right; }
+.mediaplayer .track-navigation.next:before { content: "\e616"; left: auto; right: 2px; }
 
 /* § Play/pause button
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -397,9 +397,9 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 
 /* § Audio title
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.mediaelement-audio .audio-title { font-family: 'hill bold', sans-serif; font-size: 14px; text-align: center; position: absolute; bottom: 21px; right: 45px; left: 45px; height: 20px; overflow: hidden; }
-.mediaelement-audio .audio-title li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 20px; line-height: 20px; position: relative; top: 0; -webkit-transition: top 320ms ease; -moz-transition: top 320ms ease; -o-transition: top 320ms ease; transition: top 320ms ease; }
-.mediaelement-audio .audio-title li.switched { top: -20px; }
+.mediaplayer .audio-title { font-family: 'hill bold', sans-serif; font-size: 14px; text-align: center; position: absolute; bottom: 21px; right: 45px; left: 45px; height: 20px; overflow: hidden; }
+.mediaplayer .audio-title li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 20px; line-height: 20px; position: relative; top: 0; -webkit-transition: top 320ms ease; -moz-transition: top 320ms ease; -o-transition: top 320ms ease; transition: top 320ms ease; }
+.mediaplayer .audio-title li.switched { top: -20px; }
 
 /* § Tweaked CSS from mediaelementjs
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -692,7 +692,7 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 
 .foldout.open .foldout-content { position: relative; left: auto; }
 
-.icon, .search-panel form input[type="submit"], .mediaelement-audio .track-navigation:before, .mediaelement-audio .mejs-playpause-button button:before, .number-pad .key-backspace span, .icon--note:before, .icon--cross-2:before, .number-pad .display .clear:before, .icon--facebook-2:before, .icon--mail-3:before, .icon--pause-2:before, .icon--play-2:before, .icon--angle-left-2:before, .icon--angle-right-2:before, .icon--facebook:before, .icon--mail-2:before, .icon--mail-1:before, .icon--pause:before, .icon--play:before, .icon--angle-up:before, .foldout.open .foldout-toggle > i:before, .icon--angle-right:before, .icon--angle-left:before, .icon--angle-down:before, .info-panel--expandable .toggle:before, .icon--smk:before, #logo:before, .icon--search:before, .icon-menu .fa-search:before, .icon--menu:before, label[for="menu-toggle"]:before, .icon--listen-2:before, .icon--listen-1:before, .icon-menu .fa-th:before, .icon--info-2:before, .icon--info-1:before, .icon--cross:before, label[for="menu-toggle"].active:before, .icon--arrow-up:before, .icon--arrow-right:before, .icon--arrow-left:before, .icon--arrow-down:before { font-family: 'smk_audible_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.icon, .search-panel form input[type="submit"], .mediaplayer .track-navigation:before, .mediaelement-audio .mejs-playpause-button button:before, .number-pad .key-backspace span, .icon--note:before, .icon--cross-2:before, .number-pad .display .clear:before, .icon--facebook-2:before, .icon--mail-3:before, .icon--pause-2:before, .icon--play-2:before, .icon--angle-left-2:before, .icon--angle-right-2:before, .icon--facebook:before, .icon--mail-2:before, .icon--mail-1:before, .icon--pause:before, .icon--play:before, .icon--angle-up:before, .foldout.open .foldout-toggle > i:before, .icon--angle-right:before, .icon--angle-left:before, .icon--angle-down:before, .info-panel--expandable .toggle:before, .icon--smk:before, #logo:before, .icon--search:before, .icon-menu .fa-search:before, .icon--menu:before, label[for="menu-toggle"]:before, .icon--listen-2:before, .icon--listen-1:before, .icon-menu .fa-th:before, .icon--info-2:before, .icon--info-1:before, .icon--cross:before, label[for="menu-toggle"].active:before, .icon--arrow-up:before, .icon--arrow-right:before, .icon--arrow-left:before, .icon--arrow-down:before { font-family: 'smk_audible_icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 .icon--note:before { content: "\e61c"; }
 

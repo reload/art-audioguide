@@ -287,4 +287,21 @@
     }
   }
 
+  /**
+   *
+   */
+  Drupal.behaviors.mediaplayerTitle = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.node-type-audio', context);
+      var player = $('.mediaplayer', page);
+      var title = $('.audio-title li', player);
+
+      // Toggle the player-title.
+      setInterval(function(){
+        title.toggleClass('switched');
+      }, 3500);
+    }
+  }
+
 })(jQuery);
