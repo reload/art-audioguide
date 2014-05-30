@@ -26,14 +26,14 @@ function smk_audio_ds_fields_info($entity_type) {
       'title' => t('Social Media List'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => 'smk_audio_social_media_list',
-      'ui_limit' => array('audio|*'),
+      'ui_limit' => array('audio|default'),
     );
     // The duration of a sound.
     $fields['node']['sound_duration'] = array(
       'title' => t('The duration of the sound'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => '_smk_audio_sound_duration',
-      'ui_limit' => array('audio|*'),
+      'ui_limit' => array('audio|teaser'),
     );
     // Get the artist of a sound.
     $fields['node']['sound_artist'] = array(
@@ -54,7 +54,7 @@ function smk_audio_ds_fields_info($entity_type) {
       'title' => t('Mediaplayer Metadata'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => '_smk_audio_mediaplayer_metadata',
-      'ui_limit' => array('audio|*'),
+      'ui_limit' => array('audio|default'),
     );
     // Return the image of the referenced piece/artwork.
     $fields['node']['sound_piece_image'] = array(
