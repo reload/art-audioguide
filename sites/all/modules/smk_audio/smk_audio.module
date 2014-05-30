@@ -56,6 +56,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_route_name',
       'ui_limit' => array('audio|*'),
     );
+    // Get the previous / next track's links as buttons.
+    $fields['node']['sound_next_prev_tracks'] = array(
+      'title' => t('Next / Prev track buttons'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_next_prev_tracks',
+      'ui_limit' => array('audio|*'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -181,4 +188,86 @@ function _smk_audio_route_name($field) {
 
   // Return the name of the sounds route.
   return $route->title->value();
+}
+
+/**
+ * Return two buttons (prev / next track).
+ * ---
+ * @TODO dynamically fetch route ID.
+ */
+function _smk_audio_next_prev_tracks($field) {
+  // Node id.
+  $nid = $field['entity']->nid;
+
+  // Route ID.
+  $routeId = 75;
+
+  // Get references from the DB.
+  $query = db_select('field_data_field_audio_ref', 'ref')
+    ->fields('ref', array('delta', 'field_audio_ref_target_id'))
+    ->condition('ref.entity_id', $routeId, '=')
+    ->execute();
+
+  // Loop through the results/referenced sounds.
+  foreach ($query as $route) {
+    $targetId = $route->field_audio_ref_target_id;
+    $delta = $route->delta;
+
+    // If the first delta is the current sound, then skip "previous".
+    if ($delta == 0 && $nid == $targetId) {
+      $setPrevious = True;
+    }
+    // If the current sound doesn't match the reference & we haven't looped
+    // over the current sound yet, set new value for "$previous".
+    else if ($nid != $targetId && !isset($setPrevious)) {
+      $previous = $targetId;
+    }
+    // We reached the current sound, and we should therefor stop defining
+    // a new "previous".
+    else if ($nid == $targetId && !isset($setPrevious)) {
+      $setPrevious = True;
+    }
+    // We passed the current sound & the next reference will be our "next" id.
+    else if ($nid != $targetId && $setPrevious == True && !isset($next)) {
+      $next = $targetId;
+    }
+  }
+
+  // Define output array.
+  $output = array();
+
+  // If there is a "previous sound".
+  if (isset($previous)) {
+    $output[] = l(
+      t('Previous'),
+      url('node/' . $previous, array('absolute' => True)),
+      array(
+        'attributes' => array(
+          'class' => array(
+            'track-navigation',
+            'previous'
+          ),
+        ),
+      )
+    );
+  }
+
+  // If there is a "next sound".
+  if (isset($next)) {
+    $output[] = l(
+      t('Next'),
+      url('node/' . $next, array('absolute' => True)),
+      array(
+        'attributes' => array(
+          'class' => array(
+            'track-navigation',
+            'next'
+          ),
+        ),
+      )
+    );
+  }
+
+  // Return the two links/buttons.
+  return implode('', $output);
 }
