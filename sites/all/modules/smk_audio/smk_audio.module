@@ -56,6 +56,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_mediaplayer_metadata',
       'ui_limit' => array('audio|*'),
     );
+    // Return the image of the referenced piece/artwork.
+    $fields['node']['sound_piece_image'] = array(
+      'title' => t('Piece image'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_piece_image',
+      'ui_limit' => array('audio|default'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -278,4 +285,24 @@ function _smk_audio_mediaplayer_metadata($field) {
 
   // Return the metadata.
   return implode('', $output);
+}
+
+/**
+ * Return the image of the referenced piece/artwork.
+ */
+function _smk_audio_piece_image($field) {
+  // Image style.
+  $imageStyle = 'large';
+
+  // Wrap the sound node.
+  $sound = entity_metadata_wrapper('node', $field['entity']);
+  // Wrap the piece node.
+  $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  // Get the image.
+  $image = $piece->field_image->value();
+
+  // Return the image (with an image style).
+  return theme('image', array(
+    'path' => image_style_url($imageStyle, $image['uri']),
+  ));
 }
