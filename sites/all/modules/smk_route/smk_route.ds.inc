@@ -130,7 +130,8 @@ function smk_route_ds_custom_fields_info() {
   $ds_field->entities = array(
     'node' => 'node',
   );
-  $ds_field->ui_limit = 'route|default';
+  $ds_field->ui_limit = 'route|default
+audio|default';
   $ds_field->properties = array(
     'default' => array(),
     'settings' => array(

@@ -17,13 +17,75 @@ function smk_audio_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'audio';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'field_image' => array(
+    'body_clone' => array(
+      'weight' => '20',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'show_title' => 0,
+        'title_wrapper' => '',
+        'ctools' => 'a:3:{s:4:"conf";a:3:{s:7:"context";s:25:"argument_entity_id:node_1";s:14:"override_title";i:1;s:19:"override_title_text";s:0:"";}s:4:"type";s:9:"node_body";s:7:"subtype";s:9:"node_body";}',
+        'load_terms' => 0,
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'content',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'social_media_list' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
           'ow' => TRUE,
-          'ow-el' => 'thumbnail-wrapper',
-          'ow-cl' => '',
+          'ow-el' => 'div',
+          'ow-cl' => 'share-links',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_piece_id' => array(
+      'weight' => '18',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => 'audio-id',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_mediaplayer_metadata' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'sound_piece_image' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'body' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'truncated-paragraph',
           'ow-def-cl' => FALSE,
           'ow-at' => '',
           'ow-def-at' => FALSE,
@@ -129,17 +191,33 @@ function smk_audio_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_audio_file',
-        1 => 'body',
-        2 => 'field_image',
-        3 => 'field_video',
+        0 => 'group_mediaplayer',
+        1 => 'group_info_panel',
+        2 => 'sound_mediaplayer_metadata',
+        3 => 'group_content',
+        4 => 'social_media_list',
+        5 => 'field_audio_file',
+        6 => 'sound_piece_image',
+        7 => 'group_headline',
+        8 => 'body',
+        9 => 'sound_piece_id',
+        10 => 'title_field',
+        11 => 'body_clone',
       ),
     ),
     'fields' => array(
+      'group_mediaplayer' => 'ds_content',
+      'group_info_panel' => 'ds_content',
+      'sound_mediaplayer_metadata' => 'ds_content',
+      'group_content' => 'ds_content',
+      'social_media_list' => 'ds_content',
       'field_audio_file' => 'ds_content',
+      'sound_piece_image' => 'ds_content',
+      'group_headline' => 'ds_content',
       'body' => 'ds_content',
-      'field_image' => 'ds_content',
-      'field_video' => 'ds_content',
+      'sound_piece_id' => 'ds_content',
+      'title_field' => 'ds_content',
+      'body_clone' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
