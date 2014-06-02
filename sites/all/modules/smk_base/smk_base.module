@@ -7,36 +7,26 @@
 include_once 'smk_base.features.inc';
 
 /**
- * Implements hook_boot().
- */
-function smk_base_boot() {
-  // We want to check if a language is set before anything else has been loaded.
-  // ------
-  // From api.drupal.org:
-  // "Only use this hook if your code must run even for cached page views.
-  // This hook is called before the theme, modules, or most include files are
-  // loaded into memory. It happens while Drupal is still in bootstrap mode."
-
-  // Check if the cookie is set and if we're on the "choose language" page.
-  if (request_uri() != '/choose-lang' && !isset($_COOKIE['ag-language'])) {
-    // drupal_goto() isn't activated this early in the booting process,
-    // so we have to use header instead.
-    header('location: /choose-lang');
-  }
-  // If the cookie is set and we're on the "choose language" page.
-  else if (request_uri() == '/choose-lang' && isset($_COOKIE['ag-language'])) {
-    // Redirect to the frontpage.
-    header('location: /');
-  }
-}
-
-/**
  * Implements hook_init().
  */
 function smk_base_init() {
   // Include language js on front end only. Also leave logged in users alone.
   if (!path_is_admin(current_path()) && !user_is_logged_in() && drupal_multilingual()) {
     drupal_add_library('system', 'jquery.cookie');
+    $js = <<<JS
+var c = document.cookie.match(new RegExp('ag-language=([^;]+)'));
+if (null == c && '/choose-lang' != window.location.pathname) {
+  window.location = '/choose-lang';
+}
+JS;
+    drupal_add_js($js,
+      array(
+        // This is a trick.. A constant should be used here, but we REALLY want
+        // to go first.
+        'group' => -200,
+        'type' => 'inline',
+      )
+    );
     drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/language.js');
   }
 }
