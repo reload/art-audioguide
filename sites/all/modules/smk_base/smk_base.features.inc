@@ -25,9 +25,17 @@ function smk_base_ctools_plugin_api($module = NULL, $api = NULL) {
 function smk_base_node_info() {
   $items = array(
     'generic_page' => array(
-      'name' => t('Generic page'),
+      'name' => t('Embedded content page'),
       'base' => 'node_content',
       'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'page' => array(
+      'name' => t('Page'),
+      'base' => 'node_content',
+      'description' => t('This i a basic page like "About us" or similar.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

@@ -106,23 +106,63 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-generic_page-field_image'
-  $field_instances['node-generic_page-field_image'] = array(
-    'bundle' => 'generic_page',
+  // Exported field_instance: 'node-page-body'
+  $field_instances['node-page-body'] = array(
+    'bundle' => 'page',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
+        'type' => 'text_default',
+        'weight' => 0,
       ),
-      'full' => array(
-        'label' => 'above',
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => FALSE,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-page-title_field'
+  $field_instances['node-page-title_field'] = array(
+    'bundle' => 'page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -131,32 +171,26 @@ function smk_base_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
-    'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_image',
-    'label' => 'Image',
-    'required' => 0,
+    'field_name' => 'title_field',
+    'label' => 'Title',
+    'required' => TRUE,
     'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'image',
+      'module' => 'text',
       'settings' => array(
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'size' => 60,
       ),
-      'type' => 'image_image',
-      'weight' => 33,
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -164,7 +198,7 @@ function smk_base_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Attached block');
   t('Body');
-  t('Image');
+  t('Title');
 
   return $field_instances;
 }

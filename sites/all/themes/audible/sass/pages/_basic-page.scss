@@ -1,13 +1,13 @@
-.page-generic {
+.node-type-page {
 
-  .page-title {
+  #page-title {
+    @extend .heading--large;
     margin: 14px 12px;
     padding-bottom: 12px;
     border-bottom: 1px solid $gray;
   }
 
-  .copy {
+  .field-name-body {
     padding: 0 12px 12px;
   }
-
 }
