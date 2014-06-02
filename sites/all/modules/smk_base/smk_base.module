@@ -13,6 +13,20 @@ function smk_base_init() {
   // Include language js on front end only. Also leave logged in users alone.
   if (!path_is_admin(current_path()) && !user_is_logged_in() && drupal_multilingual()) {
     drupal_add_library('system', 'jquery.cookie');
+    $js = <<<JS
+var c = document.cookie.match(new RegExp('ag-language=([^;]+)'));
+if (null == c && '/choose-lang' != window.location.pathname) {
+  window.location = '/choose-lang';
+}
+JS;
+    drupal_add_js($js,
+      array(
+        // This is a trick.. A constant should be used here, but we REALLY want
+        // to go first.
+        'group' => -200,
+        'type' => 'inline',
+      )
+    );
     drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/language.js');
   }
 }
