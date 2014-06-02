@@ -27,7 +27,7 @@ function smk_base_node_info() {
     'generic_page' => array(
       'name' => t('Embedded content page'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('These pages are only for embedding lists like "All routes" etc.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -35,7 +35,7 @@ function smk_base_node_info() {
     'page' => array(
       'name' => t('Page'),
       'base' => 'node_content',
-      'description' => t('This i a basic page like "About us" or similar.'),
+      'description' => t('These pages are basic pages like "About us" or similar.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
