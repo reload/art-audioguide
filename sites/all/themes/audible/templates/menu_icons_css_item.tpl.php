@@ -12,6 +12,6 @@
  * $path
  */
 ?>
-.menu-<?php print $mlid; ?> {
+.front .menu-<?php print $mlid; ?> {
   background-image: url(<?php print $path; ?>);
 }
