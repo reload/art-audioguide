@@ -22,30 +22,9 @@
    */
   Drupal.behaviors.tiles = {
     attach: function (context, settings) {
-
       // Selectors.
       var page = $('.front', context);
-      var itemsString = '#content .menu li';
-      var items = $(itemsString, page);
-      var largeTileString = '.tile--large';
-      var largeTile = $(itemsString, page);
-
-      /**
-       * Tile height.
-       */
-      // Make the height equal width of tiles.
-      function setTileHeight(tileSelector) {
-        var tileElement = $(tileSelector, page);
-        var tileWidth = $(tileElement).width();
-        $(tileElement).height(tileWidth);
-      }
-      // Rezise on page load.
-      setTileHeight(itemsString);
-
-      // Resize when window width changes.
-      $(window).resize(function(){
-        setTileHeight(itemsString);
-      });
+      var items = $('#content .menu li', page);
 
       /**
        * Create an image-tag with the "Menu icon" modules image.
@@ -86,15 +65,45 @@
       });
 
       /**
+       * Tile height.
+       * ------
+       * Wait for the "new images" to be loaded.
+       */
+      $(window).load(function() {
+        // Loop through each image.
+        items.find('img').each(function() {
+          // Create an instance of the image.
+          var image = new Image();
+          image.src = $(this).attr("src");
+
+          // Grant a class based on the width.
+          if (image.width == 800) {
+            $(this).parent().addClass('tile--large');
+          } else {
+            $(this).parent().addClass('tile--small');
+          }
+        });
+
+        // Resize the small tiles to be as wide as they are tall.
+        var smallTile = items.hasClass('tile--small');
+        function setTileHeight() {
+          var tileWidth = smallTile.width();
+          smallTile.css('height', tileWidth);
+        }
+        // Rezise on page init.
+        setTileHeight();
+
+        // Resize when window width changes.
+        $(window).resize(function(){
+          setTileHeight();
+        });
+      });
+
+      /**
        * Make the tiles clickable.
        */
       // Make entire tile clickable.
       items.click(function(){
-        window.location = $(this).find('a').attr('href');
-      });
-
-      // Make entire large tile clickable.
-      $(largeTileString).click(function(){
         window.location = $(this).find('a').attr('href');
       });
     }
