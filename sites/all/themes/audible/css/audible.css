@@ -156,9 +156,9 @@ a:hover { text-decoration: none; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\ § Heading
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.heading, .heading--extra-small, .copy h3, .info-panel .content h3, .info-panel--expandable .content h3, .search-panel .content h3, .copy h4, .info-panel .content h4, .info-panel--expandable .content h4, .search-panel .content h4, .tile a, .tile--large a, .tile--large:nth-child(even) a, .front #content .menu li a, .heading--small, .copy h2, .info-panel .content h2, .info-panel--expandable .content h2, .search-panel .content h2, .delta-toggle-menu, .compact-list__item h2, .compact-list--search .compact-list__item h2, .page-search-results .view-content .compact-list__item h2, .node-type-generic-page .view-artworks .view-content .compact-list__item h2, .node-type-route .node-audio.node-teaser h2, .page-search-results .view-content .views-row h2, .page-number-pad-search-results .view-content .views-row h2, .node-type-generic-page .view-routes .view-content .views-row h2, .node-type-generic-page .view-artworks .view-content .views-row h2, .foldout .foldout-toggle, .heading--medium, .copy h1, .info-panel .content h1, .info-panel--expandable .content h1, .search-panel .content h1, .info-panel > h2, .info-panel--expandable > h2, .search-panel > h2, .heading--large, .button--l, .node-type-page #page-title, .heading--extra-large, .heading--bordered { font-family: "hill bold", sans-serif; font-size: 1em; font-weight: normal; line-height: 1.305; margin-bottom: .5em; color: #111111; letter-spacing: -.005em; }
+.heading, .heading--extra-small, .copy h3, .info-panel .content h3, .info-panel--expandable .content h3, .search-panel .content h3, .copy h4, .info-panel .content h4, .info-panel--expandable .content h4, .search-panel .content h4, .tile a, .tile--large a, .front #content .menu li.tile--large a, .front #content .menu li a, .heading--small, .copy h2, .info-panel .content h2, .info-panel--expandable .content h2, .search-panel .content h2, .delta-toggle-menu, .compact-list__item h2, .compact-list--search .compact-list__item h2, .page-search-results .view-content .compact-list__item h2, .node-type-generic-page .view-artworks .view-content .compact-list__item h2, .node-type-route .node-audio.node-teaser h2, .page-search-results .view-content .views-row h2, .page-number-pad-search-results .view-content .views-row h2, .node-type-generic-page .view-routes .view-content .views-row h2, .node-type-generic-page .view-artworks .view-content .views-row h2, .foldout .foldout-toggle, .heading--medium, .copy h1, .info-panel .content h1, .info-panel--expandable .content h1, .search-panel .content h1, .info-panel > h2, .info-panel--expandable > h2, .search-panel > h2, .heading--large, .button--l, .node-type-page #page-title, .heading--extra-large, .heading--bordered { font-family: "hill bold", sans-serif; font-size: 1em; font-weight: normal; line-height: 1.305; margin-bottom: .5em; color: #111111; letter-spacing: -.005em; }
 
-.heading--small, .copy h2, .info-panel .content h2, .info-panel--expandable .content h2, .search-panel .content h2, .delta-toggle-menu, .tile--large a, .tile--large:nth-child(even) a, .compact-list__item h2, .compact-list--search .compact-list__item h2, .page-search-results .view-content .compact-list__item h2, .node-type-generic-page .view-artworks .view-content .compact-list__item h2, .node-type-route .node-audio.node-teaser h2, .page-search-results .view-content .views-row h2, .page-number-pad-search-results .view-content .views-row h2, .node-type-generic-page .view-routes .view-content .views-row h2, .node-type-generic-page .view-artworks .view-content .views-row h2, .foldout .foldout-toggle { font-size: 1.2em; margin-bottom: .4em; }
+.heading--small, .copy h2, .info-panel .content h2, .info-panel--expandable .content h2, .search-panel .content h2, .delta-toggle-menu, .tile--large a, .front #content .menu li.tile--large a, .compact-list__item h2, .compact-list--search .compact-list__item h2, .page-search-results .view-content .compact-list__item h2, .node-type-generic-page .view-artworks .view-content .compact-list__item h2, .node-type-route .node-audio.node-teaser h2, .page-search-results .view-content .views-row h2, .page-number-pad-search-results .view-content .views-row h2, .node-type-generic-page .view-routes .view-content .views-row h2, .node-type-generic-page .view-artworks .view-content .views-row h2, .foldout .foldout-toggle { font-size: 1.2em; margin-bottom: .4em; }
 
 .heading--medium, .copy h1, .info-panel .content h1, .info-panel--expandable .content h1, .search-panel .content h1, .info-panel > h2, .info-panel--expandable > h2, .search-panel > h2 { font-size: 1.35em; margin-bottom: .35em; }
 
@@ -314,24 +314,19 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 
 /* § Standard tile (small)
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile, .tile--large, .tile--large:nth-child(even), .front #content .menu li { width: 50%; float: left; overflow: hidden; text-align: center; position: relative; margin-bottom: 12px; padding-right: 6px; }
+.tile, .tile--large, .front #content .menu li.tile--large, .front #content .menu li { width: 50%; float: left; overflow: hidden; text-align: center; position: relative; margin-bottom: 12px; }
 .tile:hover, .tile--large:hover, .front #content .menu li:hover, .tile:focus, .tile--large:focus, .front #content .menu li:focus { cursor: pointer; opacity: .85; }
-.tile img, .tile--large img, .tile--large:nth-child(even) img, .front #content .menu li img { width: 100%; }
-.tile a, .tile--large a, .tile--large:nth-child(even) a, .front #content .menu li a { font-family: 'hill regular', sans-serif; margin-bottom: 0; color: #fff; display: block; text-align: center; position: absolute; right: 6px; left: 0; bottom: 0; background: #111111; padding: 10px 5px 12px; }
-
-/* § Every second tile
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile:nth-child(even), .tile--large:nth-child(even), .front #content .menu li:nth-child(even) { padding-right: 0; padding-left: 6px; }
-.tile:nth-child(even) a, .tile--large:nth-child(even) a, .front #content .menu li:nth-child(even) a { right: 0; left: 6px; }
+.tile img, .tile--large img, .front #content .menu li.tile--large img, .front #content .menu li img { width: 100%; }
+.tile a, .tile--large a, .front #content .menu li.tile--large a, .front #content .menu li a { font-family: 'hill regular', sans-serif; margin-bottom: 0; color: #fff; display: block; text-align: center; position: absolute; bottom: 0; background: #111111; padding: 10px 5px 12px; }
+.tile.tile--small:nth-child(odd), .tile--small.tile--large:nth-child(odd), .front #content .menu li.tile--small:nth-child(odd) { padding-left: 6px; }
+.tile.tile--small:nth-child(odd) a, .tile--small.tile--large:nth-child(odd) a, .front #content .menu li.tile--small:nth-child(odd) a { left: 6px; right: 0; }
+.tile.tile--small:nth-child(even), .tile--small.tile--large:nth-child(even), .front #content .menu li.tile--small:nth-child(even) { padding-right: 6px; }
+.tile.tile--small:nth-child(even) a, .tile--small.tile--large:nth-child(even) a, .front #content .menu li.tile--small:nth-child(even) a { right: 6px; left: 0; }
 
 /* § Large tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile--large, .tile--large:nth-child(even) { padding: 0; width: 100%; float: none; }
-.tile--large a, .tile--large:nth-child(even) a { padding: 12px 5px 13px; right: 0; left: 0; }
-
-/* § "All artworks" and "All routes"
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile--utility a, .front #content .menu .tile--artworks a, .front #content .menu .tile--routes a { text-shadow: none; }
+.tile--large, .front #content .menu li.tile--large { padding: 0; width: 100% !important; height: auto; float: none; }
+.tile--large a, .front #content .menu li.tile--large a { padding: 12px 5px 13px; right: 0; left: 0; }
 
 /* § Default
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

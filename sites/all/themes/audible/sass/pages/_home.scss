@@ -18,23 +18,15 @@
       display: none;
     }
 
-    .menu li {
-      @extend .tile; // See _tile.scss
-    }
+    .menu {
+      li {
+        @extend .tile; // See _tile.scss
 
-    .menu .tile--artworks,
-    .menu .tile--routes {
-      @extend .tile--utility; // See _tile.scss
+        &.tile--large {
+          @extend .tile--large; // See _tile.scss
+        }
+      }
     }
-
-    .menu .tile--artworks {
-      @extend .tile--artworks; // See _tile.scss
-    }
-
-    .menu .tile--routes {
-      @extend .tile--routes; // See _tile.scss
-    }
-
   }//#content
 
 }//.front

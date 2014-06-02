@@ -9,7 +9,6 @@
   text-align: center;
   position: relative;
   margin-bottom: 12px;
-  padding-right: 6px;
 
   &:hover,
   &:focus {
@@ -17,9 +16,7 @@
     opacity: .85;
   }
 
-  // We can't make an inset border on a image - lets pseudo our way out of this!
-
-
+  // Responsive image.
   img {
     width: 100%;
   }
@@ -28,48 +25,45 @@
   a {
     @extend .heading--extra-small;
     font-family: 'hill regular', sans-serif;
-    // text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
     margin-bottom: 0;
     color: #fff;
     display: block;
     text-align: center;
     position: absolute;
-    right: 6px;
-    left: 0;
     bottom: 0;
     background: $black;
     padding: 10px 5px 12px;
   }
-}
 
+  // Every second small tile is being tweaked to create the crease between tiles.
+  // This way of doing it makes sure that we can maintain a responsive layout
+  // without adjusting the markup.
+  &.tile--small:nth-child(odd) {
+    padding-left: 6px;
 
-/*
- § Every second tile
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-// Every second tile is being tweaked to create the crease between tiles.
-// This way of doing it makes sure that we can maintain a responsive layout
-// without adjusting the markup.
+    a {
+      left: 6px;
+      right: 0;
+    }
+  }
+  &.tile--small:nth-child(even) {
+    padding-right: 6px;
 
-.tile:nth-child(even) {
-  padding-right: 0;
-  padding-left: 6px;
-
-  // Title
-  a {
-    right: 0;
-    left: 6px;
+    a {
+      right: 6px;
+      left: 0;
+    }
   }
 }
-
 
 /*
  § Large tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile--large,
-.tile--large:nth-child(even) {
+.tile--large {
   @extend .tile;
   padding: 0;
-  width: 100%;
+  width: 100% !important;
+  height: auto;
   float: none;
 
   a {
@@ -78,24 +72,4 @@
     right: 0;
     left: 0;
   }
-}
-
-
-/*
- § "All artworks" and "All routes"
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-// A tile that is not a route, but a reference to a list or other content.
-.tile--utility {
-
-  // Title
-  a {
-    text-shadow: none;
-  }
-}
-
-.tile--artworks,
-.tile--routes {
-
-
 }
