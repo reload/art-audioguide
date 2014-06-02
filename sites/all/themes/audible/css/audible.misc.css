@@ -1,1 +1,3 @@
-.node-type-generic-page #page-title { display: none; }
+#page-title { display: none; }
+
+.node-type-page #page-title { display: block; }

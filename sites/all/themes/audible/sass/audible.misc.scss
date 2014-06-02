@@ -1,6 +1,12 @@
+// Hide the original page title per default.
 // It may just be a temp fix?.
-.node-type-generic-page {
+#page-title {
+  display: none;
+}
+
+// Display the original title on "Basic pages".
+.node-type-page {
   #page-title {
-    display: none;
+    display: block;
   }
 }
