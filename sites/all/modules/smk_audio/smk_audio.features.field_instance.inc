@@ -88,6 +88,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'smart_trim_format',
         'weight' => 18,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -141,6 +147,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'mediaelement_audio',
         'weight' => 3,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -158,7 +170,7 @@ function smk_audio_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_audio_file',
     'label' => 'Audio file',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_field' => 0,
       'entity_translation_sync' => 0,
@@ -190,6 +202,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 4,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'hidden',
         'module' => 'image',
@@ -215,11 +233,11 @@ function smk_audio_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'image',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'entity_translation_sync' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -253,6 +271,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 16,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -270,7 +294,7 @@ function smk_audio_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_piece_ref',
     'label' => 'Piece',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
@@ -300,6 +324,12 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 15,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -351,6 +381,12 @@ function smk_audio_field_default_field_instances() {
         ),
         'type' => 'title_linked',
         'weight' => 19,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'hidden',

@@ -24,6 +24,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -76,6 +82,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 1,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -127,6 +139,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -134,20 +152,22 @@ function smk_piece_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
-    'label' => 'Title',
-    'required' => TRUE,
+    'label' => 'Name',
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+        'entity' => 0,
+        'page' => 0,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -169,6 +189,12 @@ function smk_piece_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -210,6 +236,12 @@ function smk_piece_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 12,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -255,6 +287,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 10,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'image',
@@ -270,11 +308,11 @@ function smk_piece_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'image',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'entity_translation_sync' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -308,6 +346,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 14,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -319,7 +363,7 @@ function smk_piece_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_piece_id',
     'label' => 'Inventory ID',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'max' => '',
@@ -349,6 +393,12 @@ function smk_piece_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 13,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -403,6 +453,12 @@ function smk_piece_field_default_field_instances() {
         'type' => 'title_linked',
         'weight' => 0,
       ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'title',
@@ -445,6 +501,7 @@ function smk_piece_field_default_field_instances() {
   t('Body');
   t('Description');
   t('Inventory ID');
+  t('Name');
   t('The year the artwork was created');
   t('Title');
   t('Year of creation');

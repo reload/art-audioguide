@@ -32,6 +32,7 @@ features[field_base][] = title_field
 features[field_group][] = group_info_panel|node|generic_page|full
 features[field_instance][] = node-generic_page-body
 features[field_instance][] = node-generic_page-field_block_ref
+features[field_instance][] = node-generic_page-title_field
 features[field_instance][] = node-page-body
 features[field_instance][] = node-page-title_field
 features[image][] = large_tile
