@@ -1,0 +1,12 @@
+// All routes
+.node-type-piece {
+  .view-artwork {
+    // Extending compact-list styles to view rows
+    .view-content {
+      // @extend .compact-list;
+      .views-row {
+        @extend .compact-list__item;
+      }
+    }
+  }
+}
