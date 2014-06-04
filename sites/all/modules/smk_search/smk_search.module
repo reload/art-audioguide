@@ -33,10 +33,16 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
   if (strtolower(arg(0)) == 'number-search') {
     // Get the exposed form.
     if ($form_id == 'views_exposed_form') {
+      // Get the url search parameter & get the search ID.
+      $get = drupal_get_query_parameters();
+      $pieceId = !empty($get['id']) ? $get['id'] : Null;
+
       // Append the number-search template after the "real form".
       $form['#suffix'] = theme('number_search', array(
           'intro' => t('Enter the artworks number.'),
           'example' => t('For example'),
+          'infoPanelHeadline' => t('Search result for'),
+          'pieceId' => $pieceId,
           'help' => l('<i class="icon--info-2"></i> ' . t('Help. How do I use this?'), '<front>', array('html' => TRUE)),
         )
       );

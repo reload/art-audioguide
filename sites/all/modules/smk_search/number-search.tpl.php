@@ -4,6 +4,14 @@
  * The template file for the Number-Search markup.
  */
 ?>
+<!-- Info Panel -->
+<?php if (isset($pieceId)): ?>
+<div class="info-panel">
+  <h2><?php print $infoPanelHeadline; ?> <span class="audio-id"><?php print $pieceId; ?></span></h2>
+</div>
+<?php endif; ?>
+
+<!-- Number pad -->
 <div class="number-pad">
   <!-- Display -->
   <div class="display">
