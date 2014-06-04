@@ -193,9 +193,7 @@
   Drupal.behaviors.trackNumbers = {
     attach: function (context, settings) {
       // Selectors.
-      var page = $('.node-type-route', context);
-      var items = $('.node-audio.node-teaser', page);
-      var images = $('.thumbnail-wrapper', items);
+      var images = $('.delta-overlay');
 
       // Append span-element to contain track-numbers.
       images.append($('<span>', {class: 'track-number'}));

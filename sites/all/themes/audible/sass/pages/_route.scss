@@ -2,7 +2,7 @@
 .node-type-route {
 
   // Extending compact-list styles to view rows
-  .node-audio.node-teaser {
+    .node-audio.view-mode-route_context, .node-audio.node-teaser {
     @extend .compact-list__item;
   }
 }

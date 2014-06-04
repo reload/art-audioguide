@@ -33,7 +33,11 @@ function smk_audio_ds_fields_info($entity_type) {
       'title' => t('The duration of the sound'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => '_smk_audio_sound_duration',
-      'ui_limit' => array('audio|teaser', 'audio|search_result'),
+      'ui_limit' => array(
+        'audio|teaser',
+        'audio|search_result',
+        'audio|route_context',
+      ),
     );
     // Get the artist of a sound.
     $fields['node']['sound_artist'] = array(
@@ -136,26 +140,24 @@ function _smk_audio_sound_duration($field) {
  * Return the artist of a sound.
  */
 function _smk_audio_artist($field) {
-  // Wrap the sound entity.
-  $sound = entity_metadata_wrapper('node', $field['entity']->nid);
-  // Wrap the piece entity.
+  $sound = entity_metadata_wrapper('node', $field['entity']);
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
-  // Wrap the artist entity.
-  $artist = $piece->field_artist->value();
-  // Return the artist name.
-  return $artist->title;
+  if (!empty($piece) && isset($piece->field_artist)) {
+    return $piece->field_artist->value()->title;
+  }
+  return t('Unknown');
+
 }
 
 /**
  * Return the artwork/piece ID of a sound.
  */
 function _smk_audio_piece_id($field) {
-  // Wrap the sound entity.
-  $sound = entity_metadata_wrapper('node', $field['entity']->nid);
-  // Wrap the piece entity.
-  $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
-  // Return the piece ID.
-  return $piece->field_piece_id->value();
+  $piece = field_get_items('node', $field['entity'], 'field_piece_ref');
+  if (!empty($piece)) {
+    return current($piece)['target_id'];
+  }
+  return 0;
 }
 
 /**
@@ -178,54 +180,44 @@ function smk_audio_file_insert($file) {
 
 /**
  * Return metadata for the mediaplayer.
- * ---
- * @TODO dynamically fetch route ID.
  */
 function _smk_audio_mediaplayer_metadata($field) {
-  // Node id.
-  $nid = $field['entity']->nid;
+  $route_nid = arg(2);
+  if (empty($route_nid)) {
+    return;
+  }
+  // Current audio node id.
+  $current_audio_nid = $field['entity']->nid;
 
-  // Route ID.
-  $routeId = 75;
-  // Load route.
-  $route = node_load($routeId);
-  // Wrap route.
-  $route = entity_metadata_wrapper('node', $route);
-
-  // Get references from the DB.
-  $query = db_select('field_data_field_audio_ref', 'ref')
-    ->fields('ref', array('delta', 'field_audio_ref_target_id'))
-    ->condition('ref.entity_id', $routeId, '=')
-    ->execute();
+  // Get the route from context.
+  $route = entity_metadata_wrapper('node', node_load(arg(2)));
 
   // Loop through the results/referenced sounds.
-  $totalSounds = 0;
-  foreach ($query as $reference) {
-    // Define
-    $targetId = $reference->field_audio_ref_target_id;
-    $delta = $reference->delta;
+  $total_sounds = 0;
+  $current_delta = 0;
+  foreach ($route->field_audio_ref->value() as $delta => $audio) {
     // Add 1 to the total amount of sounds that's referenced.
-    $totalSounds++;
+    $total_sounds++;
 
     // If the first delta is the current sound, then skip "previous".
-    if ($delta == 0 && $nid == $targetId) {
-      $setPrevious = True;
-      $currentDelta = $delta;
+    if ($delta == 0 && $current_audio_nid == $audio->nid) {
+      $setPrevious = TRUE;
+      $current_delta = $delta;
     }
     // If the current sound doesn't match the reference & we haven't looped
     // over the current sound yet, set new value for "$previous".
-    else if ($nid != $targetId && !isset($setPrevious)) {
-      $previous = $targetId;
+    elseif ($current_audio_nid != $audio->nid && !isset($setPrevious)) {
+      $previous = $audio->nid;
     }
     // We reached the current sound, and we should therefor stop defining
     // a new "previous".
-    else if ($nid == $targetId && !isset($setPrevious)) {
-      $setPrevious = True;
-      $currentDelta = $delta;
+    elseif ($current_audio_nid == $audio->nid && !isset($setPrevious)) {
+      $setPrevious = TRUE;
+      $current_delta = $delta;
     }
     // We passed the current sound & the next reference will be our "next" id.
-    else if ($nid != $targetId && $setPrevious == True && !isset($next)) {
-      $next = $targetId;
+    elseif ($current_audio_nid != $audio->nid && $setPrevious == TRUE && !isset($next)) {
+      $next = $audio->nid;
     }
   }
 
@@ -240,8 +232,8 @@ function _smk_audio_mediaplayer_metadata($field) {
   // The current route "position": X out of X.
   $items[] = t('!current out of !total', array(
     // The delta is 0-based index, so we add 1.
-    '!current' => intval($currentDelta + 1),
-    '!total' => $totalSounds,
+    '!current' => intval($current_delta + 1),
+    '!total' => $total_sounds,
   ));
 
   // Return the list with title information.
@@ -256,7 +248,7 @@ function _smk_audio_mediaplayer_metadata($field) {
   if (isset($previous)) {
     $output[] = l(
       t('Previous'),
-      url('node/' . $previous, array('absolute' => True)),
+      'node/' . $previous . '/' . $route_nid,
       array(
         'attributes' => array(
           'class' => array(
@@ -272,7 +264,7 @@ function _smk_audio_mediaplayer_metadata($field) {
   if (isset($next)) {
     $output[] = l(
       t('Next'),
-      url('node/' . $next, array('absolute' => True)),
+      'node/' . $next . '/' . $route_nid,
       array(
         'attributes' => array(
           'class' => array(
@@ -292,18 +284,49 @@ function _smk_audio_mediaplayer_metadata($field) {
  * Return the image of the referenced piece/artwork.
  */
 function _smk_audio_piece_image($field) {
-  // Image style.
-  $imageStyle = 'large';
 
-  // Wrap the sound node.
   $sound = entity_metadata_wrapper('node', $field['entity']);
-  // Wrap the piece node.
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
-  // Get the image.
-  $image = $piece->field_image->value();
+  if (!empty($piece) && isset($piece->field_image)) {
+    $image = $piece->field_image->value();
+    // Return the image (with an image style).
+    return theme('image', array(
+      'path' => image_style_url('large', $image['uri']),
+    ));
+  }
+  // No image - no output.
+  return;
+}
 
-  // Return the image (with an image style).
-  return theme('image', array(
-    'path' => image_style_url($imageStyle, $image['uri']),
-  ));
+/**
+ * Implements hook_entity_info_alter().
+ */
+function smk_audio_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['route_context'] = array(
+    'label' => t('In route context'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Define layouts from code.
+ *
+ * @return $layouts
+ *   A collection of layouts.
+ */
+function smk_audio_ds_layout_info() {
+  $layouts = array(
+    'audio_2col' => array(
+      'label' => t('Audio 2 col'),
+      'path' => drupal_get_path('module', 'smk_audio') . '/layouts/audio_2col',
+      'image' => TRUE,
+      'regions' => array(
+        'audio_2col_thumbnail' => t('Thumbnail'),
+        'audio_2col_title' => t('Title'),
+        'audio_2col_content' => t('Content'),
+      ),
+    ),
+  );
+
+  return $layouts;
 }
