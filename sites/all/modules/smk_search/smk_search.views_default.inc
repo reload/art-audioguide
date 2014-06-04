@@ -31,6 +31,7 @@ function smk_search_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'search_result';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_piece_ref_target_id']['id'] = 'field_piece_ref_target_id';
   $handler->display->display_options['relationships']['field_piece_ref_target_id']['table'] = 'field_data_field_piece_ref';
@@ -76,7 +77,7 @@ function smk_search_views_default_views() {
   );
 
   /* Display: Number-search */
-  $handler = $view->new_display('page', 'Number-search', 'page_1');
+  $handler = $view->new_display('page', 'Number-search', 'number_search');
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */

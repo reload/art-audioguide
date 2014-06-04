@@ -88,6 +88,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'smart_trim_format',
         'weight' => 18,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -135,6 +141,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'mediaelement_audio',
         'weight' => 3,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -177,6 +189,16 @@ function smk_audio_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 4,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'all_routes_style__80x80_crop',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -231,6 +253,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 16,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -268,6 +296,12 @@ function smk_audio_field_default_field_instances() {
     'description' => 'Enter the address to the video',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'search_result' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -317,6 +351,17 @@ function smk_audio_field_default_field_instances() {
         ),
         'type' => 'title_linked',
         'weight' => 19,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => 'content',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',

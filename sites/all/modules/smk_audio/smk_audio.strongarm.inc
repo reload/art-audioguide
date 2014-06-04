@@ -61,6 +61,9 @@ function smk_audio_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'search_result' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -85,6 +88,10 @@ function smk_audio_strongarm() {
           ),
           'teaser' => array(
             'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),

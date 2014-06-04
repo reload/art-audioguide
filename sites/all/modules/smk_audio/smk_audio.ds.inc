@@ -97,6 +97,45 @@ function smk_audio_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|audio|search_result';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'audio';
+  $ds_fieldsetting->view_mode = 'search_result';
+  $ds_fieldsetting->settings = array(
+    'sound_duration' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'content',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'thumbnail-wrapper',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $export['node|audio|search_result'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|audio|teaser';
   $ds_fieldsetting->entity_type = 'node';
   $ds_fieldsetting->bundle = 'audio';
@@ -195,8 +234,8 @@ function smk_audio_ds_layout_settings_info() {
         1 => 'group_info_panel',
         2 => 'sound_mediaplayer_metadata',
         3 => 'group_content',
-        4 => 'social_media_list',
-        5 => 'field_audio_file',
+        4 => 'field_audio_file',
+        5 => 'social_media_list',
         6 => 'sound_piece_image',
         7 => 'group_headline',
         8 => 'body',
@@ -210,8 +249,8 @@ function smk_audio_ds_layout_settings_info() {
       'group_info_panel' => 'ds_content',
       'sound_mediaplayer_metadata' => 'ds_content',
       'group_content' => 'ds_content',
-      'social_media_list' => 'ds_content',
       'field_audio_file' => 'ds_content',
+      'social_media_list' => 'ds_content',
       'sound_piece_image' => 'ds_content',
       'group_headline' => 'ds_content',
       'body' => 'ds_content',
@@ -230,6 +269,38 @@ function smk_audio_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['node|audio|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|audio|search_result';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'audio';
+  $ds_layout->view_mode = 'search_result';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_image',
+        1 => 'title_field',
+        2 => 'sound_duration',
+      ),
+    ),
+    'fields' => array(
+      'field_image' => 'ds_content',
+      'title_field' => 'ds_content',
+      'sound_duration' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+  );
+  $export['node|audio|search_result'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;

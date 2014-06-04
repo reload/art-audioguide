@@ -33,7 +33,7 @@ function smk_audio_ds_fields_info($entity_type) {
       'title' => t('The duration of the sound'),
       'field_type' => DS_FIELD_TYPE_FUNCTION,
       'function' => '_smk_audio_sound_duration',
-      'ui_limit' => array('audio|teaser'),
+      'ui_limit' => array('audio|teaser', 'audio|search_result'),
     );
     // Get the artist of a sound.
     $fields['node']['sound_artist'] = array(
