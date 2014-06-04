@@ -50,6 +50,11 @@ function smk_route_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_audio_ref' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['node|route|default'] = $ds_fieldsetting;
 

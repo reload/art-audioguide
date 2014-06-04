@@ -92,7 +92,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 13,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -151,7 +151,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 12,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -203,9 +203,13 @@ function smk_audio_field_default_field_instances() {
         'weight' => 4,
       ),
       'route_context' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'all_routes_style__80x80_crop',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'search_result' => array(
@@ -275,7 +279,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 11,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -329,7 +333,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 14,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -383,10 +387,15 @@ function smk_audio_field_default_field_instances() {
         'weight' => 19,
       ),
       'route_context' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => 'content',
+          'title_style' => '_none',
+        ),
+        'type' => 'title_linked',
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'hidden',

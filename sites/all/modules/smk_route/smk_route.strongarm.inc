@@ -61,6 +61,12 @@ function smk_route_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'route_context' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

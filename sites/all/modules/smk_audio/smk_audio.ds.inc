@@ -97,6 +97,73 @@ function smk_audio_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|audio|route_context';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'audio';
+  $ds_fieldsetting->view_mode = 'route_context';
+  $ds_fieldsetting->settings = array(
+    'sound_duration' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'duration',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_artist' => array(
+      'weight' => '3',
+      'label' => 'inline',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-el' => 'span',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'artist',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'sound_piece_id' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => '',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_minimal',
+          'classes' => 'delta-overlay',
+        ),
+      ),
+    ),
+  );
+  $export['node|audio|route_context'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|audio|search_result';
   $ds_fieldsetting->entity_type = 'node';
   $ds_fieldsetting->bundle = 'audio';
@@ -269,6 +336,48 @@ function smk_audio_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['node|audio|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|audio|route_context';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'audio';
+  $ds_layout->view_mode = 'route_context';
+  $ds_layout->layout = 'audio_2col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'audio_2col_thumbnail' => array(
+        0 => 'field_image',
+      ),
+      'audio_2col_title' => array(
+        1 => 'sound_piece_id',
+        2 => 'title_field',
+      ),
+      'audio_2col_content' => array(
+        3 => 'sound_artist',
+        4 => 'sound_duration',
+      ),
+    ),
+    'fields' => array(
+      'field_image' => 'audio_2col_thumbnail',
+      'sound_piece_id' => 'audio_2col_title',
+      'title_field' => 'audio_2col_title',
+      'sound_artist' => 'audio_2col_content',
+      'sound_duration' => 'audio_2col_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'audio_2col_thumbnail' => 'div',
+      'audio_2col_title' => 'div',
+      'audio_2col_content' => 'div',
+    ),
+    'layout_wrapper' => 'article',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => 'tokens',
+    'layout_link_custom' => '[node:url]?route=[current-page:url:unaliased:args:value:1]',
+  );
+  $export['node|audio|route_context'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;

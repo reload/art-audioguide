@@ -182,15 +182,20 @@ function smk_audio_file_insert($file) {
  * Return metadata for the mediaplayer.
  */
 function _smk_audio_mediaplayer_metadata($field) {
-  $route_nid = arg(2);
-  if (empty($route_nid)) {
+  // Get the URL query-string.
+  $get = drupal_get_query_parameters(NULL, array('q'));
+
+  if (empty($get['route'])) {
     return;
   }
+
+  $route_nid = $get['route'];
+
   // Current audio node id.
   $current_audio_nid = $field['entity']->nid;
 
   // Get the route from context.
-  $route = entity_metadata_wrapper('node', node_load(arg(2)));
+  $route = entity_metadata_wrapper('node', node_load($route_nid));
 
   // Loop through the results/referenced sounds.
   $total_sounds = 0;
@@ -248,13 +253,16 @@ function _smk_audio_mediaplayer_metadata($field) {
   if (isset($previous)) {
     $output[] = l(
       t('Previous'),
-      'node/' . $previous . '/' . $route_nid,
+      'node/' . $previous,
       array(
         'attributes' => array(
           'class' => array(
             'track-navigation',
             'previous'
           ),
+        ),
+        'query' => array(
+          'route' => $route_nid,
         ),
       )
     );
@@ -264,13 +272,16 @@ function _smk_audio_mediaplayer_metadata($field) {
   if (isset($next)) {
     $output[] = l(
       t('Next'),
-      'node/' . $next . '/' . $route_nid,
+      'node/' . $next,
       array(
         'attributes' => array(
           'class' => array(
             'track-navigation',
             'next'
           ),
+        ),
+        'query' => array(
+          'route' => $route_nid,
         ),
       )
     );
