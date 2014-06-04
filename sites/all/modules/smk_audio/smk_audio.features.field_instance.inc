@@ -391,7 +391,7 @@ function smk_audio_field_default_field_instances() {
         'module' => 'title',
         'settings' => array(
           'title_class' => '',
-          'title_link' => 'content',
+          'title_link' => '',
           'title_style' => '_none',
         ),
         'type' => 'title_linked',
