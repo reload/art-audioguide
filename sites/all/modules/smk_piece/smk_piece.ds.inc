@@ -17,14 +17,27 @@ function smk_piece_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'piece';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '0',
+    'sounds_on_piece' => array(
+      'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
-    ),
-    'field_image' => array(
       'formatter_settings' => array(
-        'ft' => array(),
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+        ),
+      ),
+    ),
+    'title_field' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'info-panel',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
       ),
     ),
   );
@@ -84,6 +97,30 @@ function smk_piece_ds_field_settings_info() {
 }
 
 /**
+ * Implements hook_ds_custom_fields_info().
+ */
+function smk_piece_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'sounds_on_piece';
+  $ds_field->label = 'Sounds on piece';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'piece|*';
+  $ds_field->properties = array(
+    'block' => 'views|artwork-sounds_on_piece',
+    'block_render' => '1',
+  );
+  $export['sounds_on_piece'] = $ds_field;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function smk_piece_ds_layout_settings_info() {
@@ -99,23 +136,15 @@ function smk_piece_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'title',
-        1 => 'field_artist',
-        2 => 'body',
-        3 => 'field_image',
+        0 => 'title_field',
+        1 => 'sounds_on_piece',
       ),
     ),
     'fields' => array(
-      'title' => 'ds_content',
-      'field_artist' => 'ds_content',
-      'body' => 'ds_content',
-      'field_image' => 'ds_content',
+      'title_field' => 'ds_content',
+      'sounds_on_piece' => 'ds_content',
     ),
-    'classes' => array(
-      'layout_class' => array(
-        '' => '',
-      ),
-    ),
+    'classes' => array(),
     'wrappers' => array(
       'ds_content' => 'div',
     ),

@@ -83,6 +83,12 @@ function smk_piece_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

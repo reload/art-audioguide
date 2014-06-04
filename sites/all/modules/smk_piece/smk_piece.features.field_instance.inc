@@ -166,10 +166,9 @@ function smk_piece_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -208,12 +207,9 @@ function smk_piece_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 1,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -255,13 +251,9 @@ function smk_piece_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'large',
-        ),
-        'type' => 'image',
-        'weight' => 5,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -312,15 +304,9 @@ function smk_piece_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 8,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -360,15 +346,9 @@ function smk_piece_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 7,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -413,10 +393,15 @@ function smk_piece_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => '',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
