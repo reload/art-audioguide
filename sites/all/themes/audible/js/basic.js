@@ -85,7 +85,7 @@
         });
 
         // Resize the small tiles to be as wide as they are tall.
-        var smallTile = items.hasClass('tile--small');
+        var smallTile = $('#content .menu li.tile-small', page);
         function setTileHeight() {
           var tileWidth = smallTile.width();
           smallTile.css('height', tileWidth);
