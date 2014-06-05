@@ -46,6 +46,20 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
           'help' => l('<i class="icon--info-2"></i> ' . t('Help. How do I use this?'), '<front>', array('html' => TRUE)),
         )
       );
+/**
+ * Implements hook_views_query_alter().
+ * ----------
+ */
+function smk_search_views_query_alter(&$view, &$query) {
+  // Find the artwork query alter
+  if ($view->name == 'artwork_by_artist') {
+    // Traverse through the 'where' part of the query.
+    foreach ($query->where[0]['conditions'] as $delta => &$condition) {
+      if ($condition['field'] == 'node_field_data_field_artist__field_data_title_field.title_field_value') {
+        $condition['value'] = '%' . $condition['value'] . '%';
+        $condition['operator'] = 'LIKE';
+      }
     }
   }
 }
+
