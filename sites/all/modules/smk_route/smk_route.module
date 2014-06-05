@@ -40,40 +40,28 @@ function smk_route_ds_fields_info($entity_type) {
  * Returns the amount of sounds a route references.
  */
 function _smk_route_amount_of_sounds($field) {
-  // Set query to get the amount of references.
-  $query = db_query("SELECT COUNT(field_audio_ref_target_id) FROM field_data_field_audio_ref WHERE entity_id = :nid", array(
-    'nid' => $field['entity']->nid,
-  ));
-  // Get the result as a string.
-  $result = $query->fetchField();
-
-  // Return the string.
-  return format_plural($result, t('!result sound'), t('!result sounds'), array('!result' => $result));
+  $sounds = field_get_items('node', $field['entity'], 'field_audio_ref');
+  $count = empty($sounds) ? 0 : count($sounds);
+  return format_plural($count, t('!result sound'), t('!result sounds'), array('!result' => $count));
 }
 
 /**
  * Returns the combined time of the associated sounds (For Routes).
  */
 function _smk_route_sounds_duration($field) {
-  $query = db_select('field_data_field_audio_ref', 'ref')
-    ->fields('ref', array('field_audio_ref_target_id'))
-    ->condition('ref.entity_id', $field['entity']->nid, '=')
-    ->execute();
-
+  $sounds = field_get_items('node', $field['entity'], 'field_audio_ref');
   // Define sum variable.
   $seconds = 0;
-  // Loop through the results.
-  foreach ($query as $reference) {
-    // Load the node.
-    $node = node_load($reference->field_audio_ref_target_id);
-    // Wrap the node.
-    $wrapper = entity_metadata_wrapper('node', $node);
-    // Get the file field.
-    $file = $wrapper->field_audio_file->value();
-    // Wrap the field.
-    $fileWrapper = entity_metadata_wrapper('file', $file['fid']);
-    // Get the duration field from the file and add it to "sum".
-    $seconds += $fileWrapper->field_duration->value();
+  if (!empty($sounds)) {
+    foreach ($sounds as $sound) {
+      $wrapper = entity_metadata_wrapper('node', $sound['target_id']);
+      $file = $wrapper->field_audio_file->value();
+      if (!empty($file)) {
+        $fileWrapper = entity_metadata_wrapper('file', $file['fid']);
+        // Get the duration field from the file and add it to "sum".
+        $seconds += $fileWrapper->field_duration->value();
+      }
+    }
   }
 
   // Check if the combined duration includes "hours".
