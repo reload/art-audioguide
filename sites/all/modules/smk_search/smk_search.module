@@ -87,3 +87,18 @@ function smk_search_views_query_alter(&$view, &$query) {
   }
 }
 
+/**
+ * Implements hook_views_pre_render().
+ */
+function smk_search_views_pre_render(&$view) {
+  // Check which view is getting rendered.
+  switch ($view->name) {
+    // The number-pad search.
+    case 'number_search':
+      // If we only have 1 results -> redirect to that result.
+      if (count($view->result) == 1) {
+        drupal_goto('node/' . $view->result[0]->nid);
+      }
+      break;
+  }
+}
