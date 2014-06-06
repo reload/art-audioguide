@@ -1,6 +1,14 @@
 // Search results
 
-.page-search-results {
+.page-search {
+
+  .category {
+    @extend .heading--medium;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 0;
+  }
 
   // Extending compact-list styles to view rows
   .view-content {

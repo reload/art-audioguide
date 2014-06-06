@@ -114,13 +114,21 @@
    */
   Drupal.behaviors.compactList = {
     attach: function (context, settings) {
-      // Selectors.
-      var items = $('.view .views-row, .node.node-teaser', context);
+      // Prepare the search-page for this effect.
+      if ($('.page-search').get(0)) {
+        // Move the content of the nested views to the "main view.
+        // Afterwards we remove the old container to remove empty spaces.
+        var container = $('.page-search .view-string-search > .view-content', context);
+        $('.node-artist', container).each(function() {
+          $(this).find('.views-row').appendTo(container);
+          $(this).parent().remove();
+        });
+      }
 
       /**
        * Make compact list item clickable.
        */
-      items.click(function(){
+      $('.view .views-row, .node.node-teaser', context).click(function(){
         window.location = $(this).find('a').attr('href');
       });
     }
@@ -163,7 +171,7 @@
 
       // Function to vertically align thumbnails.
       function verticalAlignThumbs() {
-        var page = $('.node-type-generic-page .view-artworks', context);
+        var page = $('.node-type-generic-page .view-artworks, .page-search .view-string-search', context);
         var images = $('.thumbnail-wrapper img', page);
 
         images.each( function() {
@@ -322,6 +330,18 @@
       setInterval(function(){
         title.toggleClass('switched');
       }, 3500);
+    }
+  }
+
+  /**
+   * Move the search-form inside the info-panel.
+   */
+  Drupal.behaviors.moveSearchForm = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.page-search', context);
+      // Move the form.
+      $('form', page).appendTo($('.search-panel', page));
     }
   }
 
