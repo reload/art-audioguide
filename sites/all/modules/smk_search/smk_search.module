@@ -43,33 +43,31 @@ function smk_search_menu() {
  */
 function smk_search_theme($existing, $type, $theme, $path) {
   // An array containing custom template information.
-  $template = array(
+  return array(
     'number_search' => array(
-      'template' => 'template/number-search',
+      'template' => 'templates/number-search',
     ),
     'string_search' => array(
-      'template' => 'template/string-search',
+      'template' => 'templates/string-search',
     ),
   );
-  return $template;
 }
 
 /**
  * Custom view for the search-result page.
  */
 function smk_search_results_view($query = NULL) {
-
   // Get and render form.
   $form = drupal_get_form('smk_search_form');
   $output = drupal_render($form);
 
-  // Define blocks.
+  // Names of the views-blocks we want to render.
   $names = array(
     'search-title',
     'search-artist',
   );
 
-  // Initialize each block & render them.
+  // Loop through each name and render the blocks.
   foreach ($names as $name) {
     $block = module_invoke('views', 'block_view', $name);
     if (!empty($block['content'])) {
@@ -77,8 +75,6 @@ function smk_search_results_view($query = NULL) {
       $output .= render($block['content']);
     }
   }
-
-  // Return content.
   return $output;
 }
 
@@ -86,7 +82,7 @@ function smk_search_results_view($query = NULL) {
  * Custom search form.
  */
 function smk_search_form($form, &$form_state) {
-  // We add a text-field & a submit-button.
+  // We add a text-field and a submit-button.
   $form['query'] = array(
     '#type' => 'textfield',
     '#title' => '',
@@ -94,7 +90,7 @@ function smk_search_form($form, &$form_state) {
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
-    '#submit' => array('_smk_search_form_submit'),
+    '#submit' => array('smk_search_form_submit'),
   );
   return $form;
 }
@@ -102,7 +98,7 @@ function smk_search_form($form, &$form_state) {
 /**
  * Custom submit handler.
  */
-function _smk_search_form_submit($form, &$form_state) {
+function smk_search_form_submit($form, &$form_state) {
   // We don't actually want to process the input, but rather
   // just redirect it as an argument to the "search page".
   $form_state['redirect'] = 'search/' . $form_state['values']['query'];
