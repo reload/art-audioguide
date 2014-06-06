@@ -200,7 +200,7 @@ function smk_audio_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 14,
       ),
       'route_context' => array(
         'label' => 'hidden',

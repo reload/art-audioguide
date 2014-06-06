@@ -78,6 +78,9 @@ function smk_audio_strongarm() {
       'search_result' => array(
         'custom_settings' => TRUE,
       ),
+      'route_context' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
