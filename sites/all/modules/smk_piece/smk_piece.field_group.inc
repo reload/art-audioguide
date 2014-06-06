@@ -36,6 +36,7 @@ function smk_piece_field_group_info() {
         'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'none',
+        'id' => 'node_piece_teaser_group_content',
       ),
       'formatter' => 'open',
     ),
