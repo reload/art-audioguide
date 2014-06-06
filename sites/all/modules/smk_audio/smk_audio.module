@@ -67,6 +67,13 @@ function smk_audio_ds_fields_info($entity_type) {
       'function' => '_smk_audio_piece_image',
       'ui_limit' => array('audio|default'),
     );
+    // Other sounds from piece.
+    $fields['node']['sounds_from_piece'] = array(
+      'title' => t('Other sounds from this piece'),
+      'field_type' => DS_FIELD_TYPE_FUNCTION,
+      'function' => '_smk_audio_sounds_from_piece',
+      'ui_limit' => array('audio|default'),
+    );
   }
 
   if (isset($fields[$entity_type])) {
@@ -307,6 +314,35 @@ function _smk_audio_piece_image($field) {
   }
   // No image - no output.
   return;
+}
+
+/**
+ * Show other sounds that are about the same artwork as we are on.
+ */
+function _smk_audio_sounds_from_piece($field) {
+
+  $sound = entity_metadata_wrapper('node', $field['entity']);
+  $piece_nid = $sound->field_piece_ref->raw();
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'audio')
+    // Exclude the node we are currently on.
+    ->entityCondition('entity_id', $field['entity']->nid, '!=')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_piece_ref', 'target_id', $piece_nid, '=');
+  $result = $query->execute();
+
+  if (!isset($result['node'])) {
+    return '';
+  }
+
+  $render_arr = node_view_multiple(node_load_multiple(array_keys($result['node'])), 'teaser');
+  // Wrap the output in a foldout box.
+  return theme('foldout_box', array(
+    'title' => t('Other audio clips about this piece'),
+    'content' => render($render_arr)
+  ));
 }
 
 /**

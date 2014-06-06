@@ -255,7 +255,22 @@
         infoPanel.toggleClass('open');
       });
     }
-  }
+  };
+
+  /**
+   * Fold out box toggle content.
+   */
+  Drupal.behaviors.foldoutBox = {
+    attach: function (context, settings) {
+      $('.foldout').click(function (e) {
+        // Prevent link from redirecting.
+        e.preventDefault();
+        // Toggle classes and show/hide content.
+        $(this).toggleClass('open');
+        $('.foldout-content', this).toggle();
+      });
+    }
+  };
 
   /**
    * This script will make all social media icons on the sound

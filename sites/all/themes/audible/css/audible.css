@@ -682,7 +682,7 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .foldout .foldout-toggle:active { background: #f2f2f4; }
 .foldout .foldout-toggle > i { font-size: 24px; position: relative; top: .225em; }
 
-.foldout-content { position: absolute; left: -999px; }
+.foldout-content { position: absolute; display: none; }
 
 .foldout.open .foldout-content { position: relative; left: auto; }
 
