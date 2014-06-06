@@ -21,10 +21,10 @@ function smk_search_theme($existing, $type, $theme, $path) {
   // An array containing custom template information.
   $template = array(
     'number_search' => array(
-      'template' => 'layout/number-search',
+      'template' => 'template/number-search',
     ),
     'string_search' => array(
-      'template' => 'layout/string-search',
+      'template' => 'template/string-search',
     ),
   );
   return $template;
@@ -42,14 +42,14 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
       if ($form_id == 'views_exposed_form') {
         // Get the url search parameter & get the search ID.
         $get = drupal_get_query_parameters();
-        $pieceId = !empty($get['id']) ? $get['id'] : Null;
+        $piece_id = !empty($get['id']) ? $get['id'] : NULL;
 
         // Append the number-search template after the "real form".
         $form['#suffix'] = theme('number_search', array(
           'intro' => t('Enter the artworks number.'),
           'example' => t('For example'),
           'infoPanelHeadline' => t('Search result for'),
-          'pieceId' => $pieceId,
+          'pieceId' => $piece_id,
           'help' => l('<i class="icon--info-2"></i> ' . t('Help. How do I use this?'), '<front>', array('html' => TRUE)),
         ));
       }
@@ -77,7 +77,8 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
 function smk_search_views_query_alter(&$view, &$query) {
   // Find the artwork query alter
   if ($view->name == 'artwork_by_artist') {
-    // Traverse through the 'where' part of the query.
+    // Since we use a contextual filter to get the query-string, we then
+    // have to alter the query to be a "LIKE" comparison instead of "equal to".
     foreach ($query->where[0]['conditions'] as $delta => &$condition) {
       if ($condition['field'] == 'node_field_data_field_artist__field_data_title_field.title_field_value') {
         $condition['value'] = '%' . $condition['value'] . '%';
