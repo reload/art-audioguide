@@ -1,4 +1,4 @@
-.page-search .view-id-string_search .view-filters {
+.page-search .search-panel {
   @extend .info-panel;
   padding-bottom: 13px;
 
@@ -20,7 +20,7 @@
       }
     }
 
-    .views-submit-button input {
+    #edit-submit {
       @extend .icon;
       width: 34px;
       height: 30px;

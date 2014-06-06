@@ -11,88 +11,6 @@ function smk_search_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'artwork_by_artist';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'node';
-  $view->human_name = 'Artwork by artist';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Artwork by artist';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['view_mode'] = 'search_result';
-  $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_artist_target_id']['id'] = 'field_artist_target_id';
-  $handler->display->display_options['relationships']['field_artist_target_id']['table'] = 'field_data_field_artist';
-  $handler->display->display_options['relationships']['field_artist_target_id']['field'] = 'field_artist_target_id';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Title (title_field) */
-  $handler->display->display_options['sorts']['title_field_value']['id'] = 'title_field_value';
-  $handler->display->display_options['sorts']['title_field_value']['table'] = 'field_data_title_field';
-  $handler->display->display_options['sorts']['title_field_value']['field'] = 'title_field_value';
-  /* Contextual filter: Content: Title (title_field) */
-  $handler->display->display_options['arguments']['title_field_value']['id'] = 'title_field_value';
-  $handler->display->display_options['arguments']['title_field_value']['table'] = 'field_data_title_field';
-  $handler->display->display_options['arguments']['title_field_value']['field'] = 'title_field_value';
-  $handler->display->display_options['arguments']['title_field_value']['relationship'] = 'field_artist_target_id';
-  $handler->display->display_options['arguments']['title_field_value']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['title_field_value']['default_argument_type'] = 'query';
-  $handler->display->display_options['arguments']['title_field_value']['default_argument_options']['parameter'] = 'query';
-  $handler->display->display_options['arguments']['title_field_value']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['title_field_value']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['title_field_value']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['title_field_value']['limit'] = '0';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'piece' => 'piece',
-  );
-
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['artwork_by_artist'] = array(
-    t('Master'),
-    t('Artwork by artist'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Content entity referenced from field_artist'),
-    t('All'),
-    t('Block'),
-  );
-  $export['artwork_by_artist'] = $view;
-
-  $view = new view();
   $view->name = 'number_search';
   $view->description = '';
   $view->tag = 'default';
@@ -224,18 +142,18 @@ function smk_search_views_default_views() {
   $export['number_search'] = $view;
 
   $view = new view();
-  $view->name = 'string_search';
+  $view->name = 'search';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'String search';
+  $view->human_name = 'Search';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Search';
+  $handler->display->display_options['title'] = 'Title';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -244,78 +162,83 @@ function smk_search_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['view_mode'] = 'search_result';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Field: Content: Artist */
-  $handler->display->display_options['fields']['field_artist']['id'] = 'field_artist';
-  $handler->display->display_options['fields']['field_artist']['table'] = 'field_data_field_artist';
-  $handler->display->display_options['fields']['field_artist']['field'] = 'field_artist';
-  $handler->display->display_options['fields']['field_artist']['relationship'] = 'field_artist_target_id';
-  $handler->display->display_options['fields']['field_artist']['settings'] = array(
-    'link' => 0,
-  );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_artist_target_id']['id'] = 'field_artist_target_id';
+  $handler->display->display_options['relationships']['field_artist_target_id']['table'] = 'field_data_field_artist';
+  $handler->display->display_options['relationships']['field_artist_target_id']['field'] = 'field_artist_target_id';
   /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
-  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'AND',
-    2 => 'AND',
-  );
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Content: Title (title_field) */
+  $handler->display->display_options['sorts']['title_field_value']['id'] = 'title_field_value';
+  $handler->display->display_options['sorts']['title_field_value']['table'] = 'field_data_title_field';
+  $handler->display->display_options['sorts']['title_field_value']['field'] = 'title_field_value';
+  /* Contextual filter: Content: Title (title_field) */
+  $handler->display->display_options['arguments']['title_field_value']['id'] = 'title_field_value';
+  $handler->display->display_options['arguments']['title_field_value']['table'] = 'field_data_title_field';
+  $handler->display->display_options['arguments']['title_field_value']['field'] = 'title_field_value';
+  $handler->display->display_options['arguments']['title_field_value']['relationship'] = 'field_artist_target_id';
+  $handler->display->display_options['arguments']['title_field_value']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['title_field_value']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['title_field_value']['default_argument_options']['index'] = '1';
+  $handler->display->display_options['arguments']['title_field_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['title_field_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['title_field_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['title_field_value']['limit'] = '0';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'artist' => 'artist',
     'piece' => 'piece',
   );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title (title_field) */
-  $handler->display->display_options['filters']['title_field_value']['id'] = 'title_field_value';
-  $handler->display->display_options['filters']['title_field_value']['table'] = 'field_data_title_field';
-  $handler->display->display_options['filters']['title_field_value']['field'] = 'title_field_value';
-  $handler->display->display_options['filters']['title_field_value']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title_field_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title_field_value']['expose']['operator_id'] = 'title_field_value_op';
-  $handler->display->display_options['filters']['title_field_value']['expose']['operator'] = 'title_field_value_op';
-  $handler->display->display_options['filters']['title_field_value']['expose']['identifier'] = 'query';
-  $handler->display->display_options['filters']['title_field_value']['expose']['required'] = TRUE;
-  $handler->display->display_options['filters']['title_field_value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'string_search_page');
-  $handler->display->display_options['path'] = 'search';
-  $translatables['string_search'] = array(
+  /* Display: Title */
+  $handler = $view->new_display('block', 'Title', 'title');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Title (title_field) */
+  $handler->display->display_options['arguments']['title_field_value']['id'] = 'title_field_value';
+  $handler->display->display_options['arguments']['title_field_value']['table'] = 'field_data_title_field';
+  $handler->display->display_options['arguments']['title_field_value']['field'] = 'title_field_value';
+  $handler->display->display_options['arguments']['title_field_value']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['title_field_value']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['title_field_value']['default_argument_options']['index'] = '1';
+  $handler->display->display_options['arguments']['title_field_value']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['title_field_value']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['title_field_value']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['title_field_value']['limit'] = '0';
+
+  /* Display: Artist */
+  $handler = $view->new_display('block', 'Artist', 'artist');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Artist';
+  $translatables['search'] = array(
     t('Master'),
-    t('Search'),
+    t('Title'),
     t('more'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Content entity referenced from field_artist'),
+    t('All'),
     t('Artist'),
-    t('Title'),
-    t('Page'),
   );
-  $export['string_search'] = $view;
+  $export['search'] = $view;
 
   return $export;
 }

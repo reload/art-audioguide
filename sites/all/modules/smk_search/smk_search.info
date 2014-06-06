@@ -5,6 +5,5 @@ dependencies[] = ctools
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[views_view][] = artwork_by_artist
 features[views_view][] = number_search
-features[views_view][] = string_search
+features[views_view][] = search

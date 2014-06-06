@@ -318,4 +318,16 @@
     }
   }
 
+  /**
+   * Move the search-form inside the info-panel.
+   */
+  Drupal.behaviors.moveSearchForm = {
+    attach: function (context, settings) {
+      // Selectors.
+      var page = $('.page-search', context);
+      // Move the form.
+      $('form', page).appendTo($('.search-panel', page));
+    }
+  }
+
 })(jQuery);

@@ -15,6 +15,30 @@ function smk_search_init() {
 }
 
 /**
+ * Implements hook_menu().
+ */
+function smk_search_menu() {
+  // Make a path that accepts an argument which we will use
+  // as a contextual filter for result-views lists.
+  $items['search'] = array(
+    'title' => 'Search',
+    'page callback' => 'smk_search_results_view',
+    'access arguments' => array('access content'),
+    'page arguments' => array(1),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['search/%'] = array(
+    'title' => 'Search',
+    'page callback' => 'smk_search_results_view',
+    'access arguments' => array('access content'),
+    'page arguments' => array(1),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
  * Implements hook_theme().
  */
 function smk_search_theme($existing, $type, $theme, $path) {
@@ -28,6 +52,60 @@ function smk_search_theme($existing, $type, $theme, $path) {
     ),
   );
   return $template;
+}
+
+/**
+ * Custom view for the search-result page.
+ */
+function smk_search_results_view($query = NULL) {
+
+  // Get and render form.
+  $form = drupal_get_form('smk_search_form');
+  $output = drupal_render($form);
+
+  // Define blocks.
+  $names = array(
+    'search-title',
+    'search-artist',
+  );
+
+  // Initialize each block & render them.
+  foreach ($names as $name) {
+    $block = module_invoke('views', 'block_view', $name);
+    if (!empty($block['content'])) {
+      $output .= '<h2 class="category">' . $block['subject'] . '</h2>';
+      $output .= render($block['content']);
+    }
+  }
+
+  // Return content.
+  return $output;
+}
+
+/**
+ * Custom search form.
+ */
+function smk_search_form($form, &$form_state) {
+  // We add a text-field & a submit-button.
+  $form['query'] = array(
+    '#type' => 'textfield',
+    '#title' => '',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+    '#submit' => array('_smk_search_form_submit'),
+  );
+  return $form;
+}
+
+/**
+ * Custom submit handler.
+ */
+function _smk_search_form_submit($form, &$form_state) {
+  // We don't actually want to process the input, but rather
+  // just redirect it as an argument to the "search page".
+  $form_state['redirect'] = 'search/' . $form_state['values']['query'];
 }
 
 /**
@@ -56,7 +134,7 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
       break;
     // Check if we're on the "string search" page.
     case 'search':
-      if ($form_id == 'views_exposed_form') {
+      if ($form_id == 'smk_search_form') {
         // Change the submit-button value to be a loupe icon.
         $form['submit']['#value'] = '';
 
@@ -72,19 +150,21 @@ function smk_search_form_alter(&$form, &$form_state, $form_id) {
 
 /**
  * Implements hook_views_query_alter().
- * ----------
  */
 function smk_search_views_query_alter(&$view, &$query) {
-  // Find the artwork query alter
-  if ($view->name == 'artwork_by_artist') {
-    // Since we use a contextual filter to get the query-string, we then
-    // have to alter the query to be a "LIKE" comparison instead of "equal to".
-    foreach ($query->where[0]['conditions'] as $delta => &$condition) {
-      if ($condition['field'] == 'node_field_data_field_artist__field_data_title_field.title_field_value') {
-        $condition['value'] = '%' . $condition['value'] . '%';
-        $condition['operator'] = 'LIKE';
+  // Look through each view.
+  switch ($view->name) {
+    // Check if we're on the "Views: search".
+    case 'search':
+      // Since we use a contextual filter to get the query-string, we then
+      // have to alter the query to be a "LIKE" comparison instead of "equal to".
+      foreach ($query->where[0]['conditions'] as $delta => &$condition) {
+        if ($condition['field'] == 'field_data_title_field.title_field_value' || $condition['field'] == 'node_field_data_field_artist__field_data_title_field.title_field_value') {
+          $condition['value'] = '%' . $condition['value'] . '%';
+          $condition['operator'] = 'LIKE';
+        }
       }
-    }
+      break;
   }
 }
 

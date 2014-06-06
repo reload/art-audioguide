@@ -5,5 +5,7 @@
  */
 ?>
 <!-- Search panel -->
-<h2><?php print $headline; ?></h2>
-<div class="help-text"><?php print $help; ?></div>
+<div class="search-panel">
+  <h2><?php print $headline; ?></h2>
+  <div class="help-text"><?php print $help; ?></div>
+</div>
