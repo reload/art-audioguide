@@ -11,6 +11,7 @@ include_once 'smk_search.features.inc';
  */
 function smk_search_init() {
   // Add JavaScript dependencies for the Number-Pad.
+  drupal_add_js(libraries_get_path('touche') . '/dist/touche.min.js', array('type' => 'file'));
   drupal_add_js(drupal_get_path('module', 'smk_search') . '/numberpad.js', array('type' => 'file'));
 }
 

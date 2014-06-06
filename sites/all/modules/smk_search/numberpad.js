@@ -119,3 +119,6 @@
   }
 
 })(jQuery);
+
+// Init "Touche.js".
+Touche(document.querySelectorAll('.key')).on('click', handleClicks);
