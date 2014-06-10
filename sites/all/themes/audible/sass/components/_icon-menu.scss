@@ -87,28 +87,3 @@ label[for="menu-toggle"] {
     }
   }
 }
-
-
-/*
- § Search
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.icon-menu {
-
-  .fa-search {
-    @extend .icon--search;
-  }
-
-}//.icon-menu
-
-
-
-/*
- § Number search
-\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.icon-menu {
-
-  .fa-th {
-    @extend .icon--listen-1;
-  }
-
-}//.icon-menu

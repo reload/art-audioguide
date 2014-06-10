@@ -117,14 +117,14 @@ function smk_base_icon_menu() {
     $links[] = l('', 'admin', array('attributes' => array('class' => array('admin-link', 'menu', 'fa', 'fa-cog'))));
   }
   // Search icon.
-  $links[] = l('', 'search', array('attributes' => array('class' => array('test-link', 'menu', 'fa', 'fa-search'))));
+  $links[] = l('', 'search', array('attributes' => array('class' => array('menu', 'icon--search'))));
   // Number icon.
-  $links[] = l('', 'number-search', array('attributes' => array('class' => array('test-link', 'menu', 'fa', 'fa-th'))));
+  $links[] = l('', 'number-search', array('attributes' => array('class' => array('menu', 'icon--listen-1'))));
   // Burger icon.
-  $links[] = '
-    <label for="menu-toggle"></label>
-    <input id="menu-toggle" type="checkbox">
-  ';
+  $links[] = <<<EOD
+<label for="menu-toggle"></label>
+<input id="menu-toggle" type="checkbox">
+EOD;
 
   // Render item-list.
   return theme('item_list', array('items' => $links, 'attributes' => array('class' => array('icon-menu'))));
