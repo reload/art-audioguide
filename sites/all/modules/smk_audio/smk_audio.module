@@ -162,7 +162,8 @@ function _smk_audio_artist($field) {
 function _smk_audio_piece_id($field) {
   $piece = field_get_items('node', $field['entity'], 'field_piece_ref');
   if (!empty($piece)) {
-    return current($piece)['target_id'];
+    $current = current($piece);
+    return $current['target_id'];
   }
   return 0;
 }
