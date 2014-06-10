@@ -160,10 +160,15 @@ function _smk_audio_artist($field) {
  * Return the artwork/piece ID of a sound.
  */
 function _smk_audio_piece_id($field) {
+  // Get the nid of the referenced piece.
   $piece = field_get_items('node', $field['entity'], 'field_piece_ref');
+  // If there is a piece.
   if (!empty($piece)) {
+    // Get the nid & load+wrap the node to get the "Inventory ID".
     $current = current($piece);
-    return $current['target_id'];
+    $node = node_load($current['target_id']);
+    $wrap = entity_metadata_wrapper('node', $node);
+    return $wrap->field_piece_id->value();
   }
   return 0;
 }
