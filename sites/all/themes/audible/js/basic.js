@@ -15,7 +15,7 @@
       });
 
     }
-  }
+  };
 
   /**
    * Tiles.
@@ -107,7 +107,7 @@
         window.location = $(this).find('a').attr('href');
       });
     }
-  }
+  };
 
   /**
    * Clickable list (views-lists).
@@ -132,7 +132,7 @@
         window.location = $(this).find('a').attr('href');
       });
     }
-  }
+  };
 
   /**
    * Compact list item title and content truncation (Routes).
@@ -161,7 +161,7 @@
         setCompactListItemContentWidth();
       });
     }
-  }
+  };
 
   /**
    * Vertically center thumbnails in list (search results & artworks/pieces).
@@ -192,7 +192,7 @@
       });
 
     }
-  }
+  };
 
   /**
    * Track numbers.
@@ -215,7 +215,7 @@
         $(this).css('margin-left', '-' + $(this).outerWidth() / 2 + 'px' );
       });
     }
-  }
+  };
 
   /**
    * Info panel (expandability).
@@ -314,10 +314,10 @@
         );
       });
     }
-  }
+  };
 
   /**
-   *
+   * Make the mediaplayer-title "toggle" between list-items.
    */
   Drupal.behaviors.mediaplayerTitle = {
     attach: function (context, settings) {
@@ -331,7 +331,7 @@
         title.toggleClass('switched');
       }, 3500);
     }
-  }
+  };
 
   /**
    * Move the search-form inside the info-panel.
