@@ -131,9 +131,17 @@
 
       /**
        * Make compact list item clickable.
+       * ------
+       * We convert the div-tags into a-tags instead of using a "on click"
+       * event. This is due to the fact that you couldn't scroll with mobile
+       * devices without triggering the effect.
        */
-      $('.view .views-row, .node.node-teaser', context).click(function(){
-        window.location = $(this).find('a').attr('href');
+      $('.view .views-row, .node.node-teaser', context).each(function(){
+        $(this).replaceWith( $('<a>', {
+          href: $(this).find('a').attr('href'),
+          html: $(this).html(),
+          class: $(this).attr('class')
+        }));
       });
     }
   };

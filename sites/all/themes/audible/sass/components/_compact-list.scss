@@ -12,8 +12,9 @@
 .compact-list__item {
   border-bottom: 1px solid $gray;
   position: relative;
-  height: 80px;
   cursor: pointer;
+  height: 80px;
+  display: block;
   text-align: left;
 
   &:hover,
