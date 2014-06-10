@@ -72,15 +72,19 @@
       $(window).load(function() {
         // Loop through each image.
         items.find('img').each(function() {
-          // Create an instance of the image.
-          var image = new Image();
-          image.src = $(this).attr("src");
+          // Check if there's any value for "src", so we
+          // don't get error-messages in console.
+          if ($(this).attr('src') != 'none') {
+            // Create an instance of the image.
+            var image = new Image();
+            image.src = $(this).attr('src');
 
-          // Grant a class based on the width.
-          if (image.width == 800) {
-            $(this).parent().addClass('tile--large');
-          } else {
-            $(this).parent().addClass('tile--small');
+            // Grant a class based on the width.
+            if (image.width == 800) {
+              $(this).parent().addClass('tile--large');
+            } else {
+              $(this).parent().addClass('tile--small');
+            }
           }
         });
 
