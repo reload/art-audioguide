@@ -45,7 +45,7 @@
       // Function: Add number.
       function numberPadAddNumber(value) {
         // Add to hidden input field.
-        input.attr('defaultValue', input.attr('defaultValue') + value );
+        input.attr('value', input.attr('value') + value );
 
         // Add to display.
         display.append(value);
@@ -54,7 +54,7 @@
       // Function: Remove number (one at a time).
       function numberPadRemoveNumber() {
         // Remove from hidden input field.
-        input.attr('defaultValue', input.attr('defaultValue').slice(0, -1) );
+        input.attr('value', input.attr('value').slice(0, -1) );
 
         // Remove from display.
         display.text( display.text().slice(0, -1) );
@@ -63,7 +63,7 @@
       // Function: Clear display.
       function numberPadClear() {
         // Clear hidden input field.
-        input.attr('defaultValue', '');
+        input.attr('value', '');
 
         // Clear display.
         display.text('');
