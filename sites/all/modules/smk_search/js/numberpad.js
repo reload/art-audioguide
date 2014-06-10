@@ -120,5 +120,8 @@
 
 })(jQuery);
 
-// Init "Touche.js".
-Touche(document.querySelectorAll('.key')).on('click', handleClicks);
+// Make sure the function exists before we try to execute it.
+if (typeof handleClicks == 'function') {
+  // Init "Touche.js".
+  Touche(document.querySelectorAll('.key')).on('click', handleClicks);
+}
