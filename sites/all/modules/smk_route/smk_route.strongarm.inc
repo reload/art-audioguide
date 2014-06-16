@@ -106,14 +106,16 @@ function smk_route_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_route';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'menu-front-page-menu',
+  );
   $export['menu_options_route'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_route';
-  $strongarm->value = 'main-menu:0';
+  $strongarm->value = 'menu-front-page-menu:0';
   $export['menu_parent_route'] = $strongarm;
 
   $strongarm = new stdClass();
