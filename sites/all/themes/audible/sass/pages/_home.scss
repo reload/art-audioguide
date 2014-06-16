@@ -1,6 +1,5 @@
 // Home
-
-/*body*/.front {
+.front {
 
   .page-header {
     margin-bottom: 2px; // Just fucking flies. Nothing to see here.
@@ -19,6 +18,8 @@
     }
 
     .menu {
+      @include pie-clearfix;
+
       li {
         @extend .tile; // See _tile.scss
 

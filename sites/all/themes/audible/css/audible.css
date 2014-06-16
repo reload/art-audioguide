@@ -749,11 +749,12 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .page-choose-lang #content .language-link { min-width: 180px; margin-right: 0; }
 .page-choose-lang #content h1 { margin-bottom: 1.25em; }
 
-/*body*/
 .front .page-header { margin-bottom: 2px; }
 .front .node-generic-page > h2 { display: none; }
 .front #content { padding: 12px; }
 .front #content .info-panel, .front #content .info-panel--expandable, .front #content .page-search .search-panel, .page-search .front #content .search-panel { display: none; }
+.front #content .menu { *zoom: 1; }
+.front #content .menu:after { content: ""; display: table; clear: both; }
 
 .page-search .category { padding-top: 10px; padding-bottom: 5px; border-bottom: 1px solid #e6e6e8; margin-bottom: 0; }
 
