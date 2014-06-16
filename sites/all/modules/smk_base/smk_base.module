@@ -119,7 +119,7 @@ function smk_base_icon_menu() {
   // Search icon.
   $links[] = l('', 'search', array('attributes' => array('class' => array('menu', 'icon--search'))));
   // Number icon.
-  $links[] = l('', 'number-search', array('attributes' => array('class' => array('menu', 'icon--listen-1'))));
+  $links[] = l('', 'number-search', array('attributes' => array('class' => array('menu', 'icon--listen-2'))));
   // Burger icon.
   $links[] = <<<EOD
 <label for="menu-toggle"></label>
