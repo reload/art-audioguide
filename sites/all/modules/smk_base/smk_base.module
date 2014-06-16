@@ -29,6 +29,10 @@ JS;
     );
     drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/language.js');
   }
+
+  // Include the FitVids library.
+  drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js');
+  drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/fitvids.js');
 }
 
 /**
