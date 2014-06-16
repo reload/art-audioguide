@@ -5,3 +5,8 @@
 .admin-tabs .tabs.primary li a.active { background: #000; color: white; }
 
 .element-invisible { display: none; }
+
+#user-login { margin-top: 20px; }
+#user-login .form-item, #user-login .form-actions { padding: 10px; }
+#user-login input { height: 30px; border: black 1px solid; max-width: 300px; margin-bottom: 5px; padding: 3px; }
+#user-login input.form-submit { padding: 3px 20px; }

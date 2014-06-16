@@ -25,3 +25,21 @@
 .element-invisible {
   display: none;
 }
+
+// Make sure the login form is usable.
+#user-login {
+  margin-top: 20px;
+  .form-item, .form-actions {
+    padding: 10px;
+  }
+  input {
+    height: 30px;
+    border: black 1px solid;
+    max-width: 300px;
+    margin-bottom: 5px;
+    padding: 3px;
+    &.form-submit {
+      padding: 3px 20px;
+    }
+  }
+}
