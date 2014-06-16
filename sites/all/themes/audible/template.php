@@ -24,6 +24,20 @@ function audible_menu_link(array $variables) {
     $element['#attributes']['class'][] = 'nolink';
   }
 
+  // If Menu Icon module has settings for the menu item and is enabled, then // output it as an image with appropriate classes.
+  if (!empty($element['#original_link']['options']['menu_icon'])) {
+    $menu_icon_settings = $element['#original_link']['options']['menu_icon'];
+    if ($menu_icon_settings['enable']) {
+      $image = theme('image', array(
+        'path' => image_style_url($menu_icon_settings['image_style'], $menu_icon_settings['path']),
+      ));
+      $element['#localized_options']['html'] = TRUE;
+      $element['#attributes']['class'][] = 'menu-tile';
+      $element['#attributes']['class'][] = ($menu_icon_settings['image_style'] == 'large_tile') ? 'tile--large' : 'tile--small';
+
+      $output = l($image . "<span>{$element['#title']}</span>", $element['#href'], $element['#localized_options']);
+    }
+  }
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 

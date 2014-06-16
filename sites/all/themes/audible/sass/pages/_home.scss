@@ -7,27 +7,27 @@
 
   // Hide the page title
   .node-generic-page > h2 {
-    display: none; 
+    display: none;
   }
-  
+
   #content {
     padding: 12px;
 
     .info-panel {
       display: none;
     }
+  }
 
-    .menu {
-      @include pie-clearfix;
+  .menu-tile {
+    @include pie-clearfix;
 
-      li {
-        @extend .tile; // See _tile.scss
+    @extend %tile;
 
-        &.tile--large {
-          @extend .tile--large; // See _tile.scss
-        }
-      }
+    &.tile--small {
+      @extend %tile--small; // See _tile.scss
     }
-  }//#content
-
-}//.front
+    &.tile--large {
+      @extend %tile--large; // See _tile.scss
+    }
+  }
+}

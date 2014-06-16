@@ -22,93 +22,20 @@
    */
   Drupal.behaviors.tiles = {
     attach: function (context, settings) {
-      // Selectors.
-      var page = $('.front', context);
-      var items = $('#content .menu li', page);
+      // Resize the small tiles to be as wide as they are tall.
+      var smallTile = $('#content .menu li.tile--small', context);
 
-      /**
-       * Create an image-tag with the "Menu icon" modules image.
-       *
-       * NB! This is a bit tricky. Our <a> tags have some background styling,
-       * so the background-image is being overwritten.
-       * If we move the class holding the image/styling to the parent list-item,
-       * then we can get the src of the image and append it to a new a new <img>.
-       */
-      // Move menu-icon classes to the list-item.
-      items.each(function() {
-        // Selector.
-        var link = $(this).find('a');
+      function setTileHeight() {
+        var tileWidth = smallTile.width();
+        smallTile.css('height', tileWidth);
+      }
 
-        // Move the "menu_icon" class to the list-item instead of the link.
-        link.removeClass('menu_icon');
+      // Resize on page init.
+      setTileHeight();
 
-        // Move the "menu-xxx" class that contains the background-image
-        // to the parent list-item, create an <img> and remove the class again.
-        // ------
-        // Get the link's classes and split it.
-        var classes = link.attr('class').split(/\s+/);
-        // For each class:
-        for (var i = 0; i < classes.length; i++) {
-          // If the link had a class named "menu-...":
-          if (classes[i].indexOf('menu-') != -1) {
-            // Add the "menu-..." class to the list-item.
-            $(this).addClass(classes[i]);
-            // Get the background-image path and remove css' url() around the path/src.
-            var src = $(this).css('background-image').replace('url(','').replace(')', '');
-            // Remove the "menu-..." class completely.
-            $(this).removeClass(classes[i]);
-            link.removeClass(classes[i]);
-            // Append an image-tag with the new source.
-            $(this).append($('<img>', {src: src}));
-          }
-        }
-      });
-
-      /**
-       * Tile height.
-       * ------
-       * Wait for the "new images" to be loaded.
-       */
-      $(window).load(function() {
-        // Loop through each image.
-        items.find('img').each(function() {
-          // Check if there's any value for "src", so we
-          // don't get error-messages in console.
-          if ($(this).attr('src') != 'none') {
-            // Create an instance of the image.
-            var image = new Image();
-            image.src = $(this).attr('src');
-
-            // Grant a class based on the width.
-            if (image.width == 800) {
-              $(this).parent().addClass('tile--large');
-            } else {
-              $(this).parent().addClass('tile--small');
-            }
-          }
-        });
-
-        // Resize the small tiles to be as wide as they are tall.
-        var smallTile = $('#content .menu li.tile-small', page);
-        function setTileHeight() {
-          var tileWidth = smallTile.width();
-          smallTile.css('height', tileWidth);
-        }
-        // Rezise on page init.
+      // Resize when window width changes.
+      $(window).resize(function () {
         setTileHeight();
-
-        // Resize when window width changes.
-        $(window).resize(function(){
-          setTileHeight();
-        });
-      });
-
-      /**
-       * Make the tiles clickable.
-       */
-      // Make entire tile clickable.
-      items.click(function(){
-        window.location = $(this).find('a').attr('href');
       });
     }
   };

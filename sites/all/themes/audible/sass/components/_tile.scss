@@ -1,7 +1,7 @@
 /*
- § Standard tile (small)
+ § Standard tile.
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile {
+%tile {
   // IMPORTANT: Don't define any background on tiles (reason: jQuery hack).
   width: 50%;
   float: left;
@@ -21,8 +21,11 @@
     width: 100%;
   }
 
-  // Title
   a {
+    @extend .heading--extra-small;
+  }
+  // Title
+  a span {
     @extend .heading--extra-small;
     font-family: 'hill regular', sans-serif;
     margin-bottom: 0;
@@ -31,25 +34,32 @@
     text-align: center;
     position: absolute;
     bottom: 0;
+    right: 0;
+    left: 0;
     background: $black;
     padding: 10px 5px 12px;
   }
+}
 
+/*
+ § Small tile
+\*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+%tile--small {
   // Every second small tile is being tweaked to create the crease between tiles.
   // This way of doing it makes sure that we can maintain a responsive layout
   // without adjusting the markup.
-  &.tile--small:nth-child(odd) {
+  padding: 0;
+  &:nth-child(odd) {
     padding-left: 6px;
-
-    a {
+    a span {
       left: 6px;
       right: 0;
+      color: magenta;
     }
   }
-  &.tile--small:nth-child(even) {
+  &:nth-child(even) {
     padding-right: 6px;
-
-    a {
+    a span {
       right: 6px;
       left: 0;
     }
@@ -59,15 +69,16 @@
 /*
  § Large tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.tile--large {
-  @extend .tile;
+%tile--large {
   padding: 0;
   width: 100% !important;
   height: auto;
-  float: none;
+  clear: both;
 
   a {
     @extend .heading--small;
+  }
+  a span {
     padding: 12px 5px 13px;
     right: 0;
     left: 0;

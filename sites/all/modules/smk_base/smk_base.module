@@ -232,3 +232,34 @@ function smk_base_theme($existing, $type, $theme, $path) {
     ),
   );
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function smk_base_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'menu_edit_item' && isset($form['icon'])) {
+    $form['icon']['image_style']['#options'] = smk_base_get_allowed_menu_icon_styles();
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function smk_base_form_node_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['menu'])) {
+    $form['menu']['icon']['image_style']['#options'] = smk_base_get_allowed_menu_icon_styles();
+  }
+}
+
+/**
+ * Helper to get allowed image styles for menu icons.
+ *
+ * @return array
+ *   Allowed image styles.
+ */
+function smk_base_get_allowed_menu_icon_styles() {
+  return array(
+    'small_tile' => t('Small tile'),
+    'large_tile' => t('Large tile'),
+  );
+}
