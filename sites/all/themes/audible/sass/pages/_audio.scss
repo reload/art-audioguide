@@ -3,4 +3,14 @@
     .node-teaser {
     @extend %compact-list__item;
   }
+
+  // Adjusting the collapsible video-field.
+  .videos {
+    &.open {
+      padding-bottom: 1px;
+    }
+    .player {
+      margin: 15px;
+    }
+  }
 }
