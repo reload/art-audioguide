@@ -282,6 +282,35 @@ function smk_audio_ds_field_settings_info() {
 }
 
 /**
+ * Implements hook_ds_custom_fields_info().
+ */
+function smk_audio_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'video_headline';
+  $ds_field->label = 'Video headline';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'audio|default';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => 'Video
+<br>
+<i class="icon--angle-down"></i>',
+      'format' => 'strictly_html',
+    ),
+    'use_token' => 0,
+  );
+  $export['video_headline'] = $ds_field;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function smk_audio_ds_layout_settings_info() {
