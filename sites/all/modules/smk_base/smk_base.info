@@ -46,6 +46,7 @@ features[field_instance][] = node-page-field_video
 features[field_instance][] = node-page-title_field
 features[filter][] = html_text
 features[filter][] = strictly_html
+features[image][] = full_content_size
 features[image][] = large_tile
 features[image][] = small_tile
 features[language][] = da
