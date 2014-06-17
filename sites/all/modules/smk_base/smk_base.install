@@ -35,6 +35,17 @@ function smk_base_install() {
   }
   $query->execute();
 
+  // Set the default image style / link to image, for the "default view-mode".
+  $query = db_insert('file_display')->fields(array(
+    'name' => 'image__default__file_field_image',
+    'weight' => 50,
+    'status' => 1,
+    'settings' => serialize(array(
+      'image_style' => 'full_content_size',
+      'image_link' => '',
+    )),
+  ));
+  $query->execute();
 }
 
 /**
