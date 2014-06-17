@@ -376,6 +376,60 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-piece-field_image_description'
+  $field_instances['node-piece-field_image_description'] = array(
+    'bundle' => 'piece',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Use this field to add additional information to the image <em>(ex: 134x191cm.)</em>',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 15,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_image_description',
+    'label' => 'Image description',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-piece-field_piece_id'
   $field_instances['node-piece-field_piece_id'] = array(
     'bundle' => 'piece',
@@ -572,10 +626,12 @@ function smk_piece_field_default_field_instances() {
   t('Artist yearspan');
   t('Body');
   t('Description');
+  t('Image description');
   t('Inventory ID');
   t('Name');
   t('The year the artwork was created');
   t('Title');
+  t('Use this field to add additional information to the image <em>(ex: 134x191cm.)</em>');
   t('Year of creation');
   t('image');
 

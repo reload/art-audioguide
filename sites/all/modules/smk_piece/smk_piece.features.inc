@@ -73,7 +73,7 @@ function smk_piece_node_info() {
       'help' => '',
     ),
     'piece' => array(
-      'name' => t('Piece'),
+      'name' => t('Artwork'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
