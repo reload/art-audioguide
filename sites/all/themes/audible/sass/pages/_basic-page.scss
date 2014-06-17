@@ -7,7 +7,12 @@
     border-bottom: 1px solid $gray;
   }
 
-  .field-name-body {
-    padding: 0 12px 12px;
+  .content {
+    @extend .copy;
+    padding: 0 12px 12px 12px;
+
+    .player {
+      margin: 8px 0;
+    }
   }
 }
