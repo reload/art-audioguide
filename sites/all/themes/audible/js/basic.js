@@ -37,6 +37,10 @@
       $(window).resize(function () {
         setTileHeight();
       });
+
+      // Determine if the small tiles are to the left or right.
+      $('.tile--small:even', context).addClass('left');
+      $('.tile--small:odd', context).addClass('right');
     }
   };
 

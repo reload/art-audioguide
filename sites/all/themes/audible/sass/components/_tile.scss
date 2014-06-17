@@ -48,20 +48,22 @@
   // Every second small tile is being tweaked to create the crease between tiles.
   // This way of doing it makes sure that we can maintain a responsive layout
   // without adjusting the markup.
+  // The "left" and "right" classes are set with .js instead of using odd/even.
+  // This is done since CSS doesn't handle odd/even children very well when
+  // there are other elements between them (ex: tile--large).
   padding: 0;
-  &:nth-child(odd) {
-    padding-left: 6px;
-    a span {
-      left: 6px;
-      right: 0;
-      color: magenta;
-    }
-  }
-  &:nth-child(even) {
+  &.left {
     padding-right: 6px;
     a span {
-      right: 6px;
       left: 0;
+      right: 6px;
+    }
+  }
+  &.right {
+    padding-left: 6px;
+    a span {
+      right: 0;
+      left: 6px;
     }
   }
 }
