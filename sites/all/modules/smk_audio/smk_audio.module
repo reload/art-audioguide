@@ -308,9 +308,10 @@ function _smk_audio_mediaplayer_metadata($field) {
  * Return the image of the referenced piece/artwork.
  */
 function _smk_audio_piece_image($field) {
-  // Get the piece information.
+  // Wrap nedded information.
   $sound = entity_metadata_wrapper('node', $field['entity']);
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  $artist = entity_metadata_wrapper('node', $piece->field_artist->value());
 
   // If there is an image.
   if (!empty($piece) && isset($piece->field_image)) {
@@ -321,8 +322,8 @@ function _smk_audio_piece_image($field) {
     ));
 
     // Get the description text for the image.
-    $text[] = $piece->field_artist->value()->title; // Artist.
-    $text[] = $piece->title->value(); // Name of the artwork.
+    $text[] = $artist->title_field->value(); // Artist.
+    $text[] = $piece->title_field->value(); // Name of the artwork.
     $text[] = $piece->field_year_of_creation->value(); // Year of creation.
     // Prepare the text.
     $text = '<p>' . implode(', ', $text) . '. ' . trim($piece->field_image_description->value(), '.') . '.</p>';
