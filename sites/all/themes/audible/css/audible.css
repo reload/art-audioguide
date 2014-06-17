@@ -677,7 +677,8 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .number-pad .help a i { position: relative; top: .1em; }
 
 .foldout { text-align: center; background: #fff; -webkit-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); -moz-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); /*h2*/ }
-.foldout .foldout-toggle { font-family: 'hill regular', sans-serif; margin-bottom: 0; padding-top: 12px; border-bottom: 1px solid #f2f2f4; }
+.foldout.videos { display: none; }
+.foldout .foldout-toggle { font-family: 'hill regular', sans-serif; margin-bottom: 0; padding-top: 12px; border-bottom: 1px solid #f2f2f4; -webkit-user-select: none; -moz-user-select: none; user-select: none; }
 .foldout .foldout-toggle:hover, .foldout .foldout-toggle:focus { cursor: pointer; }
 .foldout .foldout-toggle:active { background: #f2f2f4; }
 .foldout .foldout-toggle > i { font-size: 24px; position: relative; top: 0; }
