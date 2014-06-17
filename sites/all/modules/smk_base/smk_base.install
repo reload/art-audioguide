@@ -40,7 +40,10 @@ function smk_base_install() {
     'name' => 'image__default__file_field_image',
     'weight' => 50,
     'status' => 1,
-    'settings' => 'a:2:{s:11:"image_style";s:17:"full_content_size";s:10:"image_link";s:0:"";}',
+    'settings' => serialize(array(
+      'image_style' => 'full_content_size',
+      'image_link' => '',
+    )),
   ));
   $query->execute();
 }
