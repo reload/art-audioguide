@@ -144,9 +144,22 @@ function smk_base_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'route_context' => array(
+        'custom_settings' => TRUE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'path' => array(
+          'weight' => '30',
+        ),
+        'language' => array(
+          'weight' => '5',
+        ),
+      ),
       'display' => array(),
     ),
   );
