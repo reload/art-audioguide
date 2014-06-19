@@ -7,3 +7,8 @@ sites/*/private
 ; Mac files.
 .DS_Store
 
+# Ignore developer modules and libraries.
+sites/all/modules/contrib/devel
+sites/all/modules/contrib/devel_themer
+sites/all/modules/contrib/simplehtmldom
+sites/all/libraries/simplehtmldom
