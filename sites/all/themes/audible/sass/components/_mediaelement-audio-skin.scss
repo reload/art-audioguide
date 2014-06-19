@@ -13,6 +13,10 @@
   background: #fff;
   margin: 0 auto;
   margin-bottom: 12px;
+  @media (max-width: $site-width) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
 
   .track-navigation {
     @extend .heading--section;

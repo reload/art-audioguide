@@ -375,6 +375,7 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 /* § Track navigation
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .mediaplayer { position: relative; height: 163px; background: #fff; margin: 0 auto; margin-bottom: 12px; }
+@media (max-width: 800px) { .mediaplayer { margin-left: 12px; margin-right: 12px; } }
 .mediaplayer .track-navigation { font-size: 12px; color: #111111; position: absolute; top: 0px; left: -12px; padding-left: 26px; display: block; height: 120px; line-height: 124px; width: 33.33%; }
 .mediaplayer .track-navigation:active { color: #5f66f2; }
 .mediaplayer .track-navigation:before { content: "\e615"; font-size: 34px; position: absolute; top: 45px; left: 2px; }
