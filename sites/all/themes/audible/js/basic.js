@@ -185,22 +185,28 @@
       infoPanelContent.after($('<a>', {href: '#', class: 'toggle'}));
       var button = $('.toggle', infoPanel);
 
-      // Open/Close toggle
+      // When the panel is clicked.
+      infoPanel.click(function(e) {
+        // If the panel is closed.
+        if (!$(this).hasClass('open')) {
+          // Open the panel.
+          infoPanelSummary.toggle();
+          infoPanelContent.toggle();
+          // Set toggle-state.
+          button.toggleClass('open');
+          infoPanel.toggleClass('open');
+        }
+      });
+
+      // When the button is clicked.
       button.click(function(e) {
         // Prevent link from redirecting.
         e.preventDefault();
-
-        // If is open
-        if( !infoPanel.hasClass('open') ) {
-          infoPanelSummary.hide();
-          infoPanelContent.show();
-        }
-        // If closed.
-        else {
-          infoPanelSummary.show();
-          infoPanelContent.hide();
-        }
-
+        // Stop parent from executing.
+        e.stopPropagation();
+        // Open/close the panel.
+        infoPanelSummary.toggle();
+        infoPanelContent.toggle();
         // Set toggle-state.
         $(this).toggleClass('open');
         infoPanel.toggleClass('open');
