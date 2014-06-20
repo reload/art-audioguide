@@ -94,6 +94,15 @@ function smk_audio_social_media_list($field) {
   $output = array();
 
   // Mail.
+  $body = <<<EOT
+Hi!
+
+I visited SMK, The National Gallery of Denmark, and I had a great experience there.
+I would like to share it with you: <a href="!link">!link</a>
+
+All the best
+EOT;
+
   $output[] = l(
     '',
     'mailto:',
@@ -101,7 +110,7 @@ function smk_audio_social_media_list($field) {
       'html' => TRUE,
       'query' => array(
         'subject' => $field['entity']->title,
-        'body' => $url,
+        'body' => t($body, array('!link' => $url)),
       ),
       'attributes' => array(
         'class' => 'icon--mail-3',
