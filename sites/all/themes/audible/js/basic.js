@@ -38,9 +38,6 @@
         setTileHeight();
       });
 
-      // Determine if the small tiles are to the left or right.
-      $('.tile--small:odd', context).addClass('left');
-      $('.tile--small:even', context).addClass('right');
     }
   };
 

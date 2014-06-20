@@ -52,14 +52,14 @@
   // This is done since CSS doesn't handle odd/even children very well when
   // there are other elements between them (ex: tile--large).
   padding: 0;
-  &.left {
+  &:nth-child(odd) {
     padding-right: 6px;
     a span {
       left: 0;
       right: 6px;
     }
   }
-  &.right {
+  &:nth-child(even) {
     padding-left: 6px;
     a span {
       right: 0;

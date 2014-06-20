@@ -318,10 +318,10 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 /* § Small tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .front .menu-tile.tile--small { padding: 0; }
-.front .left.menu-tile.tile--small { padding-right: 6px; }
-.front .left.menu-tile.tile--small a span { left: 0; right: 6px; }
-.front .right.menu-tile.tile--small { padding-left: 6px; }
-.front .right.menu-tile.tile--small a span { right: 0; left: 6px; }
+.front .menu-tile.tile--small:nth-child(odd) { padding-right: 6px; }
+.front .menu-tile.tile--small:nth-child(odd) a span { left: 0; right: 6px; }
+.front .menu-tile.tile--small:nth-child(even) { padding-left: 6px; }
+.front .menu-tile.tile--small:nth-child(even) a span { right: 0; left: 6px; }
 
 /* § Large tile
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -35,6 +35,12 @@ function audible_menu_link(array $variables) {
       $element['#attributes']['class'][] = 'menu-tile';
       $element['#attributes']['class'][] = ($menu_icon_settings['image_style'] == 'large_tile') ? 'tile--large' : 'tile--small';
 
+      // Kill menu icon classes (and all classes that were there. Not nice, but
+      // a workaround for buggy module.
+      if (!empty($element['#localized_options']['attributes']['class'])) {
+        unset($element['#localized_options']['attributes']['class']);
+      }
+
       $output = l($image . "<span>{$element['#title']}</span>", $element['#href'], $element['#localized_options']);
     }
   }
