@@ -129,7 +129,7 @@ EOT;
     ),
   ));
 
-  return t('Share this artwork:') . '<div class="share-buttons">' . implode(' ', $output) . '</div>';
+  return t('Share this experience:') . '<div class="share-buttons">' . implode(' ', $output) . '</div>';
 }
 
 /**
