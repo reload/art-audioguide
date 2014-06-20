@@ -4,8 +4,7 @@
 
   .category {
     @extend .heading--medium;
-    padding-top: 10px;
-    padding-bottom: 5px;
+    padding: 10px 0 5px 12px;
     border-bottom: 1px solid $gray;
     margin-bottom: 0;
   }
