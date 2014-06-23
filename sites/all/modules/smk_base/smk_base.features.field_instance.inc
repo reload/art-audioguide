@@ -254,7 +254,7 @@ function smk_base_field_default_field_instances() {
     'ds_extras_field_template' => 'theme_ds_field_reset',
     'entity_type' => 'node',
     'field_name' => 'field_text_after_image',
-    'label' => 'Text after image',
+    'label' => 'Text after video',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -328,7 +328,7 @@ function smk_base_field_default_field_instances() {
     'bundle' => 'page',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The title of the page.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -349,20 +349,22 @@ function smk_base_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
     'label' => 'Title',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+        'entity' => 0,
+        'page' => 0,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -376,7 +378,8 @@ function smk_base_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Attached block');
   t('Body');
-  t('Text after image');
+  t('Text after video');
+  t('The title of the page.');
   t('Title');
   t('Video');
 

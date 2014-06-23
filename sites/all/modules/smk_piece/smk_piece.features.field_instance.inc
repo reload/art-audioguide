@@ -143,7 +143,7 @@ function smk_piece_field_default_field_instances() {
     'bundle' => 'artist',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The artists full name.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -253,7 +253,7 @@ function smk_piece_field_default_field_instances() {
     'bundle' => 'piece',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This is the reference to whom the creator/artist is (autocomplete).',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -289,7 +289,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_artist',
-    'label' => 'Artist',
+    'label' => 'Artist reference',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -350,7 +350,7 @@ function smk_piece_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_image',
-    'label' => 'image',
+    'label' => 'Image',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -435,7 +435,7 @@ function smk_piece_field_default_field_instances() {
     'bundle' => 'piece',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This is a unique number for each artwork. This is also the number you can use/search for with number-search.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -555,7 +555,7 @@ function smk_piece_field_default_field_instances() {
     'bundle' => 'piece',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The title/name of the artwork.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -597,20 +597,22 @@ function smk_piece_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
     'label' => 'Title',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+        'entity' => 0,
+        'page' => 0,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -622,18 +624,22 @@ function smk_piece_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Artist');
+  t('Artist reference');
   t('Artist yearspan');
   t('Body');
   t('Description');
+  t('Image');
   t('Image description');
   t('Inventory ID');
   t('Name');
+  t('The artists full name.');
+  t('The title/name of the artwork.');
   t('The year the artwork was created');
+  t('This is a unique number for each artwork. This is also the number you can use/search for with number-search.');
+  t('This is the reference to whom the creator/artist is (autocomplete).');
   t('Title');
   t('Use this field to add additional information to the image <em>(ex: 134x191cm.)</em>');
   t('Year of creation');
-  t('image');
 
   return $field_instances;
 }

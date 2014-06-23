@@ -194,7 +194,7 @@ function smk_audio_field_default_field_instances() {
   $field_instances['node-audio-field_image'] = array(
     'bundle' => 'audio',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This image will be used as thumbnail for sounds when displayed in a list. The thumbnail will be shown as 80x80 pixels',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -236,7 +236,7 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_image',
-    'label' => 'image',
+    'label' => 'Image',
     'required' => 1,
     'settings' => array(
       'alt_field' => 0,
@@ -267,7 +267,7 @@ function smk_audio_field_default_field_instances() {
     'bundle' => 'audio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'This is the reference where you link the sound to its associated artwork.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -297,7 +297,7 @@ function smk_audio_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_piece_ref',
-    'label' => 'Piece',
+    'label' => 'Artwork reference',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -321,7 +321,7 @@ function smk_audio_field_default_field_instances() {
     'bundle' => 'audio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Enter the address to the video',
+    'description' => 'Enter the address to the youtube video(s)',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -378,7 +378,7 @@ function smk_audio_field_default_field_instances() {
     'bundle' => 'audio',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The title/name of the sound.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -425,20 +425,22 @@ function smk_audio_field_default_field_instances() {
         'weight' => 3,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
     'label' => 'Title',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+        'entity' => 0,
+        'page' => 0,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -450,15 +452,18 @@ function smk_audio_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Artwork reference');
   t('Audio file');
   t('Body');
   t('Duration');
   t('Duration of file in seconds');
-  t('Enter the address to the video');
-  t('Piece');
+  t('Enter the address to the youtube video(s)');
+  t('Image');
+  t('The title/name of the sound.');
+  t('This image will be used as thumbnail for sounds when displayed in a list. The thumbnail will be shown as 80x80 pixels');
+  t('This is the reference where you link the sound to its associated artwork.');
   t('Title');
   t('Video');
-  t('image');
 
   return $field_instances;
 }

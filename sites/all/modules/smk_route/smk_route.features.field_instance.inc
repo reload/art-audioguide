@@ -177,7 +177,7 @@ function smk_route_field_default_field_instances() {
     'bundle' => 'route',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'A list of referenced sounds that the route contains (autocomplete).',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -287,7 +287,7 @@ function smk_route_field_default_field_instances() {
     'bundle' => 'route',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The title/name of the route.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -318,20 +318,22 @@ function smk_route_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'title_field',
     'label' => 'Title',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+        'entity' => 0,
+        'page' => 0,
       ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
@@ -343,11 +345,13 @@ function smk_route_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('A list of referenced sounds that the route contains (autocomplete).');
   t('Alt Text');
   t('Alternative text is used by screen readers, search engines, and when the image cannot be loaded. By adding alt text you improve accessibility and search engine optimization.');
   t('Audios');
   t('Body');
   t('Image');
+  t('The title/name of the route.');
   t('Title');
   t('Title Text');
   t('Title text is used in the tool tip when a user hovers their mouse over the image. Adding title text makes it easier to understand the context of an image and improves usability.');
