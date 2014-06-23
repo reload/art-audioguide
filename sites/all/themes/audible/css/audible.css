@@ -303,8 +303,9 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .delta-toggle-menu { z-index: 9999; display: none; font-family: 'hill regular', sans-serif; }
 .delta-toggle-menu h4 { color: #a2a2a5; padding: 0 12px; margin-top: 1.3em; margin-bottom: .25em; }
 .delta-toggle-menu h4:first-child { margin-top: 0; }
-.delta-toggle-menu ul > li > a { display: block; padding: 6px 12px; color: #fff; }
-.delta-toggle-menu ul > li > a:hover, .delta-toggle-menu ul > li > a:focus { background: #5f66f2; color: #fff; }
+.delta-toggle-menu li a { display: block; padding: 6px 12px; color: #fff; }
+.delta-toggle-menu li a:hover, .delta-toggle-menu li a:focus { background: #5f66f2; color: #fff; }
+.delta-toggle-menu li a.language-link.active { color: #5f66f2; }
 
 .delta-toggle-menu.open { display: block; position: absolute; top: 42px; width: 100%; padding-top: 20px; padding-bottom: 20px; margin-right: -12px; margin-left: -12px; background: #111111; color: #fff; -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.35); -moz-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.35); box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.35); }
 

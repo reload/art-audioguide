@@ -2,14 +2,14 @@
  § Main menu
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/;
 
-// Closed (hidden)
+// Closed (hidden).
 .delta-toggle-menu {
   z-index: 9999;
   display: none;
   @extend .heading--small;
   font-family: 'hill regular', sans-serif;
 
-  // Menu headings
+  // Menu headings.
   h4 {
     @extend .heading--section;
     color: $gray-dark;
@@ -22,8 +22,8 @@
     margin-top: 0;
   }
 
-  // Menu items
-  ul > li > a {
+  // Menu items.
+  li a {
     display: block;
     padding: 6px 12px;
     color: #fff;
@@ -32,12 +32,16 @@
     &:focus {
       background: $purple;
       color: #fff;
+    }
 
+    &.language-link.active {
+//      background: $purple;
+      color: $purple;
     }
   }
 }
 
-// Open
+// Open.
 .delta-toggle-menu.open {
   display: block;
   position: absolute;
@@ -49,6 +53,5 @@
   margin-left: -12px;
   background: $black;
   color: #fff;
-  @include box-shadow( 0 1px 10px 0 rgba(0, 0, 0, .35) );
-
-}//.delta-toggle-menu.open
+  @include box-shadow(0 1px 10px 0 rgba(0, 0, 0, .35));
+}
