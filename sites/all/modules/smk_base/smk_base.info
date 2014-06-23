@@ -31,6 +31,7 @@ features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
 features[ds_field_settings][] = node|generic_page|full
 features[ds_layout_settings][] = node|generic_page|full
+features[ds_layout_settings][] = node|page|default
 features[ds_view_modes][] = search_result
 features[features_api][] = api:2
 features[field_base][] = field_block_ref
