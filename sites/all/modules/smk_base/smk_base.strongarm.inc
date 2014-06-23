@@ -562,13 +562,6 @@ function smk_base_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_base_url';
-  $strongarm->value = 'http://smk.dev';
-  $export['xmlsitemap_base_url'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_batch_limit';
   $strongarm->value = '100';
   $export['xmlsitemap_batch_limit'] = $strongarm;
@@ -642,13 +635,6 @@ function smk_base_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_generated_last';
-  $strongarm->value = 1403526663;
-  $export['xmlsitemap_generated_last'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_lastmod_format';
   $strongarm->value = 'Y-m-d\\TH:i\\Z';
   $export['xmlsitemap_lastmod_format'] = $strongarm;
@@ -673,13 +659,6 @@ function smk_base_strongarm() {
   $strongarm->name = 'xmlsitemap_prefetch_aliases';
   $strongarm->value = 1;
   $export['xmlsitemap_prefetch_aliases'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_regenerate_needed';
-  $strongarm->value = TRUE;
-  $export['xmlsitemap_regenerate_needed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
