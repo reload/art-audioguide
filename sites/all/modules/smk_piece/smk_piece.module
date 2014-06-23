@@ -12,7 +12,8 @@ include_once 'smk_piece.features.inc';
 function smk_piece_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'piece_node_form':
-    $form['#validate'][] = 'smk_piece_unique_id_validation';
+      $form['#validate'][] = 'smk_piece_unique_id_validation';
+      break;
   }
 }
 
