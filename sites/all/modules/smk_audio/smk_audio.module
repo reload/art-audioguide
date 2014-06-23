@@ -368,7 +368,7 @@ function _smk_audio_sounds_from_piece($field) {
   $render_arr = node_view_multiple(node_load_multiple(array_keys($result['node'])), 'teaser');
   // Wrap the output in a foldout box.
   return theme('foldout_box', array(
-    'title' => t('Other audio clips about this piece'),
+    'title' => t('Other audio clips about this artwork'),
     'content' => render($render_arr)
   ));
 }
