@@ -51,6 +51,7 @@ features[image][] = large_tile
 features[image][] = small_tile
 features[language][] = da
 features[language][] = en
+features[menu_custom][] = main-menu
 features[menu_custom][] = menu-front-page-menu
 features[node][] = generic_page
 features[node][] = page
