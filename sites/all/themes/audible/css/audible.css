@@ -652,8 +652,9 @@ label[for="menu-toggle"].active:before { -webkit-transform: rotate(360deg); -moz
 .artwork-container img { margin-bottom: .5em; }
 
 .share-links { font-family: 'hill regular', sans-serif; padding: 20px 12px 26px; text-align: center; line-height: 20px; background: #f2f2f4; -webkit-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); -moz-box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.22); }
-.share-links a { color: #111111; font-size: 20px; display: inline-block; margin-left: .4em; position: relative; top: .2em; }
-.share-links a.icon--facebook-2 { margin-left: .2em; }
+.share-links .share-buttons a { font-size: 20px; display: inline-block; margin-left: .4em; position: relative; top: .2em; background: #111111; color: #fff; padding: 6px 30px 4px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px; }
+.share-links .share-buttons a:hover { background-color: #5f66f2; }
+.share-links .share-buttons a.icon--facebook-2 { margin-left: .2em; }
 
 .number-pad { position: absolute; top: 42px; bottom: 0; width: 100%; max-width: 800px; overflow: hidden; }
 .number-pad .display { padding: 22px 12px 2px; background: #fff; background: #f2f2f4; position: relative; -webkit-box-shadow: inset 0 -1px 4px 0 rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 -1px 4px 0 rgba(0, 0, 0, 0.1); box-shadow: inset 0 -1px 4px 0 rgba(0, 0, 0, 0.1); }

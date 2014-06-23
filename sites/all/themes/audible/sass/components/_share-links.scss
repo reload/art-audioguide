@@ -6,17 +6,26 @@
   background: $gray-lighter;
   @include box-shadow( 0 -1px 4px 0 rgba(0, 0, 0, .22) );
 
-  // Share links (icons)
-  a {
-    color: $black;
-    font-size: 20px;
-    display: inline-block;
-    margin-left: .4em;
-    position: relative;
-    top: .2em;
+  // Share buttons (icons)
+  .share-buttons {
+    a {
+      font-size: 20px;
+      display: inline-block;
+      margin-left: .4em;
+      position: relative;
+      top: .2em;
+      background: $black;
+      color: #fff;
+      padding: 6px 30px 4px;
+      @include border-radius(2px);
 
-    &.icon--facebook-2 {
-      margin-left: .2em;
+      &:hover {
+        background-color: $purple;
+      }
+
+      &.icon--facebook-2 {
+        margin-left: .2em;
+      }
     }
   }
 }
