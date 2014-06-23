@@ -38,9 +38,30 @@
         setTileHeight();
       });
 
-      // Determine if the small tiles are to the left or right.
-      $('.tile--small:even', context).addClass('left');
-      $('.tile--small:odd', context).addClass('right');
+      // Determine if the tile is a "lefty" or a "righty". This is mainly
+      // done instead of CSS' pseudo selectors odd/even, because we cannot
+      // guarantee that the editors won't set up the menu in the wrong order.
+      $('.node-generic-page .tile--small', context).each(function(index) {
+        // Define the previous element.
+        var prev = $(this).prev();
+
+        // If it's the first element.
+        if (prev.length == 0) {
+          $(this).addClass('left');
+        }
+        // If the previous tile is a large tile.
+        else if (prev.hasClass('tile--large')) {
+          $(this).addClass('left');
+        }
+        // If the previous tile is a "lefty".
+        else if (prev.hasClass('left')) {
+          $(this).addClass('right');
+        }
+        // If the previous tile is a "righty".
+        else if (prev.hasClass('right')) {
+          $(this).addClass('left');
+        }
+      });
     }
   };
 
