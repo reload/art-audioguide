@@ -25,22 +25,17 @@ function smk_piece_unique_id_validation(&$form, &$form_state) {
   $nid = $form_state['node']->nid;
   $id = $form_state['values']['field_piece_id'][LANGUAGE_NONE][0]['value'];
 
-  // Execute an entity field query to get any possible node with the wanted ID.
+  // Look for pieces with the "wished ID" and exclude
+  // the current nid from the query.
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'piece')
-    ->fieldCondition('field_piece_id', 'value', $id, '=');
+    ->fieldCondition('field_piece_id', 'value', $id, '=')
+    ->propertyCondition('nid', $nid, '!=');
   $result = $query->execute();
 
-  // If we have a match with the ID, then we need to check if it's the current
-  // node that already "owns" it.
-  if (isset($result['node'])) {
-    // Get the node ID as an array.
-    $node_id_array = array_keys($result['node']);
-    // If the result from the wished ID doesn't match the current node id.
-    if ($node_id_array[0] != $nid) {
-      // Provide error message.
-      form_set_error('piece_id', t('The inventory ID "!id" is already in use.', array('!id' => $id)));
-    }
+  // Return an error if the query found a match.
+  if (isset($result['node']) && count($result['node']) != 0) {
+    form_set_error('piece_id', t('The inventory ID "!id" is already in use.', array('!id' => $id)));
   }
 }
