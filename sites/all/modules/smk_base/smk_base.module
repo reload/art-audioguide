@@ -33,6 +33,12 @@ JS;
   // Include the FitVids library.
   drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js');
   drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/fitvids.js');
+
+  // Add stylesheet if we're on any admin pages.
+  if (path_is_admin(current_path())) {
+    // This stylesheet will overwrite the css-background for menu icons.
+    drupal_add_css(drupal_get_path('module', 'smk_base') . '/css/menu_icons_reset.css');
+  }
 }
 
 /**
