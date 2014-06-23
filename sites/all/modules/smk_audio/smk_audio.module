@@ -317,7 +317,7 @@ function _smk_audio_mediaplayer_metadata($field) {
  * Return the image of the referenced piece/artwork.
  */
 function _smk_audio_piece_image($field) {
-  // Wrap nedded information.
+  // Wrap needed information.
   $sound = entity_metadata_wrapper('node', $field['entity']);
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
   $artist = entity_metadata_wrapper('node', $piece->field_artist->value());
@@ -326,19 +326,22 @@ function _smk_audio_piece_image($field) {
   if (!empty($piece) && isset($piece->field_image)) {
     // Get the image and theme it.
     $image = $piece->field_image->value();
-    $image = theme('image', array(
-        'path' => image_style_url('large', $image['uri']),
-    ));
+    // Link the image to the original file so the image can be clicked and
+    // zoomed in and out on.
+    $image_output = l(theme('image', array('path' => image_style_url('large', $image['uri']))), file_create_url($image['uri']), array('html' => TRUE));
 
-    // Get the description text for the image.
-    $text[] = $artist->title_field->value(); // Artist.
-    $text[] = $piece->title_field->value(); // Name of the artwork.
-    $text[] = $piece->field_year_of_creation->value(); // Year of creation.
+    // Gather the description text for the image.
+    // Artist.
+    $text[] = $artist->title_field->value();
+    // Name of the artwork.
+    $text[] = $piece->title_field->value();
+    // Year of creation.
+    $text[] = $piece->field_year_of_creation->value();
     // Prepare the text.
     $text = '<p>' . implode(', ', $text) . '. ' . trim($piece->field_image_description->value(), '.') . '.</p>';
 
     // Return the image with a description.
-    return $image . $text;
+    return $image_output . $text;
   }
   // No image - no output.
   return;
