@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: 'https://www.drupal.org/files/issues/i18n_string-2227523-7.patch'
+    home: 'https://www.drupal.org/node/2227523'
+    reason: "When trying to save any given string, a fatal error appeared but the string\nstill got saved. This patch removed this fatal error."
