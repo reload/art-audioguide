@@ -20,6 +20,7 @@
 
       <?php print render($page['header']); ?>
       <?php if ($tabs): ?><div class="admin-tabs"><?php print render($tabs); ?></div><?php endif; ?>
+      <?php print render($page['help']); ?>
 
     </div> <!-- /.page-header -->
 

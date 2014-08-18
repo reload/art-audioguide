@@ -24,7 +24,7 @@ scripts[] = js/basic.js
 
 regions[header] = Header
 regions[highlighted] = Highlighted
-
+regions[help] = Help
 regions[page_top] = Page top
 regions[content] = Content
 regions[page_bottom] = Page bottom
