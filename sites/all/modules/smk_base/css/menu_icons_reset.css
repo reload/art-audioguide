@@ -1,9 +1,0 @@
-/**
- * Overwrite menu_icons' background styling. This is done
- * to get rit of the large images on when viewing
- * menu-links on the backend.
- */
-.menu_icon {
-  background: none !important;
-  padding-left: 0 !important;
-}
