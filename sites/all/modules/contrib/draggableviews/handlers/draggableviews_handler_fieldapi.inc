@@ -44,7 +44,7 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
       // Remove "_value" from field name and try to load the field.
       $field_name = drupal_substr($field_name, 0, drupal_strlen($field_name) - 6);
       if ($field_info = field_info_field($field_name)) {
-        if ($field_info['type'] == 'number_integer') {
+        if ($field_info['type'] == 'number_integer' || $field_info['type'] == 'list_integer') {
           $views_field_data = field_views_field_default_views_data($field_info);
           $options[$sort_option['table'] . ':' . $sort_option['field']] = filter_xss($views_field_data[$sort_option['table']][$sort_option['field']]['title']);
         }
@@ -111,11 +111,14 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
     // Remove '_value' from column name to get field name.
     $field_name = drupal_substr($field_column, 0, drupal_strlen($field_column) - 6);
 
+    // Give other modules a chance to alter saved arguments.
+    drupal_alter('draggableviews_handler_fieldapi_arguments', $fv['draggableviews'], $view);
+
     // Save the values of the field.
     foreach ($fv['draggableviews'] as $item) {
       if (isset($item['id']) && isset($item['weight'])) {
         $entity_wrapper = entity_metadata_wrapper($entity_type, $item['id']);
-        $entity_wrapper->{$field_name}->set($item['weight']);
+        $entity_wrapper->{$field_name} = $item['weight'];
         $entity_wrapper->save();
       }
     }
