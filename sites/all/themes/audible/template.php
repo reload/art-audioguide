@@ -24,26 +24,6 @@ function audible_menu_link(array $variables) {
     $element['#attributes']['class'][] = 'nolink';
   }
 
-  // If Menu Icon module has settings for the menu item and is enabled, then // output it as an image with appropriate classes.
-  if (!empty($element['#original_link']['options']['menu_icon'])) {
-    $menu_icon_settings = $element['#original_link']['options']['menu_icon'];
-    if ($menu_icon_settings['enable']) {
-      $image = theme('image', array(
-        'path' => image_style_url($menu_icon_settings['image_style'], $menu_icon_settings['path']),
-      ));
-      $element['#localized_options']['html'] = TRUE;
-      $element['#attributes']['class'][] = 'menu-tile';
-      $element['#attributes']['class'][] = ($menu_icon_settings['image_style'] == 'large_tile') ? 'tile--large' : 'tile--small';
-
-      // Kill menu icon classes (and all classes that were there. Not nice, but
-      // a workaround for buggy module.
-      if (!empty($element['#localized_options']['attributes']['class'])) {
-        unset($element['#localized_options']['attributes']['class']);
-      }
-
-      $output = l($image . "<span>{$element['#title']}</span>", $element['#href'], $element['#localized_options']);
-    }
-  }
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
@@ -168,6 +148,48 @@ function audible_preprocess_html(&$vars) {
   // Run each metatag.
   foreach ($metatags as $key => $tag) {
     drupal_add_html_head($tag, $key);
+  }
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function audible_preprocess_node(&$vars) {
+  // The front page.
+  if($vars['type'] === 'frontpage_tile') {
+    global $language;
+    // Add a href attribute based on the provided field_path.
+    $vars['content_attributes_array']['href'] = drupal_get_path_alias(
+      $vars['field_path'][$language->language][0]['value'],
+      $language->language
+    );
+
+    $vars['classes_array'][] = $vars['field_tile_size'][$language->language][0]['value'];
+  }
+}
+
+/**
+ * template_preprocess_field().
+ */
+function audible_preprocess_field(&$vars, $hook) {
+  if($vars['element']['#bundle'] === 'frontpage_tile') {
+    global $language;
+    $node = $vars['element']['#object'];
+    switch ($vars['element']['#field_name']) {
+      case 'field_image':
+        // Provide an image style for the image based on "field_tile_size".
+        $vars['items'][0]['#image_style'] = $node->field_tile_size[$language->language][0]['value'];
+        break;
+
+      case 'title_field':
+        // If the "hide title" field is checked, we then feed an empty array
+        // to the field template. We cannot just unset it since it will
+        // provide argument errors.
+        if ($node->field_hide_title[$language->language][0]['value'] == 1) {
+          $vars['items'] = array();
+        }
+        break;
+    }
   }
 }
 

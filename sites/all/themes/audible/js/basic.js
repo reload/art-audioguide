@@ -22,26 +22,10 @@
    */
   Drupal.behaviors.tiles = {
     attach: function (context, settings) {
-      // Resize the small tiles to be as wide as they are tall.
-      var smallTile = $('#content .menu li.tile--small', context);
-
-      function setTileHeight() {
-        var tileWidth = smallTile.width();
-        smallTile.css('height', tileWidth);
-      }
-
-      // Resize on page init.
-      setTileHeight();
-
-      // Resize when window width changes.
-      $(window).resize(function () {
-        setTileHeight();
-      });
-
       // Determine if the tile is a "lefty" or a "righty". This is mainly
       // done instead of CSS' pseudo selectors odd/even, because we cannot
       // guarantee that the editors won't set up the menu in the wrong order.
-      $('.node-generic-page .tile--small', context).each(function(index) {
+      $('.front .views-row .small_tile', context).each(function(index) {
         // Define the previous element.
         var prev = $(this).prev();
 
@@ -50,7 +34,7 @@
           $(this).addClass('left');
         }
         // If the previous tile is a large tile.
-        else if (prev.hasClass('tile--large')) {
+        else if (prev.hasClass('large_tile')) {
           $(this).addClass('left');
         }
         // If the previous tile is a "lefty".
@@ -88,13 +72,16 @@
        * event. This is due to the fact that you couldn't scroll with mobile
        * devices without triggering the effect.
        */
-      $('.view .views-row, .node.node-teaser', context).each(function(){
-        $(this).replaceWith( $('<a>', {
-          href: $(this).find('a').attr('href'),
-          html: $(this).html(),
-          class: $(this).attr('class')
-        }));
-      });
+      // we want this to happen on all pages except the front page.
+      if (!$('.front').get(0)) {
+        $('.view .views-row, .node.node-teaser', context).each(function(){
+          $(this).replaceWith( $('<a>', {
+            href: $(this).find('a').attr('href'),
+            html: $(this).html(),
+            class: $(this).attr('class')
+          }));
+        });
+      }
     }
   };
 

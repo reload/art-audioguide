@@ -33,12 +33,6 @@ JS;
   // Include the FitVids library.
   drupal_add_js(libraries_get_path('fitvids') . '/jquery.fitvids.js');
   drupal_add_js(drupal_get_path('module', 'smk_base') . '/js/fitvids.js');
-
-  // Add stylesheet if we're on any admin pages.
-  if (path_is_admin(current_path())) {
-    // This stylesheet will overwrite the css-background for menu icons.
-    drupal_add_css(drupal_get_path('module', 'smk_base') . '/css/menu_icons_reset.css');
-  }
 }
 
 /**
@@ -240,32 +234,15 @@ function smk_base_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_views_pre_render().
  */
-function smk_base_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'menu_edit_item' && isset($form['icon'])) {
-    $form['icon']['image_style']['#options'] = smk_base_get_allowed_menu_icon_styles();
+function smk_base_views_pre_render(&$view) {
+  // Adding the NID to the left of the title, when viewing the list
+  // of nodes on "/admin/content". We only touch the rendering of
+  // the title, so this doesn't affect the search or anything.
+  if ($view->name === 'admin_views_node') {
+    foreach ($view->result as $result) {
+      $result->node_title = $result->nid . ': ' . $result->node_title;
+    }
   }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function smk_base_form_node_form_alter(&$form, &$form_state, $form_id) {
-  if (isset($form['menu'])) {
-    $form['menu']['icon']['image_style']['#options'] = smk_base_get_allowed_menu_icon_styles();
-  }
-}
-
-/**
- * Helper to get allowed image styles for menu icons.
- *
- * @return array
- *   Allowed image styles.
- */
-function smk_base_get_allowed_menu_icon_styles() {
-  return array(
-    'small_tile' => t('Small tile'),
-    'large_tile' => t('Large tile'),
-  );
 }

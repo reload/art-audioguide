@@ -20,6 +20,13 @@ function smk_base_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function smk_base_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_image_default_styles().
  */
 function smk_base_image_default_styles() {
@@ -103,6 +110,14 @@ function smk_base_image_default_styles() {
  */
 function smk_base_node_info() {
   $items = array(
+    'frontpage_tile' => array(
+      'name' => t('Frontpage tile'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'generic_page' => array(
       'name' => t('Embedded content page'),
       'base' => 'node_content',

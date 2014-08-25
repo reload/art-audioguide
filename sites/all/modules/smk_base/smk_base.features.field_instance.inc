@@ -10,6 +10,263 @@
 function smk_base_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-frontpage_tile-field_hide_title'
+  $field_instances['node-frontpage_tile-field_hide_title'] = array(
+    'bundle' => 'frontpage_tile',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Select this if you wish to <strong>hide</strong> the title on the tiles.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_hide_title',
+    'label' => 'Hide title',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-frontpage_tile-field_image'
+  $field_instances['node-frontpage_tile-field_image'] = array(
+    'bundle' => 'frontpage_tile',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-frontpage_tile-field_path'
+  $field_instances['node-frontpage_tile-field_path'] = array(
+    'bundle' => 'frontpage_tile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the path you want the tile to link to <i>(example: node/1)</i>. You can find the node id to the left of the title on the <a href="/admin/content">content overview</a>.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_path',
+    'label' => 'Path',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-frontpage_tile-field_tile_size'
+  $field_instances['node-frontpage_tile-field_tile_size'] = array(
+    'bundle' => 'frontpage_tile',
+    'default_value' => array(
+      0 => array(
+        'value' => 'small_tile',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Provide the size of the tile',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_tile_size',
+    'label' => 'Tile size',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-frontpage_tile-title_field'
+  $field_instances['node-frontpage_tile-title_field'] = array(
+    'bundle' => 'frontpage_tile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => '',
+          'title_style' => 'span',
+        ),
+        'type' => 'title_linked',
+        'weight' => 1,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Title',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => 0,
+        'page' => 0,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'node-generic_page-body'
   $field_instances['node-generic_page-body'] = array(
     'bundle' => 'generic_page',
@@ -378,8 +635,15 @@ function smk_base_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Attached block');
   t('Body');
+  t('Enter the path you want the tile to link to <i>(example: node/1)</i>. You can find the node id to the left of the title on the <a href="/admin/content">content overview</a>.');
+  t('Hide title');
+  t('Image');
+  t('Path');
+  t('Provide the size of the tile');
+  t('Select this if you wish to <strong>hide</strong> the title on the tiles.');
   t('Text after video');
   t('The title of the page.');
+  t('Tile size');
   t('Title');
   t('Video');
 
