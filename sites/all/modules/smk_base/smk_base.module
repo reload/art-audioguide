@@ -233,5 +233,16 @@ function smk_base_theme($existing, $type, $theme, $path) {
   );
 }
 
+/**
+ * Implements hook_views_pre_render().
+ */
+function smk_base_views_pre_render(&$view) {
+  // Adding the NID to the left of the title, when viewing the list
+  // of nodes on "/admin/content". We only touch the rendering of
+  // the title, so this doesn't affect the search or anything.
+  if ($view->name === 'admin_views_node') {
+    foreach ($view->result as $result) {
+      $result->node_title = $result->nid . ': ' . $result->node_title;
+    }
   }
 }
