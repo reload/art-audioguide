@@ -56,6 +56,8 @@ function smk_base_install() {
  */
 function smk_base_modules_enabled($modules) {
   if (in_array('smk_route', $modules)) {
+    // Set the frontpage tiles views as the front page.
+    variable_set('site_frontpage', 'frontpage-tiles');
 
     // The route list node.
     $values = array(
