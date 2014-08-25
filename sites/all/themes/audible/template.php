@@ -152,6 +152,48 @@ function audible_preprocess_html(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_node().
+ */
+function audible_preprocess_node(&$vars) {
+  // The front page.
+  if($vars['type'] === 'frontpage_tile') {
+    global $language;
+    // Add a href attribute based on the provided field_path.
+    $vars['content_attributes_array']['href'] = drupal_get_path_alias(
+      $vars['field_path'][$language->language][0]['value'],
+      $language->language
+    );
+
+    $vars['classes_array'][] = $vars['field_tile_size'][$language->language][0]['value'];
+  }
+}
+
+/**
+ * template_preprocess_field().
+ */
+function audible_preprocess_field(&$vars, $hook) {
+  if($vars['element']['#bundle'] === 'frontpage_tile') {
+    global $language;
+    $node = $vars['element']['#object'];
+    switch ($vars['element']['#field_name']) {
+      case 'field_image':
+        // Provide an image style for the image based on "field_tile_size".
+        $vars['items'][0]['#image_style'] = $node->field_tile_size[$language->language][0]['value'];
+        break;
+
+      case 'title_field':
+        // If the "hide title" field is checked, we then feed an empty array
+        // to the field template. We cannot just unset it since it will
+        // provide argument errors.
+        if ($node->field_hide_title[$language->language][0]['value'] == 1) {
+          $vars['items'] = array();
+        }
+        break;
+    }
+  }
+}
+
+/**
  * Overrides hook_preprocess_block().
  */
 function audible_preprocess_block(&$variables) {

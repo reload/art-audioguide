@@ -1,15 +1,6 @@
 // Home
 .front {
 
-  .page-header {
-    margin-bottom: 2px; // Just fucking flies. Nothing to see here.
-  }
-
-  // Hide the page title
-  .node-generic-page > h2 {
-    display: none;
-  }
-
   #content {
     padding: 12px;
 
@@ -18,15 +9,15 @@
     }
   }
 
-  .menu-tile {
+  .view-frontpage-tiles .views-row .node-frontpage-tile {
     @include pie-clearfix;
 
     @extend %tile;
 
-    &.tile--small {
+    &.small_tile {
       @extend %tile--small; // See _tile.scss
     }
-    &.tile--large {
+    &.large_tile {
       @extend %tile--large; // See _tile.scss
     }
   }
