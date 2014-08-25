@@ -3,7 +3,7 @@
 // Include our settings. Comment out dev on relevant platforms, but always leave
 // common.
 require_once('common.settings.php');
-require_once('dev.settings.php');
+// require_once('dev.settings.php');
 
 /**
  * @file
