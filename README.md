@@ -13,6 +13,9 @@ Installation
 
 _* The title module and features doesn't work 100% together, so we need to go and revert the features including the title module._
 
+Site building
+---
+After you have installed the site you'll have two pages created: "All routes" and "All artworks". These are lists that will automatically update themselves when you create content.
 
 Theme
 ---
