@@ -227,12 +227,21 @@
    */
   Drupal.behaviors.foldoutBox = {
     attach: function (context, settings) {
-      $('.foldout').click(function (e) {
+      var foldout = $('.foldout', context);
+      // Toggle the state of the "foldout" box.
+      foldout.click(function (e) {
         // Prevent link from redirecting.
         e.preventDefault();
         // Toggle classes and show/hide content.
         $(this).toggleClass('open');
         $('.foldout-content', this).toggle();
+      });
+
+      // Allows links inside the foldout to execute/redirect by
+      // "overruling" the parents action.
+      $('a', foldout).click(function(e) {
+        // Stop parent from executing.
+        e.stopPropagation();
       });
     }
   };
