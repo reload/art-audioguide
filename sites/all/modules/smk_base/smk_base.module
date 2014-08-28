@@ -246,3 +246,22 @@ function smk_base_views_pre_render(&$view) {
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function smk_base_form_alter(&$form, &$form_state, $form_id) {
+  // We want to redirect user to the content overview when we add
+  // content that cannot function on its own.
+  if (in_array($form_id, array('frontpage_tile_node_form', 'artist_node_form', 'piece_node_form'))) {
+    $form['actions']['submit']['#submit'][] = 'smk_base_redirect_submit';
+    $form['actions']['preview']['#submit'][] = 'smk_base_redirect_submit';
+  }
+}
+
+/**
+ * Redirects admin users to the content overview.
+ */
+function smk_base_redirect_submit($form, &$form_state) {
+  $form_state['redirect'] = 'admin/content';
+}
