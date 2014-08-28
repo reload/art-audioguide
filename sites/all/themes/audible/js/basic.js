@@ -27,7 +27,7 @@
       // guarantee that the editors won't set up the menu in the wrong order.
       $('.front .views-row .small_tile', context).each(function(index) {
         // Define the previous element.
-        var prev = $(this).prev();
+        var prev = $(this).parent().prev().children('.small_tile');
 
         // If it's the first element.
         if (prev.length == 0) {
