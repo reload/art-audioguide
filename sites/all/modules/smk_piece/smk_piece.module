@@ -21,8 +21,7 @@ function smk_piece_form_alter(&$form, &$form_state, $form_id) {
  * Unique inventory ID validation.
  */
 function smk_piece_unique_id_validation(&$form, &$form_state) {
-  // Set the two id variables we need to validate.
-  $nid = $form_state['node']->nid;
+  // Get the requested inventory/piece id.
   $id = $form_state['values']['field_piece_id'][LANGUAGE_NONE][0]['value'];
 
   // Look for pieces with the "wished ID" and exclude
@@ -30,8 +29,14 @@ function smk_piece_unique_id_validation(&$form, &$form_state) {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'piece')
-    ->fieldCondition('field_piece_id', 'value', $id, '=')
-    ->propertyCondition('nid', $nid, '!=');
+    ->fieldCondition('field_piece_id', 'value', $id, '=');
+
+  // If we're editing a node, we want to exclude the current nodes title.
+  if (isset($form_state['node']->nid)) {
+    $query->propertyCondition('nid', $form_state['node']->nid, '!=');
+  }
+
+  // Execute query.
   $result = $query->execute();
 
   // Return an error if the query found a match.
