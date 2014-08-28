@@ -330,15 +330,23 @@ function _smk_audio_piece_image($field) {
     // zoomed in and out on.
     $image_output = l(theme('image', array('path' => image_style_url('large', $image['uri']))), file_create_url($image['uri']), array('html' => TRUE));
 
-    // Gather the description text for the image.
+    // Gather the description information for the image description.
     // Artist.
-    $text[] = $artist->title_field->value();
+    if (isset($artist->title_field)) {
+      $text[] = $artist->title_field->value();
+    }
     // Name of the artwork.
     $text[] = $piece->title_field->value();
     // Year of creation.
-    $text[] = $piece->field_year_of_creation->value();
+    if (isset($piece->field_year_of_creation) && $piece->field_year_of_creation->value() != NULL) {
+      $text[] = $piece->field_year_of_creation->value();
+    }
     // Prepare the text.
-    $text = '<p>' . implode(', ', $text) . '. ' . trim($piece->field_image_description->value(), '.') . '.</p>';
+    $text = implode(', ', $text);
+    if ($piece->field_image_description->value() != NULL) {
+      $text .= ', ' . trim($piece->field_image_description->value(), '.');
+    }
+    $text = '<p>' . $text . '.</p>';
 
     // Return the image with a description.
     return $image_output . $text;
