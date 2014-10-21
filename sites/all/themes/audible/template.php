@@ -165,7 +165,7 @@ function audible_preprocess_node(&$vars) {
     // so we only want to add a prefix of the lang if it isn't
     // english.
     $url = $language->language != 'en' ? $language->language : '';
-    $url .= drupal_get_path_alias(
+    $url .= '/'. drupal_get_path_alias(
       $vars['field_path'][$language->language][0]['value'],
       $language->language
     );
