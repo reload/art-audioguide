@@ -158,12 +158,21 @@ function audible_preprocess_node(&$vars) {
   // The front page.
   if($vars['type'] === 'frontpage_tile') {
     global $language;
-    // Add a href attribute based on the provided field_path.
-    $vars['content_attributes_array']['href'] = drupal_get_path_alias(
+
+    // Prepare url for output.
+    // ------
+    // The page will always provide "en" as the default language,
+    // so we only want to add a prefix of the lang if it isn't
+    // english.
+    $url = $language->language != 'en' ? $language->language : '';
+    $url .= drupal_get_path_alias(
       $vars['field_path'][$language->language][0]['value'],
       $language->language
     );
 
+    // Add a href attribute based on the provided field_path.
+    $vars['content_attributes_array']['href'] = $url;
+    // Add tile size as a class to the node.
     $vars['classes_array'][] = $vars['field_tile_size'][$language->language][0]['value'];
   }
 }

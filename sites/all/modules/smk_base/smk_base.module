@@ -237,13 +237,33 @@ function smk_base_theme($existing, $type, $theme, $path) {
  * Implements hook_views_pre_render().
  */
 function smk_base_views_pre_render(&$view) {
-  // Adding the NID to the left of the title, when viewing the list
-  // of nodes on "/admin/content". We only touch the rendering of
-  // the title, so this doesn't affect the search or anything.
-  if ($view->name === 'admin_views_node') {
-    foreach ($view->result as $result) {
-      $result->node_title = $result->nid . ': ' . $result->node_title;
-    }
+  switch ($view->name) {
+    case 'admin_views_node':
+      // Adding the NID to the left of the title, when viewing the list
+      // of nodes on "/admin/content". We only touch the rendering of
+      // the title, so this doesn't affect the search or anything.
+      foreach ($view->result as $result) {
+        $result->node_title = $result->nid . ': ' . $result->node_title;
+      }
+      break;
+
+    case 'frontpage_tiles':
+      // Filter away "front page tiles" if they don't match the users
+      // current language.
+      // We need to filter this here since there's no regular "Filter
+      // Criteria" in the views ui to support entity translations.
+      global $language;
+      foreach ($view->result as $delta => $result) {
+        $query = db_query('SELECT entity_id FROM {entity_translation} WHERE entity_id = :nid AND language = :lang', array(
+          ':nid' => $result->nid,
+          ':lang' => $language->language,
+        ))->fetchAssoc();
+
+        if (!$query) {
+          unset($view->result[$delta]);
+        }
+      }
+      break;
   }
 }
 
