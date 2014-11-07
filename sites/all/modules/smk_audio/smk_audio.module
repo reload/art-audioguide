@@ -314,45 +314,59 @@ function _smk_audio_mediaplayer_metadata($field) {
 }
 
 /**
+ * Get image data about the refereced piece from an audio node.
+ *
+ * @param object $node
+ *   The audio node.
+ *
+ * @return array|bool
+ *   The image data or FALSE if no piece image was found.
+ */
+function _smk_audio_get_piece_image_data($node) {
+  $sound = entity_metadata_wrapper('node', $node);
+  $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  if (!empty($piece) && isset($piece->field_image)) {
+    return $piece->field_image->value();
+  }
+  return FALSE;
+}
+/**
  * Return the image of the referenced piece/artwork.
  */
 function _smk_audio_piece_image($field) {
-  // Wrap needed information.
+  $image = _smk_audio_get_piece_image_data($field['entity']);
+  if (FALSE === $image) {
+    // No image? No output.
+    return;
+  }
+  // If there is an image, then theme it.
+  // Link the image to the original file so the image can be clicked and zoomed
+  // in and out on.
+  $image_output = l(theme('image', array('path' => image_style_url('large', $image['uri']))), file_create_url($image['uri']), array('html' => TRUE));
+
   $sound = entity_metadata_wrapper('node', $field['entity']);
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
+  // Gather the description information for the image description.
+  // Artist.
   $artist = entity_metadata_wrapper('node', $piece->field_artist->value());
-
-  // If there is an image.
-  if (!empty($piece) && isset($piece->field_image)) {
-    // Get the image and theme it.
-    $image = $piece->field_image->value();
-    // Link the image to the original file so the image can be clicked and
-    // zoomed in and out on.
-    $image_output = l(theme('image', array('path' => image_style_url('large', $image['uri']))), file_create_url($image['uri']), array('html' => TRUE));
-
-    // Gather the description information for the image description.
-    // Artist.
-    if (isset($artist->title_field)) {
-      $text[] = $artist->title_field->value();
-    }
-    // Name of the artwork.
-    $text[] = $piece->title_field->value();
-    // Year of creation.
-    if (isset($piece->field_year_of_creation) && $piece->field_year_of_creation->value() != NULL) {
-      $text[] = $piece->field_year_of_creation->value();
-    }
-    // Prepare the text.
-    $text = implode(', ', $text);
-    if ($piece->field_image_description->value() != NULL) {
-      $text .= ', ' . trim($piece->field_image_description->value(), '.');
-    }
-    $text = '<p>' . $text . '.</p>';
-
-    // Return the image with a description.
-    return $image_output . $text;
+  if (isset($artist->title_field)) {
+    $text[] = $artist->title_field->value();
   }
-  // No image - no output.
-  return;
+  // Name of the artwork.
+  $text[] = $piece->title_field->value();
+  // Year of creation.
+  if (isset($piece->field_year_of_creation) && $piece->field_year_of_creation->value() != NULL) {
+    $text[] = $piece->field_year_of_creation->value();
+  }
+  // Prepare the text.
+  $text = implode(', ', $text);
+  if ($piece->field_image_description->value() != NULL) {
+    $text .= ', ' . trim($piece->field_image_description->value(), '.');
+  }
+  $text = '<p>' . $text . '.</p>';
+
+  // Return the image with a description.
+  return $image_output . $text;
 }
 
 /**
@@ -416,3 +430,38 @@ function smk_audio_ds_layout_info() {
 
   return $layouts;
 }
+
+/**
+ * Implements hook_token_info().
+ */
+function smk_audio_token_info() {
+  $info['tokens']['node']['piece-image'] = array(
+    'name' => t('Piece image'),
+    'description' => t('Will get the piece image for an sound node.'),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function smk_audio_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+
+  if ($type == 'node' && !empty($data['node']) && $data['node']->type == 'audio') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'piece-image':
+          $image = _smk_audio_get_piece_image_data($data['node']);
+          if (FALSE !== $image) {
+            $replacements[$original] = file_create_url($image['uri']);
+          }
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
