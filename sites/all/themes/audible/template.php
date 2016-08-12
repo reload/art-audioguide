@@ -32,6 +32,13 @@ function audible_menu_link(array $variables) {
  */
 function audible_preprocess_page(&$variables) {
   drupal_add_js(libraries_get_path('fastclick') .'/fastclick.js', 'file');
+
+  // Add class so we can get hide the playlist context with CSS.
+  if($variables['node']->type === 'audio'):
+    if ($variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']):
+      $variables['classes_array'][] = 'page-audio--no-playlist-context';
+    endif;
+  endif;
 }
 
 /**
@@ -170,8 +177,17 @@ function audible_preprocess_node(&$vars) {
       $language->language
     );
 
+    // Append route parameter to link url, if set.
+    // Used if the client wants to link directly to an audio
+    // but still relate it to a playlist (route)
+    if (!empty($vars['field_route_context'])){
+      $route_id = $vars['field_route_context'][0]['target_id'];
+      $url = url($url, array('query' => array('route'=>$route_id)));
+    }
+
     // Add a href attribute based on the provided field_path.
     $vars['content_attributes_array']['href'] = $url;
+
     // Add tile size as a class to the node.
     $vars['classes_array'][] = $vars['field_tile_size'][$language->language][0]['value'];
   }
