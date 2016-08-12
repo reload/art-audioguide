@@ -124,7 +124,7 @@ function smk_audio_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 31,
+      'weight' => 5,
     ),
   );
 
@@ -186,7 +186,63 @@ function smk_audio_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 33,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-audio-field_hide_playlist_context'
+  $field_instances['node-audio-field_hide_playlist_context'] = array(
+    'bundle' => 'audio',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'If selected, the current playlist position and context will be hidden.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_hide_playlist_context',
+    'label' => 'Hide playlist context',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 1,
     ),
   );
 
@@ -258,7 +314,7 @@ function smk_audio_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 35,
+      'weight' => 8,
     ),
   );
 
@@ -312,7 +368,7 @@ function smk_audio_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 32,
+      'weight' => 6,
     ),
   );
 
@@ -369,7 +425,7 @@ function smk_audio_field_default_field_instances() {
       'module' => 'video_embed_field',
       'settings' => array(),
       'type' => 'video_embed_field_video',
-      'weight' => 36,
+      'weight' => 9,
     ),
   );
 
@@ -446,7 +502,7 @@ function smk_audio_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => 0,
     ),
   );
 
@@ -458,6 +514,8 @@ function smk_audio_field_default_field_instances() {
   t('Duration');
   t('Duration of file in seconds');
   t('Enter the address to the youtube video(s)');
+  t('Hide playlist context');
+  t('If selected, the current playlist position and context will be hidden.');
   t('Image');
   t('The title/name of the sound.');
   t('This image will be used as thumbnail for sounds when displayed in a list. The thumbnail will be shown as 80x80 pixels');
