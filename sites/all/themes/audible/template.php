@@ -33,10 +33,12 @@ function audible_menu_link(array $variables) {
 function audible_preprocess_page(&$variables) {
   drupal_add_js(libraries_get_path('fastclick') .'/fastclick.js', 'file');
 
-  // Add class so we can get hide the playlist context with CSS.
-  if($variables['node']->type === 'audio'):
-    if ($variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']):
-      $variables['classes_array'][] = 'page-audio--no-playlist-context';
+  if (isset($variables['node'])):
+    // Add class so we can get hide the playlist context with CSS.
+    if($variables['node']->type === 'audio'):
+      if ($variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']):
+        $variables['classes_array'][] = 'page-audio--no-playlist-context';
+      endif;
     endif;
   endif;
 }
@@ -181,8 +183,12 @@ function audible_preprocess_node(&$vars) {
     // Used if the client wants to link directly to an audio
     // but still relate it to a playlist (route)
     if (!empty($vars['field_route_context'])){
-      $route_id = $vars['field_route_context'][0]['target_id'];
+      $route_id = $vars['field_route_context'][LANGUAGE_NONE][0]['target_id'];
+      
+      // Strip leading slashes, that seems to mess with url() 
+      $url = ltrim($url, '/'); 
       $url = url($url, array('query' => array('route'=>$route_id)));
+
     }
 
     // Add a href attribute based on the provided field_path.

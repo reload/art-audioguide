@@ -465,4 +465,3 @@ function smk_audio_tokens($type, $tokens, array $data = array(), array $options 
   return $replacements;
 }
 
-
