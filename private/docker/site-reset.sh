@@ -16,10 +16,7 @@ sudo chmod 555 sites/default
 docker-compose run --no-deps --entrypoint "sh -c" --rm drush "drush updb -y \
     && drush vset theme_debug 1 \
     && drush vset preprocess_css 0 \
-    && drush fra -y \
     && drush cc all \
-    && drush vset admin_theme seven \
-    && drush vset node_admin_theme 1 \
     && drush --uri=http://local.docker uli"
 
 
