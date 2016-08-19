@@ -85,16 +85,19 @@ function smk_audio_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '2',
         ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '4',
         ),
         'xmlsitemap' => array(
-          'weight' => '30',
+          'weight' => '3',
+        ),
+        'metatags' => array(
+          'weight' => '10',
         ),
       ),
       'display' => array(

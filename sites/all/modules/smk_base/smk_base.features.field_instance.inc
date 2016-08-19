@@ -25,7 +25,7 @@ function smk_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'route_context' => array(
         'label' => 'above',
@@ -114,7 +114,7 @@ function smk_base_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -129,7 +129,7 @@ function smk_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'route_context' => array(
         'label' => 'above',
@@ -165,6 +165,54 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-frontpage_tile-field_route_context'
+  $field_instances['node-frontpage_tile-field_route_context'] = array(
+    'bundle' => 'frontpage_tile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'When linking directly to a piece of content (like audio), you can include the route context, so the playlist comes along.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'route_context' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_route_context',
+    'label' => 'Route context',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-frontpage_tile-field_tile_size'
   $field_instances['node-frontpage_tile-field_tile_size'] = array(
     'bundle' => 'frontpage_tile',
@@ -180,7 +228,7 @@ function smk_base_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'route_context' => array(
         'label' => 'above',
@@ -209,7 +257,7 @@ function smk_base_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -640,12 +688,14 @@ function smk_base_field_default_field_instances() {
   t('Image');
   t('Path');
   t('Provide the size of the tile');
+  t('Route context');
   t('Select this if you wish to <strong>hide</strong> the title on the tiles.');
   t('Text after video');
   t('The title of the page.');
   t('Tile size');
   t('Title');
   t('Video');
+  t('When linking directly to a piece of content (like audio), you can include the route context, so the playlist comes along.');
 
   return $field_instances;
 }

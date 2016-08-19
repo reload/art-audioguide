@@ -97,17 +97,20 @@ function smk_base_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'xmlsitemap' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'language' => array(
           'weight' => '2',

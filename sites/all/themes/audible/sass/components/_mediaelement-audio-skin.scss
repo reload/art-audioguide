@@ -143,6 +143,13 @@
 
 }
 
+.page-audio--no-playlist-context {
+  .mediaplayer {
+    .audio-title {
+      display: none;
+    }
+  }
+}
 
 /*
  § Tweaked CSS from mediaelementjs

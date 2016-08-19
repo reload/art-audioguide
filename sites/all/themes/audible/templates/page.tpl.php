@@ -7,7 +7,7 @@
  */
 ?>
 
-<div id="page-wrapper">
+<div id="page-wrapper" class="<?php print $classes; ?>">
   <div id="page">
 
     <div class="page-header">
