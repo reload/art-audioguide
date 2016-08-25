@@ -184,11 +184,16 @@ function audible_preprocess_node(&$vars) {
     // but still relate it to a playlist (route)
     if (!empty($vars['field_route_context'])){
       $route_id = $vars['field_route_context'][LANGUAGE_NONE][0]['target_id'];
-      
-      // Strip leading slashes, that seems to mess with url() 
-      $url = ltrim($url, '/'); 
-      $url = url($url, array('query' => array('route'=>$route_id)));
 
+      // Detect if there already is a query string on the url.
+      $query = parse_url($url, PHP_URL_QUERY);
+
+      if ($query) {
+        $url = drupal_get_path_alias($url .= '&route=' . $route_id);
+      }
+      else {
+        $url = drupal_get_path_alias($url .= '?route=' . $route_id);
+      }
     }
 
     // Add a href attribute based on the provided field_path.
