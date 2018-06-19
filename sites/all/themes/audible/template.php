@@ -36,7 +36,7 @@ function audible_preprocess_page(&$variables) {
   if (isset($variables['node'])):
     // Add class so we can get hide the playlist context with CSS.
     if($variables['node']->type === 'audio'):
-      if ($variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']):
+      if (isset($variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']) && $variables['node']->field_hide_playlist_context[LANGUAGE_NONE][0]['value']):
         $variables['classes_array'][] = 'page-audio--no-playlist-context';
       endif;
     endif;
