@@ -158,7 +158,7 @@ function _smk_audio_sound_duration($field) {
 function _smk_audio_artist($field) {
   $sound = entity_metadata_wrapper('node', $field['entity']);
   $piece = entity_metadata_wrapper('node', $sound->field_piece_ref->value());
-  if (!empty($piece) && isset($piece->field_artist)) {
+  if (!empty($piece) && isset($piece->field_artist) && isset($piece->field_artist->value()->title)) {
     return $piece->field_artist->value()->title;
   }
   return t('Unknown');
