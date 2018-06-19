@@ -10,7 +10,7 @@
 function smk_piece_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -19,14 +19,6 @@ function smk_piece_field_default_field_bases() {
       0 => 'node',
     ),
     'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -41,21 +33,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_artist'
+  // Exported field_base: 'field_artist'.
   $field_bases['field_artist'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_artist',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -85,14 +69,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_artist_life_date'
+  // Exported field_base: 'field_artist_life_date'.
   $field_bases['field_artist_life_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_artist_life_date',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -116,21 +99,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -149,21 +124,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_image_description'
+  // Exported field_base: 'field_image_description'.
   $field_bases['field_image_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_image_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -179,14 +146,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_piece_id'
+  // Exported field_base: 'field_piece_id'.
   $field_bases['field_piece_id'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_piece_id',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -197,14 +163,13 @@ function smk_piece_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_year_of_creation'
+  // Exported field_base: 'field_year_of_creation'.
   $field_bases['field_year_of_creation'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_year_of_creation',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',

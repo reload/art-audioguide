@@ -10,21 +10,13 @@
 function smk_audio_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_audio_file'
+  // Exported field_base: 'field_audio_file'.
   $field_bases['field_audio_file'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_audio_file',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -44,14 +36,13 @@ function smk_audio_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_duration'
+  // Exported field_base: 'field_duration'.
   $field_bases['field_duration'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_duration',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -62,14 +53,13 @@ function smk_audio_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_hide_playlist_context'
+  // Exported field_base: 'field_hide_playlist_context'.
   $field_bases['field_hide_playlist_context'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_hide_playlist_context',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -89,21 +79,13 @@ function smk_audio_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_piece_ref'
+  // Exported field_base: 'field_piece_ref'.
   $field_bases['field_piece_ref'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_piece_ref',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -133,14 +115,13 @@ function smk_audio_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_video'
+  // Exported field_base: 'field_video'.
   $field_bases['field_video'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_video',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'video_embed_field',

@@ -13,6 +13,7 @@ function smk_audio_metatag_export_default() {
   // Exported Metatag config instance: node:audio.
   $config['node:audio'] = array(
     'instance' => 'node:audio',
+    'disabled' => FALSE,
     'config' => array(
       'og:image' => array(
         'value' => '[node:piece-image]',
