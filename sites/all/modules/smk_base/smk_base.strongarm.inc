@@ -755,7 +755,7 @@ function smk_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_engines_submit_last';
-  $strongarm->value = 1403526600;
+  $strongarm->value = 1529413501;
   $export['xmlsitemap_engines_submit_last'] = $strongarm;
 
   $strongarm = new stdClass();

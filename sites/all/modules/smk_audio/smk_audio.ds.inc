@@ -281,7 +281,9 @@ function smk_audio_ds_field_settings_info() {
     ),
     'title_field' => array(
       'formatter_settings' => array(
-        'ft' => array(),
+        'ft' => array(
+          'func' => 'theme_ds_field_reset',
+        ),
       ),
     ),
   );
@@ -464,6 +466,7 @@ function smk_audio_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['node|audio|teaser'] = $ds_layout;
 
