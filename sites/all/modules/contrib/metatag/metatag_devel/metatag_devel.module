@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Primary hook implementations for Metatag:Devel.
@@ -170,7 +171,12 @@ function metatag_devel_node_insert($node) {
       $count++;
     }
 
+    // Adjust the values for the nested language structure.
+    $metatags = array(
+      $node->language => $metatags,
+    );
+
     // Save the meta tags.
-    metatag_metatags_save('node', $node->nid, $node->vid, $metatags, $node->language);
+    metatag_metatags_save('node', $node->nid, $node->vid, $metatags);
   }
 }

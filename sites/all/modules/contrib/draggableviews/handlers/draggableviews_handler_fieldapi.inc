@@ -30,7 +30,7 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
     // Check all the sortings added to a view. Hope there is
     // better way to determine them. Need to research.
     $sorts = $field->view->display_handler->display->display_options['sorts'];
-    // If no sorts avaialble for current display, use sorts from default display.
+    // If no sorts available for current display, use sorts from default display.
     if (empty($sorts)) {
       $sorts = $field->view->display['default']->display_options['sorts'];
     }
@@ -51,7 +51,7 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
       }
     }
 
-    // If options are emtpy, show warning message.
+    // If options are empty, show warning message.
     if (count($options) == 1) {
       $form['field_warning'] = array(
         '#markup' => '<div class="messages warning">' . t('Add weight integer field to sorts so it can be selected.') . '</div>',
@@ -74,12 +74,8 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
     list($field_table, $field_name) = explode(':', $field_option);
     // Current row.
     $row = $field->view->result[$index];
-    // Check whether key has table name and field name in it.
-    foreach ($row as $key => $value) {
-      if (strpos($key, $field_table) !== FALSE && strpos($key, $field_name) !== FALSE) {
-        return $value;
-      }
-    }
+    $alias = $field->view->query->get_field_alias($field_table, $field_name);
+    return ($alias) ? $row->{$alias} : NULL;
   }
 
   function set($form_state) {
@@ -96,11 +92,11 @@ class draggableviews_handler_fieldapi extends draggableviews_handler {
       $form_state['redirect'] = array(current_path(), array('query' => $view->exposed_raw_input));
     }
 
-    $base_table = $view->base_table;
+    $base_table = $view->field['draggableviews']->table;
     $entity_info_all = entity_get_info();
     $entity_type = '';
     foreach ($entity_info_all as $entity_name_key => $entity_info) {
-      if ($entity_info['base table'] == $view->base_table) {
+      if ($entity_info['base table'] == $base_table) {
         $entity_type = $entity_name_key;
         break;
       }
