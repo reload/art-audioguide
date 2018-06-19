@@ -161,7 +161,7 @@ function _smk_audio_artist($field) {
   if (!empty($piece) && isset($piece->field_artist) && isset($piece->field_artist->value()->title)) {
     return $piece->field_artist->value()->title;
   }
-  return t('Unknown');
+  return false;
 
 }
 

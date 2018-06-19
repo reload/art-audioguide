@@ -461,13 +461,9 @@ function smk_audio_field_default_field_instances() {
       ),
       'route_context' => array(
         'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => '_none',
-        ),
-        'type' => 'title_linked',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
         'weight' => 2,
       ),
       'search_result' => array(
