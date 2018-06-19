@@ -126,6 +126,13 @@ function smk_audio_ds_field_settings_info() {
         ),
       ),
     ),
+    'title_field' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_reset',
+        ),
+      ),
+    ),
   );
   $export['node|audio|default'] = $ds_fieldsetting;
 
@@ -330,8 +337,8 @@ function smk_audio_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'group_mediaplayer',
         1 => 'group_info_panel',
-        2 => 'group_content',
-        3 => 'sound_mediaplayer_metadata',
+        2 => 'sound_mediaplayer_metadata',
+        3 => 'group_content',
         4 => 'field_audio_file',
         5 => 'group_video_container',
         6 => 'video_headline',
@@ -349,8 +356,8 @@ function smk_audio_ds_layout_settings_info() {
     'fields' => array(
       'group_mediaplayer' => 'ds_content',
       'group_info_panel' => 'ds_content',
-      'group_content' => 'ds_content',
       'sound_mediaplayer_metadata' => 'ds_content',
+      'group_content' => 'ds_content',
       'field_audio_file' => 'ds_content',
       'group_video_container' => 'ds_content',
       'video_headline' => 'ds_content',
@@ -373,6 +380,7 @@ function smk_audio_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['node|audio|default'] = $ds_layout;
 
