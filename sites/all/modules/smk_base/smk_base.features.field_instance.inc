@@ -10,7 +10,7 @@
 function smk_base_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-frontpage_tile-field_hide_title'
+  // Exported field_instance: 'node-frontpage_tile-field_hide_title'.
   $field_instances['node-frontpage_tile-field_hide_title'] = array(
     'bundle' => 'frontpage_tile',
     'default_value' => array(
@@ -60,7 +60,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-frontpage_tile-field_image'
+  // Exported field_instance: 'node-frontpage_tile-field_image'.
   $field_instances['node-frontpage_tile-field_image'] = array(
     'bundle' => 'frontpage_tile',
     'deleted' => 0,
@@ -118,7 +118,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-frontpage_tile-field_path'
+  // Exported field_instance: 'node-frontpage_tile-field_path'.
   $field_instances['node-frontpage_tile-field_path'] = array(
     'bundle' => 'frontpage_tile',
     'default_value' => NULL,
@@ -165,7 +165,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-frontpage_tile-field_route_context'
+  // Exported field_instance: 'node-frontpage_tile-field_route_context'.
   $field_instances['node-frontpage_tile-field_route_context'] = array(
     'bundle' => 'frontpage_tile',
     'default_value' => NULL,
@@ -213,7 +213,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-frontpage_tile-field_tile_size'
+  // Exported field_instance: 'node-frontpage_tile-field_tile_size'.
   $field_instances['node-frontpage_tile-field_tile_size'] = array(
     'bundle' => 'frontpage_tile',
     'default_value' => array(
@@ -261,7 +261,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-frontpage_tile-title_field'
+  // Exported field_instance: 'node-frontpage_tile-title_field'.
   $field_instances['node-frontpage_tile-title_field'] = array(
     'bundle' => 'frontpage_tile',
     'default_value' => NULL,
@@ -315,7 +315,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-generic_page-body'
+  // Exported field_instance: 'node-generic_page-body'.
   $field_instances['node-generic_page-body'] = array(
     'bundle' => 'generic_page',
     'default_value' => NULL,
@@ -372,7 +372,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-generic_page-field_block_ref'
+  // Exported field_instance: 'node-generic_page-field_block_ref'.
   $field_instances['node-generic_page-field_block_ref'] = array(
     'bundle' => 'generic_page',
     'default_value' => NULL,
@@ -423,7 +423,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-generic_page-title_field'
+  // Exported field_instance: 'node-generic_page-title_field'.
   $field_instances['node-generic_page-title_field'] = array(
     'bundle' => 'generic_page',
     'default_value' => NULL,
@@ -478,7 +478,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -529,7 +529,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_text_after_image'
+  // Exported field_instance: 'node-page-field_text_after_image'.
   $field_instances['node-page-field_text_after_image'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -577,7 +577,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_video'
+  // Exported field_instance: 'node-page-field_video'.
   $field_instances['node-page-field_video'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -614,6 +614,10 @@ function smk_base_field_default_field_instances() {
     'label' => 'Video',
     'required' => 0,
     'settings' => array(
+      'allowed_providers' => array(
+        0 => 'youtube',
+        1 => 'vimeo',
+      ),
       'description_field' => 0,
       'description_length' => 128,
       'entity_translation_sync' => FALSE,
@@ -628,7 +632,7 @@ function smk_base_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-title_field'
+  // Exported field_instance: 'node-page-title_field'.
   $field_instances['node-page-title_field'] = array(
     'bundle' => 'page',
     'default_value' => NULL,

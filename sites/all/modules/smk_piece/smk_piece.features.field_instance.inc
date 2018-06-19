@@ -10,7 +10,7 @@
 function smk_piece_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-artist-body'
+  // Exported field_instance: 'node-artist-body'.
   $field_instances['node-artist-body'] = array(
     'bundle' => 'artist',
     'default_value' => NULL,
@@ -69,7 +69,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-artist-field_artist_life_date'
+  // Exported field_instance: 'node-artist-field_artist_life_date'.
   $field_instances['node-artist-field_artist_life_date'] = array(
     'bundle' => 'artist',
     'deleted' => 0,
@@ -84,6 +84,7 @@ function smk_piece_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -138,7 +139,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-artist-title_field'
+  // Exported field_instance: 'node-artist-title_field'.
   $field_instances['node-artist-title_field'] = array(
     'bundle' => 'artist',
     'default_value' => NULL,
@@ -195,7 +196,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-body'
+  // Exported field_instance: 'node-piece-body'.
   $field_instances['node-piece-body'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,
@@ -248,7 +249,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-field_artist'
+  // Exported field_instance: 'node-piece-field_artist'.
   $field_instances['node-piece-field_artist'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,
@@ -271,6 +272,7 @@ function smk_piece_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => 0,
         ),
         'type' => 'entityreference_label',
@@ -280,6 +282,7 @@ function smk_piece_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => 0,
         ),
         'type' => 'entityreference_label',
@@ -308,7 +311,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-field_image'
+  // Exported field_instance: 'node-piece-field_image'.
   $field_instances['node-piece-field_image'] = array(
     'bundle' => 'piece',
     'deleted' => 0,
@@ -376,7 +379,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-field_image_description'
+  // Exported field_instance: 'node-piece-field_image_description'.
   $field_instances['node-piece-field_image_description'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,
@@ -430,7 +433,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-field_piece_id'
+  // Exported field_instance: 'node-piece-field_piece_id'.
   $field_instances['node-piece-field_piece_id'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,
@@ -484,7 +487,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-field_year_of_creation'
+  // Exported field_instance: 'node-piece-field_year_of_creation'.
   $field_instances['node-piece-field_year_of_creation'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,
@@ -550,7 +553,7 @@ function smk_piece_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-piece-title_field'
+  // Exported field_instance: 'node-piece-title_field'.
   $field_instances['node-piece-title_field'] = array(
     'bundle' => 'piece',
     'default_value' => NULL,

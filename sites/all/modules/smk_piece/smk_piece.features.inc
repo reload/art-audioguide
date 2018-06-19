@@ -34,17 +34,9 @@ function smk_piece_image_default_styles() {
 
   // Exported image style: all_artworks__55x56.
   $styles['all_artworks__55x56'] = array(
-    'name' => 'all_artworks__55x56',
     'label' => 'All artworks (55x56)',
     'effects' => array(
       2 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 55,
@@ -81,5 +73,6 @@ function smk_piece_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

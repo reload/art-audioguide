@@ -90,3 +90,14 @@ function smk_base_modules_enabled($modules) {
     $wrapper->save();
   }
 }
+
+/**
+ * Revert all features after module update.
+ */
+function smk_base_update_7001() {
+  features_revert_module('smk_base');
+  features_revert_module('smk_audio');
+  features_revert_module('smk_piece');
+  features_revert_module('smk_route');
+  features_revert_module('smk_search');
+}

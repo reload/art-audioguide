@@ -10,7 +10,7 @@
 function smk_audio_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'file-audio-field_duration'
+  // Exported field_instance: 'file-audio-field_duration'.
   $field_instances['file-audio-field_duration'] = array(
     'bundle' => 'audio',
     'default_value' => NULL,
@@ -41,6 +41,12 @@ function smk_audio_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'wysiwyg' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'file',
@@ -64,7 +70,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-body'
+  // Exported field_instance: 'node-audio-body'.
   $field_instances['node-audio-body'] = array(
     'bundle' => 'audio',
     'default_value' => NULL,
@@ -79,9 +85,11 @@ function smk_audio_field_default_field_instances() {
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
           'trim_length' => 74,
+          'trim_link' => FALSE,
           'trim_options' => array(
             'text' => 'text',
           ),
+          'trim_preserve_tags' => '',
           'trim_suffix' => '...',
           'trim_type' => 'chars',
         ),
@@ -128,7 +136,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-field_audio_file'
+  // Exported field_instance: 'node-audio-field_audio_file'.
   $field_instances['node-audio-field_audio_file'] = array(
     'bundle' => 'audio',
     'deleted' => 0,
@@ -190,7 +198,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-field_hide_playlist_context'
+  // Exported field_instance: 'node-audio-field_hide_playlist_context'.
   $field_instances['node-audio-field_hide_playlist_context'] = array(
     'bundle' => 'audio',
     'default_value' => array(
@@ -246,7 +254,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-field_image'
+  // Exported field_instance: 'node-audio-field_image'.
   $field_instances['node-audio-field_image'] = array(
     'bundle' => 'audio',
     'deleted' => 0,
@@ -318,7 +326,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-field_piece_ref'
+  // Exported field_instance: 'node-audio-field_piece_ref'.
   $field_instances['node-audio-field_piece_ref'] = array(
     'bundle' => 'audio',
     'default_value' => NULL,
@@ -372,7 +380,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-field_video'
+  // Exported field_instance: 'node-audio-field_video'.
   $field_instances['node-audio-field_video'] = array(
     'bundle' => 'audio',
     'default_value' => NULL,
@@ -415,6 +423,10 @@ function smk_audio_field_default_field_instances() {
     'label' => 'Video',
     'required' => 0,
     'settings' => array(
+      'allowed_providers' => array(
+        0 => 'youtube',
+        1 => 'vimeo',
+      ),
       'description_field' => 0,
       'description_length' => 128,
       'entity_translation_sync' => FALSE,
@@ -429,7 +441,7 @@ function smk_audio_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-audio-title_field'
+  // Exported field_instance: 'node-audio-title_field'.
   $field_instances['node-audio-title_field'] = array(
     'bundle' => 'audio',
     'default_value' => NULL,
@@ -438,24 +450,16 @@ function smk_audio_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => '',
-        ),
-        'type' => 'title_linked',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
         'weight' => 19,
       ),
       'route_context' => array(
         'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => '_none',
-        ),
-        'type' => 'title_linked',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
         'weight' => 2,
       ),
       'search_result' => array(

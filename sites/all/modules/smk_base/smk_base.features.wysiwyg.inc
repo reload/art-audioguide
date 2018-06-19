@@ -10,14 +10,11 @@
 function smk_base_wysiwyg_default_profiles() {
   $profiles = array();
 
-  // Exported profile: html_text
+  // Exported profile: html_text.
   $profiles['html_text'] = array(
     'format' => 'html_text',
     'editor' => 'ckeditor',
     'settings' => array(
-      'default' => 1,
-      'user_choose' => 0,
-      'show_toggle' => 0,
       'theme' => '',
       'language' => 'en',
       'buttons' => array(
@@ -45,6 +42,14 @@ function smk_base_wysiwyg_default_profiles() {
       'advanced__active_tab' => 'edit-basic',
       'forcePasteAsPlainText' => 0,
     ),
+    'preferences' => array(
+      'add_to_summaries' => FALSE,
+      'default' => 1,
+      'show_toggle' => 0,
+      'user_choose' => 0,
+      'version' => '4.4.1.568b5ed',
+    ),
+    'name' => 'formathtml_text',
   );
 
   return $profiles;

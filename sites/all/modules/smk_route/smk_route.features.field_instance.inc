@@ -10,7 +10,7 @@
 function smk_route_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'file-image-field_file_image_alt_text'
+  // Exported field_instance: 'file-image-field_file_image_alt_text'.
   $field_instances['file-image-field_file_image_alt_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -41,6 +41,12 @@ function smk_route_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'wysiwyg' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'file',
     'field_name' => 'field_file_image_alt_text',
@@ -62,7 +68,7 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_image_title_text'
+  // Exported field_instance: 'file-image-field_file_image_title_text'.
   $field_instances['file-image-field_file_image_title_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -93,6 +99,12 @@ function smk_route_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'wysiwyg' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
     ),
     'entity_type' => 'file',
     'field_name' => 'field_file_image_title_text',
@@ -114,7 +126,7 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-route-body'
+  // Exported field_instance: 'node-route-body'.
   $field_instances['node-route-body'] = array(
     'bundle' => 'route',
     'default_value' => NULL,
@@ -129,9 +141,11 @@ function smk_route_field_default_field_instances() {
           'more_text' => 'Read more',
           'summary_handler' => 'trim',
           'trim_length' => 74,
+          'trim_link' => FALSE,
           'trim_options' => array(
             'text' => 'text',
           ),
+          'trim_preserve_tags' => '',
           'trim_suffix' => '...',
           'trim_type' => 'chars',
         ),
@@ -172,7 +186,7 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-route-field_audio_ref'
+  // Exported field_instance: 'node-route-field_audio_ref'.
   $field_instances['node-route-field_audio_ref'] = array(
     'bundle' => 'route',
     'default_value' => NULL,
@@ -184,6 +198,7 @@ function smk_route_field_default_field_instances() {
         'module' => 'entityreference',
         'settings' => array(
           'links' => 0,
+          'use_content_language' => TRUE,
           'view_mode' => 'route_context',
         ),
         'type' => 'entityreference_entity_view',
@@ -224,7 +239,7 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-route-field_image'
+  // Exported field_instance: 'node-route-field_image'.
   $field_instances['node-route-field_image'] = array(
     'bundle' => 'route',
     'deleted' => 0,
@@ -282,7 +297,7 @@ function smk_route_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-route-title_field'
+  // Exported field_instance: 'node-route-title_field'.
   $field_instances['node-route-title_field'] = array(
     'bundle' => 'route',
     'default_value' => NULL,

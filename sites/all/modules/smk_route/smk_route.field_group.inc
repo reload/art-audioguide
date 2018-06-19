@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function smk_route_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -41,7 +41,7 @@ function smk_route_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_content|node|route|teaser'] = $field_group;
+  $field_groups['group_content|node|route|teaser'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -75,7 +75,12 @@ function smk_route_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_info_panel|node|route|default'] = $field_group;
+  $field_groups['group_info_panel|node|route|default'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Content');
+  t('Info panel');
+
+  return $field_groups;
 }

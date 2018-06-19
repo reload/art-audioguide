@@ -1,13 +1,19 @@
 <?php
 
 /**
+ * @file
+ *   Draggableviews book views handler argument.
+ */
+
+
+/**
  * Argument that refers to a certain book page.
  */
 class views_handler_argument_draggableviews_book extends views_handler_argument {
   /**
    * Add condition to select only part of the tree that is under argument's id.
    */
-  function query() {
+  function query($group_by = FALSE) {
     $this->ensure_my_table();
     $mlid = db_query("SELECT mlid FROM {book} WHERE nid = :nid", array(':nid' => $this->argument))->fetchField();
     // Do not show argument menu item.

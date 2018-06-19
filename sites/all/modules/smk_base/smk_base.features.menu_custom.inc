@@ -23,6 +23,5 @@ function smk_base_menu_default_menu_custom() {
   t('Main menu');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
 
-
   return $menus;
 }
