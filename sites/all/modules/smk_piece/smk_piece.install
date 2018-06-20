@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Change ordering of file displays after module update.
+ */
+function smk_piece_update_7001() {
+  // Apparently, this order does not get saved in features. Change it manually.
+  db_query('UPDATE {file_display} SET weight = -44 WHERE name = "image__default__file_field_file_default";');
+  db_query('UPDATE {file_display} SET weight = -43 WHERE name = "image__default__file_field_image";');
+}
