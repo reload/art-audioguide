@@ -2,9 +2,6 @@ version: "2"
 services:
   web:
     image: reload/drupal-apache-ssl
-    ports:
-      - '80:80'
-      - '443:443'
     volumes:
       - './:/var/www/html'
       - './private/docker/docker.settings.php:/var/www/html/sites/default/settings.php:ro'
@@ -15,8 +12,6 @@ services:
 
   db:
     image: mariadb:10
-    ports:
-      - '3306:3306'
     volumes:
       - './private/art_audioguide/base.sql:/docker-entrypoint-initdb.d/base.sql'
     environment:
